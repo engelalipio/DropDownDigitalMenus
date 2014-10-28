@@ -14,12 +14,10 @@
                         <viewControllerLayoutGuide type="bottom" id="peS-Gp-WHA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="USK-UG-hAc">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="352"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" image="RestaurantBack_1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="awq-9B-4R7">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="352"/>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" image="RestaurantBack_1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="awq-9B-4R7"/>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxF-Uj-3bA">
                                 <rect key="frame" x="0.0" y="20" width="768" height="20"/>
                                 <attributedString key="attributedText">
@@ -36,8 +34,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="768" height="352"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="awq-9B-4R7" id="Qtz-kD-tNU"/>
                         <outlet property="titleLabel" destination="MxF-Uj-3bA" id="exP-hJ-mbv"/>
@@ -45,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Du-3q-3vB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1378" y="-1879"/>
+            <point key="canvasLocation" x="806" y="-2043"/>
         </scene>
         <!--Drinks-->
         <scene sceneID="hNz-n2-bh7">
@@ -66,13 +63,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.50196078431372548" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Drinks" image="wine-32.png" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="950" y="-520"/>
+            <point key="canvasLocation" x="1267" y="-1370"/>
         </scene>
         <!--Entrees-->
         <scene sceneID="wg7-f3-ORb">
@@ -99,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="570" y="591"/>
+            <point key="canvasLocation" x="504" y="530"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -157,42 +154,68 @@
                         <viewControllerLayoutGuide type="top" id="Xmd-ab-RuD"/>
                         <viewControllerLayoutGuide type="bottom" id="pzj-Wh-nzd"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="XQV-86-WHK">
+                    <view key="view" contentMode="scaleToFill" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="975" id="XQV-86-WHK">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dah-Yw-Y8I">
-                                <rect key="frame" x="0.0" y="825" width="768" height="150"/>
-                            </adBannerView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="614" placeholderIntrinsicHeight="585" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Z5t-mw-MgG">
-                                <rect key="frame" x="0.0" y="525" width="768" height="300"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Orange" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHk-pD-heo">
+                                <rect key="frame" x="0.0" y="20" width="768" height="532"/>
+                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="1024" bounces="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="50" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="1nh-UX-1SR">
+                                <rect key="frame" x="0.0" y="568" width="768" height="472"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContainerTableCell" id="e6J-iy-d7G">
+                                    <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="infinite" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbHomeCell" rowHeight="50" id="4SD-ou-wAn">
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e6J-iy-d7G" id="VLV-UP-sCx">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4SD-ou-wAn" id="enL-hk-upT">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6Kd-Jr-vx6" id="ukj-cJ-Igo"/>
+                                    <outlet property="delegate" destination="6Kd-Jr-vx6" id="klh-yl-kuC"/>
+                                </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="352" image="RestaurantBack_2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="WPE-Qv-bic">
+                                <rect key="frame" x="0.0" y="20" width="768" height="352"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="22" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZc-Zi-B4A">
+                                <rect key="frame" x="0.0" y="380" width="768" height="192"/>
+                                <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <mutableString key="text">The restaurant is an authentic Brazilian-American “Churrascaria”, or steakhouse.
+Treat yourself to our 50-60 item seasonal salad area that includes appetizers, gourmet vegetables, soups, and salads. Turn your place card to green and prepare to be swarmed by a troop of carvers generously serving various cuts of seasoned beef, lamb, pork, chicken, and Brazilian sausage, all accompanied by traditional side items and house-baked Brazilian cheese bread.
+As you dine endlessly on Brazilian fare, let one of our in-house wine connoisseurs select the perfect pairing from our extensive, award-winning wine lists, or sip on a freshly-made signature cocktail — the Caipirinha.
+Complete your dining experience with one of our many decadent dessert selections and then relax with an after-dinner drink or steaming espresso and enjoy the ambiance and service perfection that is uniquely.</mutableString>
+                                <fontDescription key="fontDescription" name="Herculanum" family="Herculanum" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
+                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="control_panel-32.png" id="weK-aB-xRW"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="768" height="1024"/>
                     <connections>
-                        <outlet property="bannerView" destination="dah-Yw-Y8I" id="4Mn-O6-UV8"/>
-                        <outlet property="tableView" destination="Z5t-mw-MgG" id="ieS-Ib-ZP7"/>
+                        <outlet property="imageView" destination="WPE-Qv-bic" id="1Za-qV-D1k"/>
+                        <outlet property="tableView" destination="1nh-UX-1SR" id="MAd-v5-S8e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8b-0X-6TW" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="303" y="-1011"/>
+            <point key="canvasLocation" x="20" y="-2043"/>
         </scene>
     </scenes>
     <resources>
         <image name="RestaurantBack_1.jpg" width="1000" height="400"/>
+        <image name="RestaurantBack_2.jpg" width="1000" height="400"/>
         <image name="control_panel-32.png" width="32" height="32"/>
         <image name="restaurant-32.png" width="32" height="32"/>
         <image name="wedding_cake-32.png" width="32" height="32"/>

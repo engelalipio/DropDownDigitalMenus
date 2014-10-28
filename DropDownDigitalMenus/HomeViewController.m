@@ -10,15 +10,17 @@
 #import "Constants.h"
 #import "ContainerTableCellTableViewCell.h"
 #import "PageContentViewController.h"
+#import "UIColor+ColorWithHexString.h"
+
 
 @interface HomeViewController ()
 {
-    NSArray *categorySections;
-    NSMutableDictionary *categoryData;
+    NSArray *categorySections,
+            *categoryHomeData;
+    PageContentViewController *currentContent;
 }
 -(void) initTableView;
 -(void) initCategorySections;
--(void) loadBanner;
 @end
 
 @implementation HomeViewController
@@ -29,15 +31,61 @@
 
 #pragma mark - TableView Events
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSDictionary *sectionData = [categorySections objectAtIndex:section];
-    NSString *header = [sectionData objectForKey:@"description"];
-    return header;
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 50;
+}
+
+-(UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    UIView *customTitleView = [ [UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 50)];
+    
+    UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 50)];
+    
+    titleLabel.text = @"The Most Incredible Dining Experience";
+    
+    titleLabel.textColor = [UIColor orangeColor];
+    
+    titleLabel.font = [UIFont systemFontOfSize:20];
+    
+    titleLabel.backgroundColor = [UIColor clearColor];
+    
+    [customTitleView addSubview:titleLabel];
+    
+    return customTitleView;
+}
+
+
+-(UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    ADBannerView *footer = nil;
+    NSString *message = @"";
+    @try {
+        
+        footer = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
+        [footer setDelegate:self];
+        [footer setFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, 50)];
+        
+        message = [NSString stringWithFormat:@"Sucessfully initialized [initWithAdType:ADAdTypeBanner]"];
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
+    }
+    return footer;
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSString *message   = @"",
+             *title     = @"",
              *imageName = @"",
              *cellId    = @"";
     
@@ -46,7 +94,7 @@
     @try {
         
         
-        cellId = @"cellId";
+        cellId = @"cbHomeCell";
         
         cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         
@@ -56,10 +104,16 @@
             
         }
 
-         
-         [cell.imageView setImage:[UIImage imageNamed:imageName]];
+        title = [categoryHomeData objectAtIndex:indexPath.row];
         
-       
+        /*[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        [cell setBackgroundColor:self.tableView.backgroundColor];*/
+        
+        [cell.textLabel setTextColor:[UIColor whiteColor]];
+        [cell.textLabel setFont:[UIFont systemFontOfSize:17.0]];
+        [cell.textLabel setText:title];
+        
+    
         
     }
     @catch (NSException *exception) {
@@ -76,7 +130,9 @@
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSInteger rows = 1;
+    NSInteger rows = 0;
+    
+    rows = categoryHomeData.count;
     
     return rows;
 }
@@ -163,8 +219,6 @@
     
     @try {
         
-        [self.view setBackgroundColor:[UIColor blueColor]];
-        
         if (! self.pageImages && ! self.pageTitles){
             _pageTitles  = [[NSArray alloc] initWithObjects:@"", @"",@"", @"",@"",@"",@"",@"", nil];
             
@@ -214,28 +268,29 @@
         currentPageControl = self.pageControl;
         
         
-        [self setDataSource:self];
+      //  [self setDataSource:self];
         
         initialContent = [self viewControllerAtIndex:self.currentPageIndex];
         
-
-        [self.backgroundImage setImage:[UIImage imageNamed:initialContent.imageFile]];
+ 
         viewControllers = [[NSArray alloc] initWithObjects:initialContent, nil];
     
         
-        [self setViewControllers:viewControllers
+        /*[self setViewControllers:viewControllers
                        direction:UIPageViewControllerNavigationDirectionForward
                         animated:YES
-                      completion:nil];
+                      completion:nil];*/
         
         
         [currentPageControl setCurrentPage:_currentPageIndex];
         
+        currentContent = initialContent;
+        
         // Change the size of page view controller
         
-        [self.view addSubview:initialContent.view];
+       /* [self.view addSubview:initialContent.view];
         [self.view setFrame: CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y,
-                                        self.view.frame.size.width, self.view.frame.size.height )];
+                                        self.view.frame.size.width, self.view.frame.size.height )];*/
         
     }
     @catch (NSException *exception) {
@@ -252,12 +307,6 @@
     }
 }
 
--(void) loadBanner{
-    if (self.bannerView == nil){
-        self.bannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
-        [self.bannerView setDelegate:self];
-    }
-}
 
 -(void) startTimer{
     
@@ -291,7 +340,8 @@
     NSUInteger nextIndex = -1;
     NSArray *viewControllers= nil;
     PageContentViewController *pageContent = nil;
-    NSString *message= @"";
+    NSString *message= @"",
+             *imageName = @"";
     @try {
         
         
@@ -307,15 +357,26 @@
         
         viewControllers = [[NSArray alloc] initWithObjects:pageContent, nil];
         
+ 
         
-        [self.backgroundImage setImage:[UIImage imageNamed:pageContent.imageFile]];
-        
-        [self setViewControllers:viewControllers
+       /* [self setViewControllers:viewControllers
                        direction:UIPageViewControllerNavigationDirectionForward
                         animated:NO
-                      completion:nil];
+                      completion:nil];*/
         
         _currentPageIndex = nextIndex;
+        
+        currentContent = pageContent;
+        
+        if (currentContent){
+            
+            imageName = [self.pageTitles objectAtIndex:self.currentPageIndex];
+            
+            
+            if (self.imageView){
+                [self.imageView setImage:[UIImage imageNamed:imageName]];
+            }
+        }
         
         
     }
@@ -339,6 +400,10 @@
     
     @try{
         
+        
+        categoryHomeData = [[NSArray alloc] initWithObjects:@"The Experience",@"Our Menu",@"Current News",@"Special Events",@"Gift Cards",@"About Us" , nil];
+        
+        self.pageTitles  = [[NSArray alloc] initWithObjects:@"RestaurantBack_0.jpg", @"RestaurantBack_1.jpg",@"RestaurantBack_2.jpg", @"RestaurantBack_3.jpg",@"RestaurantBack_4.jpg",@"RestaurantBack_5.jpg",@"RestaurantBack_6.jpg",@"RestaurantBack_7.jpg", nil];
         
         categorySections = @[ @{ @"description": @"Churrascaria",
                                  @"items": @[ @{ @"image": @"RestaurantBack_0.jpg" },
@@ -403,15 +468,19 @@
     @try{
         
         if (! self.tableView){
-            self.tableView = [[UITableView alloc] init];
+            self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 20.0f, 768, 1024)];
         }
         
         
-        [self.tableView registerClass:[ContainerTableCellTableViewCell class]
-               forCellReuseIdentifier:@"ContainerTableCell"];
+        /*[self.tableView registerClass:[ContainerTableCellTableViewCell class]
+               forCellReuseIdentifier:@"ContainerTableCell"];*/
+        
+        [self.tableView setBackgroundColor:[UIColor colorWithHexString:@"800000"]];
         
         [self.tableView setDelegate:self];
         [self.tableView setDataSource:self];
+        
+        
         
     }
     @catch(NSException *error){
@@ -589,12 +658,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     // Do any additional setup after loading the view.
-    [self loadBanner];
     [self initCategorySections];
-    //[self initTableView];
-    [self.tableView setHidden:YES];
     [self startTimer];
+    [self initTableView];
+ 
+
 }
 
 - (void)didReceiveMemoryWarning {

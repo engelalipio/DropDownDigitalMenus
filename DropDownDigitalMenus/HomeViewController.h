@@ -9,12 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <iAd/iAd.h>
 
-@interface HomeViewController : UIPageViewController<UITableViewDataSource,UITableViewDelegate,UIPageViewControllerDataSource,UIAlertViewDelegate,ADBannerViewDelegate>
+@interface HomeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIPageViewControllerDataSource,UIAlertViewDelegate,ADBannerViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-
-@property (strong, nonatomic) IBOutlet UIImageView *backgroundImage;
-@property (strong, nonatomic) IBOutlet ADBannerView *bannerView;
-@property (strong, nonatomic) IBOutlet UILabel *backgrounLabelHolder;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 @property (strong,nonatomic)  NSArray *pageTitles;
 @property (strong,nonatomic)  NSArray *pageImages;

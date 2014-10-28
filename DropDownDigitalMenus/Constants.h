@@ -70,6 +70,9 @@
 #define kTableCellMapHeight 220;
 #define kTableCellImageHeight 220;
 
+#define kTabletWidth 768;
+#define kTableHeight 1024
+
 #define kImageDimension @"50"
 #define kImageStoreDimension @"32"
 #define kUserPin        @"MePin.png"

@@ -11,15 +11,11 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" image="RestaurantBack_3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zhd-PU-WdC">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="KAn-gx-8Xr">
                     <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                    <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="768" placeholder="YES" id="3Xw-Eo-06L"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1024" placeholder="YES" id="nbd-Pp-5H7"/>
-                    </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
@@ -29,6 +25,6 @@
         </view>
     </objects>
     <resources>
-        <image name="RestaurantBack_3.jpg" width="1000" height="400"/>
+        <image name="Launch.png" width="1536" height="2048"/>
     </resources>
 </document>
