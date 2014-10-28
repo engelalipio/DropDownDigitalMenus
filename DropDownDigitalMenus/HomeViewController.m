@@ -1,0 +1,615 @@
+//
+//  HomeViewController.m
+//  DropDownDigitalMenus
+//
+//  Created by Engel Alipio on 10/24/14.
+//  Copyright (c) 2014 Digital World International. All rights reserved.
+//
+
+#import "HomeViewController.h"
+#import "Constants.h"
+#import "ContainerTableCellTableViewCell.h"
+#import "PageContentViewController.h"
+
+@interface HomeViewController ()
+{
+    NSArray *categorySections;
+    NSMutableDictionary *categoryData;
+}
+-(void) initTableView;
+-(void) initCategorySections;
+-(void) loadBanner;
+@end
+
+@implementation HomeViewController
+
+@synthesize pageTitles = _pageTitles;
+@synthesize pageImages = _pageImages;
+@synthesize currentPageIndex = _currentPageIndex;
+
+#pragma mark - TableView Events
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSDictionary *sectionData = [categorySections objectAtIndex:section];
+    NSString *header = [sectionData objectForKey:@"description"];
+    return header;
+}
+
+-(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString *message   = @"",
+             *imageName = @"",
+             *cellId    = @"";
+    
+    UITableViewCell *cell = nil;
+    
+    @try {
+        
+        
+        cellId = @"cellId";
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+        
+        if (! cell){
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                          reuseIdentifier:cellId];
+            
+        }
+
+         
+         [cell.imageView setImage:[UIImage imageNamed:imageName]];
+        
+       
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
+    }
+    
+    return cell;
+}
+
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    NSInteger rows = 1;
+    
+    return rows;
+}
+
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
+    NSInteger sections = 1;
+    
+    if (categorySections){
+        // sections = [categorySections count];
+    }
+    
+    return sections;
+}
+
+#pragma mark - iAdBanner Events
+
+-(void) bannerViewDidLoadAd:(ADBannerView *)banner{
+    NSString *message = @"";
+    @try {
+        
+            message = @"bannerViewDidLoadAd:(ADBannerView *)banner";
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if ([message length]> 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
+    }
+}
+
+-(void) bannerViewActionDidFinish:(ADBannerView *)banner{
+    NSString *message = @"";
+    @try {
+        
+        message = @"bannerViewActionDidFinish:(ADBannerView *)banner";
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if ([message length]> 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
+    }
+}
+
+-(void) bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    NSString *message = @"";
+    @try {
+        
+        if (error){
+            message = [error description];
+        }
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if ([message length]> 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
+    }
+}
+
+#pragma mark - Utility Methods
+
+-(void) preparePageViewData{
+    NSString *message = @"",
+             *desc    = @"";
+    
+    PageContentViewController *initialContent = nil;
+    NSArray *viewControllers  = nil,
+            *restaurantImages = nil;
+    
+    UIPageControl *currentPageControl = nil;
+    
+    @try {
+        
+        [self.view setBackgroundColor:[UIColor blueColor]];
+        
+        if (! self.pageImages && ! self.pageTitles){
+            _pageTitles  = [[NSArray alloc] initWithObjects:@"", @"",@"", @"",@"",@"",@"",@"", nil];
+            
+            NSMutableDictionary *restaurantDetail =  [categorySections firstObject];
+            
+            if (restaurantDetail){
+                desc = [restaurantDetail objectForKey:@"description"];
+                restaurantImages = [restaurantDetail objectForKey:@"items"];
+                
+                if (restaurantImages){
+                    NSMutableDictionary *finalImages = [[NSMutableDictionary alloc] initWithCapacity:restaurantImages.count];
+                    for (int imgIndex = 0; imgIndex < restaurantImages.count; imgIndex++) {
+                        
+                        NSDictionary *imageRawName = [restaurantImages objectAtIndex:imgIndex];
+                        
+                        NSString     *imageKey     = [NSString stringWithFormat:@"%d",imgIndex];
+                      
+                        
+                        if (imageRawName){
+                            NSString *imageShortName = [imageRawName objectForKey:@"image"];
+                           
+                            [finalImages setValue:imageShortName forKey:imageKey];
+                        }
+                        
+                    }
+                    restaurantImages = [finalImages allValues];
+                }
+            }
+        
+
+            _pageImages  = [[NSArray alloc] initWithArray:restaurantImages];
+            
+            _currentPageIndex = 0;
+            
+            if (! self.pageControl){
+                
+                currentPageControl = [UIPageControl appearance];
+                [currentPageControl setPageIndicatorTintColor:[UIColor grayColor] ];
+                [currentPageControl setCurrentPageIndicatorTintColor:[UIColor lightGrayColor]];
+                [currentPageControl setBackgroundColor:[UIColor clearColor]];
+                [currentPageControl setNumberOfPages:_pageImages.count];
+                
+                _pageControl = currentPageControl;
+            }
+        }
+        
+        currentPageControl = self.pageControl;
+        
+        
+        [self setDataSource:self];
+        
+        initialContent = [self viewControllerAtIndex:self.currentPageIndex];
+        
+
+        [self.backgroundImage setImage:[UIImage imageNamed:initialContent.imageFile]];
+        viewControllers = [[NSArray alloc] initWithObjects:initialContent, nil];
+    
+        
+        [self setViewControllers:viewControllers
+                       direction:UIPageViewControllerNavigationDirectionForward
+                        animated:YES
+                      completion:nil];
+        
+        
+        [currentPageControl setCurrentPage:_currentPageIndex];
+        
+        // Change the size of page view controller
+        
+        [self.view addSubview:initialContent.view];
+        [self.view setFrame: CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y,
+                                        self.view.frame.size.width, self.view.frame.size.height )];
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
+        initialContent = nil;
+        viewControllers = nil;
+        currentPageControl = nil;
+    }
+}
+
+-(void) loadBanner{
+    if (self.bannerView == nil){
+        self.bannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
+        [self.bannerView setDelegate:self];
+    }
+}
+
+-(void) startTimer{
+    
+    [self preparePageViewData];
+    
+    if (self.timer == nil){
+        
+        self.timer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeInterval:3 sinceDate:[NSDate date]]
+                                              interval:3 target:self
+                                              selector:@selector(timerFireMethod:)
+                                              userInfo:nil
+                                               repeats:YES];
+        
+        self.loop = [NSRunLoop currentRunLoop];
+        [self.loop addTimer:self.timer forMode:NSDefaultRunLoopMode];
+    }
+    
+}
+
+-(void)stopTimer{
+    if (self.timer != nil){
+        [self.timer invalidate];
+    }
+    NSLog(@"Stopped timer");
+    self.timer = nil;
+}
+
+
+- (void)timerFireMethod:(NSTimer *)t{
+    
+    NSUInteger nextIndex = -1;
+    NSArray *viewControllers= nil;
+    PageContentViewController *pageContent = nil;
+    NSString *message= @"";
+    @try {
+        
+        
+        nextIndex = [self currentPageIndex];
+        
+        nextIndex++;
+        
+        if (nextIndex >= [self.pageTitles count]){
+            nextIndex = 0;
+        }
+        
+        pageContent = [self viewControllerAtIndex:nextIndex];
+        
+        viewControllers = [[NSArray alloc] initWithObjects:pageContent, nil];
+        
+        
+        [self.backgroundImage setImage:[UIImage imageNamed:pageContent.imageFile]];
+        
+        [self setViewControllers:viewControllers
+                       direction:UIPageViewControllerNavigationDirectionForward
+                        animated:NO
+                      completion:nil];
+        
+        _currentPageIndex = nextIndex;
+        
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+        viewControllers = nil;
+        
+    }
+    
+}
+
+-(void) initCategorySections{
+    
+    NSString *message = @"";
+    
+    @try{
+        
+        
+        categorySections = @[ @{ @"description": @"Churrascaria",
+                                 @"items": @[ @{ @"image": @"RestaurantBack_0.jpg" },
+                                              @{ @"image": @"RestaurantBack_1.jpg" },
+                                              @{ @"image": @"RestaurantBack_2.jpg" },
+                                              @{ @"image": @"RestaurantBack_3.jpg" },
+                                              @{ @"image": @"RestaurantBack_4.jpg" },
+                                              @{ @"image": @"RestaurantBack_5.jpg" },
+                                              @{ @"image": @"RestaurantBack_6.jpg" },
+                                              @{ @"image": @"RestaurantBack_7.jpg" }
+                                              ]
+                                 }/*@{ @"description": @"Drinks",
+                         @"items": @[ @{ @"title": @"Article A1" },
+                                         @{ @"title": @"Article A2" },
+                                         @{ @"title": @"Article A3" },
+                                         @{ @"title": @"Article A4" },
+                                         @{ @"title": @"Article A5" }
+                                         ]
+                         },
+                      @{ @"description": @"Appetizers",
+                         @"items": @[ @{ @"title": @"Article B1" },
+                                         @{ @"title": @"Article B2" },
+                                         @{ @"title": @"Article B3" },
+                                         @{ @"title": @"Article B4" },
+                                         @{ @"title": @"Article B5" }
+                                         ]
+                         },
+                      @{ @"description": @"Meats",
+                         @"items": @[ @{ @"title": @"Article C1" },
+                                         @{ @"title": @"Article C2" },
+                                         @{ @"title": @"Article C3" },
+                                         @{ @"title": @"Article C4" },
+                                         @{ @"title": @"Article C5" }
+                                         ]
+                         },
+                      @{ @"description": @"Desserts",
+                         @"items": @[ @{ @"title": @"Article D1" },
+                                         @{ @"title": @"Article D2" },
+                                         @{ @"title": @"Article D3" },
+                                         @{ @"title": @"Article D4" },
+                                         @{ @"title": @"Article D5" }
+                                         ]
+                         }*/
+                      ];
+        
+    }
+    @catch(NSException *error){
+        message = [error description];
+    }
+    @finally{
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+    }
+    
+}
+
+-(void) initTableView{
+    
+    NSString *message = @"";
+    
+    @try{
+        
+        if (! self.tableView){
+            self.tableView = [[UITableView alloc] init];
+        }
+        
+        
+        [self.tableView registerClass:[ContainerTableCellTableViewCell class]
+               forCellReuseIdentifier:@"ContainerTableCell"];
+        
+        [self.tableView setDelegate:self];
+        [self.tableView setDataSource:self];
+        
+    }
+    @catch(NSException *error){
+        message = [error description];
+    }
+    @finally{
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+    }
+    
+}
+
+#pragma -mark - PageContent Events
+
+
+-(NSInteger) presentationCountForPageViewController:(UIPageViewController *)pageViewController{
+    return [self.pageTitles count];
+}
+
+-(NSInteger) presentationIndexForPageViewController:(UIPageViewController *)pageViewController{
+    return self.currentPageIndex;
+}
+
+-(PageContentViewController*) viewControllerAtIndex:(NSUInteger) anyIndex{
+    NSString *message = @"",
+             *imageTitle = @"",
+             *imageName  = @"";
+    
+    PageContentViewController *pageContentViewController = nil;
+    
+    @try {
+        
+        if (([self.pageTitles count] == 0) || (anyIndex >= [self.pageTitles count])) {
+            return nil;
+        }
+        
+        // Create a new view controller and pass suitable data.
+        pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"sbPageContent"];
+        
+        imageTitle = [self.pageTitles objectAtIndex:anyIndex];
+        imageName  = [self.pageImages objectAtIndex:anyIndex];
+        
+        if (pageContentViewController){
+            [pageContentViewController setFrameRect:CGRectMake(0.0, 21.0, 768.0, 352.0)];
+            [pageContentViewController setImageFile:imageName];
+            [pageContentViewController setTitleText:imageTitle];
+            [pageContentViewController setPageIndex:anyIndex];
+            
+            message = [NSString stringWithFormat: @"Loading Page Content for %@", pageContentViewController.titleText];
+        }
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+        
+        message = @"";
+    }
+    return pageContentViewController;
+}
+
+-(UIViewController*) pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
+    NSString *message = @"";
+    NSUInteger index = -1;
+    PageContentViewController *contentController = nil;
+    @try {
+        
+        contentController = (PageContentViewController*) viewController;
+        
+        index =  contentController.pageIndex;
+        
+        if ((index == 0) || (index == NSNotFound)) {
+            return nil;
+        }
+        
+        index--;
+        
+        contentController = [self viewControllerAtIndex:index];
+    
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
+        index = -1;
+    }
+    return contentController;
+}
+
+-(UIViewController*) pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController{
+    NSString *message = @"";
+    NSUInteger index = -1;
+    PageContentViewController *contentController = nil;
+    @try {
+        
+        
+        contentController = (PageContentViewController*) viewController;
+        
+        index = contentController.pageIndex;
+        
+        if (index == NSNotFound) {
+            return nil;
+        }
+        
+        index++;
+        
+        if (index >= [self.pageTitles count]){
+            return nil;
+        }
+        
+        contentController = [self viewControllerAtIndex:index];
+        
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
+        index = -1;
+    }
+    return contentController;
+}
+
+
+-(void) pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished
+   previousViewControllers:(NSArray *)previousViewControllers
+       transitionCompleted:(BOOL)completed{
+    NSString *message = @"";
+    @try {
+        message = @"Invoked[pageViewController->didFinishAnimating]";
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
+    }
+}
+
+-(void) pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray *)pendingViewControllers{
+    
+    NSString *message = @"";
+    @try {
+        message = @"Invoked[pageViewController->willTransitionToViewControllers]";
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
+    }
+}
+
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    [self loadBanner];
+    [self initCategorySections];
+    //[self initTableView];
+    [self.tableView setHidden:YES];
+    [self startTimer];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

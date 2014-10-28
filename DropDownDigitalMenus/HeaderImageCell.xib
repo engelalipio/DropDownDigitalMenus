@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="100" selectionStyle="default" indentationWidth="10" rowHeight="160" id="KGk-i7-Jjw" customClass="HeaderImageCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="160" image="RestaurantBack_3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="3RJ-uM-kCF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.53333333333333333" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="21" text="Establishment Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmw-CC-mUF">
+                        <rect key="frame" x="0.0" y="113" width="320" height="20"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="21" text="Establishment Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTb-nd-h3R">
+                        <rect key="frame" x="0.0" y="139" width="320" height="20"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="waiter-50.png" translatesAutoresizingMaskIntoConstraints="NO" id="o0F-yq-QZB">
+                        <rect key="frame" x="122" y="29" width="76" height="76"/>
+                    </imageView>
+                </subviews>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imageCircle" destination="o0F-yq-QZB" id="cDU-E4-u0h"/>
+                <outlet property="imageEstablishment" destination="3RJ-uM-kCF" id="v3x-Nx-H6R"/>
+                <outlet property="imageView" destination="3RJ-uM-kCF" id="oTS-oi-9DC"/>
+                <outlet property="labeDetail" destination="PTb-nd-h3R" id="Fh3-y2-beM"/>
+                <outlet property="labelName" destination="bmw-CC-mUF" id="IHn-7f-bsB"/>
+            </connections>
+            <point key="canvasLocation" x="305" y="201"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="RestaurantBack_3.jpg" width="1000" height="400"/>
+        <image name="waiter-50.png" width="50" height="50"/>
+    </resources>
+</document>
