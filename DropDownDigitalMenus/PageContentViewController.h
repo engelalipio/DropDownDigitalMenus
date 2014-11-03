@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PageContentViewController : UIViewController
+@interface PageContentViewController : UIPageViewController <UIPageViewControllerDataSource,UIPageViewControllerDelegate>
+
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (strong, nonatomic) IBOutlet UILabel     *titleLabel;
 
@@ -23,10 +24,6 @@
 @property (nonatomic, strong) NSString   *titleText;
 @property (nonatomic, strong) NSString   *imageFile;
 @property (nonatomic, assign) CGRect     frameRect;
-
-- (IBAction)exploreAction:(UIButton *)sender;
-- (IBAction)signInAction:(UIButton *)sender;
-- (IBAction)SignUpAction:(UIButton *)sender;
 
 
 @end

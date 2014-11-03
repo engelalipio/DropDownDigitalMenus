@@ -6,17 +6,17 @@
 //  Copyright (c) 2014 Digital World International. All rights reserved.
 //
 
-#import "DrinksController.h"
+#import "ServiceViewController.h"
 #import "ContainerTableCellTableViewCell.h"
 
-@interface DrinksController ()
+@interface ServiceViewController ()
 {
     NSArray *categorySections;
     NSMutableDictionary *categoryData;
 }
 @end
 
-@implementation DrinksController
+@implementation ServiceViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

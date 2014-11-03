@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Digital World International. All rights reserved.
 //
 
-#import "DessertsViewController.h"
+#import "SocialViewController.h"
 
-@interface DessertsViewController ()
+@interface SocialViewController ()
 
 @end
 
-@implementation DessertsViewController
+@implementation SocialViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

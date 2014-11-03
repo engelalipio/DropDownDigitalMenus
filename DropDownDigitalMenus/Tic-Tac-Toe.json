@@ -1,0 +1,34 @@
+<html>
+
+
+<body>
+<table width="768" height="1024" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top" background="../images/background.jpg"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td><div align="center"><font size="6" face="Verdana, Arial, Helvetica, sans-serif">Tick
+Tac Toe </font></div></td>
+</tr>
+<tr>
+<td><div align="center"><img src="../images/clear.gif" width="1" height="30" border="0"></div></td>
+</tr>
+</table>
+<div align="center">
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="642" height="839">
+<param name="movie" value="neave_tictactoe.swf">
+<param name="quality" value="high">
+<embed src="neave_tictactoe.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="642" height="839"></embed>
+</object>
+</div>
+<div align="center">      </div>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p align="center"><a href="../games.asp"><img src="../images/gameup.gif" alt="Game Menu" name="gameBtn" width="188" height="50" border="0" id="gameBtn" onMouseOver="MM_swapImage('gameBtn','','../images/gamedn.gif',1)" onMouseOut="MM_swapImgRestore()"></a></p></td>
+</tr>
+</table>
+</body>
+</html>
+

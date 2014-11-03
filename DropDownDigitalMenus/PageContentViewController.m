@@ -22,6 +22,10 @@
 @synthesize titleText = _titleText;
 @synthesize frameRect = _frameRect;
 
+#pragma -mark Page Content Events
+
+
+
 -(void) prepareContent{
     
     if (self.titleLabel == nil){
@@ -76,35 +80,4 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (IBAction)exploreAction:(UIButton *)sender {
-    
-     NSString *message = @"";
-    HomeViewController *parentViewController = nil;
-    @try {
-        
-        message = @"Stopping Timer";
-       
-        parentViewController = (HomeViewController*) [self parentViewController];
-        
-        if (parentViewController){
-            [parentViewController stopTimer];
-        }
-    }
-    @catch (NSException *exception) {
-        message = [exception description];
-    }
-    @finally {
-        if ([message length]> 0){
-            NSLog(@"%@",message);
-        }
-        message= @"";
-    }
-}
-
-- (IBAction)signInAction:(UIButton *)sender {
-}
-
-- (IBAction)SignUpAction:(UIButton *)sender {
-}
 @end

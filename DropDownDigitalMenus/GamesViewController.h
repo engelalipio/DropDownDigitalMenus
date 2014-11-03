@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Constants.h"
+#import <GameKit/GameKit.h>
 
-@interface EntreesViewController : UIViewController
+@interface GamesViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 
 @end

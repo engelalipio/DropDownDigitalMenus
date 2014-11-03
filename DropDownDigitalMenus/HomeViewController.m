@@ -11,6 +11,7 @@
 #import "ContainerTableCellTableViewCell.h"
 #import "PageContentViewController.h"
 #import "UIColor+ColorWithHexString.h"
+#import "MenuViewController.h"
 
 
 @interface HomeViewController ()
@@ -94,7 +95,7 @@
     @try {
         
         
-        cellId = @"cbHomeCell";
+        cellId = @"cbMenuCell";
         
         cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         
@@ -401,9 +402,9 @@
     @try{
         
         
-        categoryHomeData = [[NSArray alloc] initWithObjects:@"The Experience",@"Our Menu",@"Current News",@"Special Events",@"Gift Cards",@"About Us" , nil];
+        categoryHomeData = [[NSArray alloc] initWithObjects:@"Our Menu",@"Current News",@"Special Events",@"Gift Cards",@"About Us" , nil];
         
-        self.pageTitles  = [[NSArray alloc] initWithObjects:@"RestaurantBack_0.jpg", @"RestaurantBack_1.jpg",@"RestaurantBack_2.jpg", @"RestaurantBack_3.jpg",@"RestaurantBack_4.jpg",@"RestaurantBack_5.jpg",@"RestaurantBack_6.jpg",@"RestaurantBack_7.jpg", nil];
+        self.pageTitles  = [[NSArray alloc] initWithObjects:@"RestaurantBack_0.jpg", @"RestaurantBack_1.jpg",@"RestaurantBack_2.jpg", @"RestaurantBack_3.jpg",@"RestaurantBack_4.jpg",@"RestaurantBack_5.jpg",@"RestaurantBack_6.jpg", nil];
         
         categorySections = @[ @{ @"description": @"Churrascaria",
                                  @"items": @[ @{ @"image": @"RestaurantBack_0.jpg" },
@@ -412,8 +413,7 @@
                                               @{ @"image": @"RestaurantBack_3.jpg" },
                                               @{ @"image": @"RestaurantBack_4.jpg" },
                                               @{ @"image": @"RestaurantBack_5.jpg" },
-                                              @{ @"image": @"RestaurantBack_6.jpg" },
-                                              @{ @"image": @"RestaurantBack_7.jpg" }
+                                              @{ @"image": @"RestaurantBack_6.jpg" }
                                               ]
                                  }/*@{ @"description": @"Drinks",
                          @"items": @[ @{ @"title": @"Article A1" },
@@ -525,7 +525,7 @@
         imageName  = [self.pageImages objectAtIndex:anyIndex];
         
         if (pageContentViewController){
-            [pageContentViewController setFrameRect:CGRectMake(0.0, 21.0, 768.0, 352.0)];
+            [pageContentViewController setFrameRect:CGRectMake(0.0, 21.0, 768.0, 368.0)];
             [pageContentViewController setImageFile:imageName];
             [pageContentViewController setTitleText:imageTitle];
             [pageContentViewController setPageIndex:anyIndex];
@@ -672,14 +672,46 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
+-(BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    BOOL result = YES;
+      NSString *segName = identifier;
+     
+     if (! [segName length] > 0){
+     result = NO;
+     }
+    
+    return result;
+}
+
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    NSIndexPath *selectedIP = [self.tableView indexPathForSelectedRow];
+    
+    MenuViewController *destVC = (MenuViewController*) [segue destinationViewController];
+    
+    NSString *message = @"";
+    
+    @try {
+        message = [NSString stringWithFormat:@"%@",destVC.description];
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
+    }
+    
 }
-*/
+
 
 @end

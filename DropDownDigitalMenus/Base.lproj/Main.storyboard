@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
@@ -14,10 +13,12 @@
                         <viewControllerLayoutGuide type="bottom" id="peS-Gp-WHA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="USK-UG-hAc">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="141"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" image="RestaurantBack_1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="awq-9B-4R7"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" image="RestaurantBack_1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="awq-9B-4R7">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="141"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxF-Uj-3bA">
                                 <rect key="frame" x="0.0" y="20" width="768" height="20"/>
                                 <attributedString key="attributedText">
@@ -34,7 +35,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="768" height="141"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="awq-9B-4R7" id="Qtz-kD-tNU"/>
                         <outlet property="titleLabel" destination="MxF-Uj-3bA" id="exP-hJ-mbv"/>
@@ -42,109 +44,209 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Du-3q-3vB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806" y="-2043"/>
+            <point key="canvasLocation" x="1781" y="-3203.5"/>
         </scene>
-        <!--Drinks-->
+        <!--Menu-->
+        <scene sceneID="2SY-IT-SjL">
+            <objects>
+                <viewController storyboardIdentifier="sbMenu" title="Menu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g95-Cg-Oiw" customClass="MenuViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rro-0g-Ipo"/>
+                        <viewControllerLayoutGuide type="bottom" id="xfJ-Oc-oJb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R1q-zE-AZS">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="300" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pe1-Ri-Oeg">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HorizontalCell" rowHeight="300" id="gde-ep-5RH">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="gde-ep-5RH" id="qXk-Z0-qMu">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="g95-Cg-Oiw" id="IHI-3y-wFa"/>
+                                    <outlet property="delegate" destination="g95-Cg-Oiw" id="JCj-DR-XZV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Pe1-Ri-Oeg" id="mpF-V9-ts6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L2A-Mr-kUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="984" y="-2739"/>
+        </scene>
+        <!--Service-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController storyboardIdentifier="sbDrinks" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="DrinksController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sbService" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" userLabel="Service" customClass="ServiceViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Drinks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Service" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
                                 <rect key="frame" x="203" y="329" width="195" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.50196078431372548" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Drinks" image="wine-32.png" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Service" image="waiter-32.png" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1267" y="-1370"/>
+            <point key="canvasLocation" x="272" y="-965"/>
         </scene>
-        <!--Entrees-->
+        <!--Games-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController storyboardIdentifier="sbEntrees" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8rJ-Kc-sve" customClass="EntreesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sbGames" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8rJ-Kc-sve" userLabel="Games" customClass="GamesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                    <view key="view" contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="551" id="QS5-Rx-YEW">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Entrees" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="192" y="329" width="216" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="gig-4h-6gi">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbGamesCell" textLabel="Kd1-TB-Te6" rowHeight="100" style="IBUITableViewCellStyleDefault" id="8eH-9B-Xkb">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8eH-9B-Xkb" id="cvr-1O-RKp">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kd1-TB-Te6">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="AFf-6S-nEG" kind="show" identifier="segGame" id="oGc-Xl-O4A"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="gig-4h-6gi" secondAttribute="centerX" id="BYd-Mz-Hlu"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="gig-4h-6gi" secondAttribute="bottom" id="YFZ-Gh-Yx3"/>
+                            <constraint firstItem="gig-4h-6gi" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="-20" id="c3a-KO-I4Q"/>
+                            <constraint firstItem="gig-4h-6gi" firstAttribute="width" secondItem="QS5-Rx-YEW" secondAttribute="width" id="rdi-kV-3X6"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Entrees" image="restaurant-32.png" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Games" image="put_in_motion-32.png" id="cPa-gy-q4n"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="tableView" destination="gig-4h-6gi" id="LOB-kg-sd9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="504" y="530"/>
+            <point key="canvasLocation" x="-535" y="143"/>
+        </scene>
+        <!--Game View-->
+        <scene sceneID="LLI-DJ-xH9">
+            <objects>
+                <viewController storyboardIdentifier="sbGame" title="Game View" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AFf-6S-nEG" customClass="GameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kCT-Ve-5tf"/>
+                        <viewControllerLayoutGuide type="bottom" id="NTy-78-hQg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PFg-sw-nR8" userLabel="GameView">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2qE-v0-g9T">
+                                <rect key="frame" x="0.0" y="64" width="768" height="1069"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Game" id="Pn4-aa-9dc">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="jHy-cR-XnA">
+                            <color key="tintColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="webView" destination="2qE-v0-g9T" id="shj-Ue-6VM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1vT-Ls-Dv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="736" y="308"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="6Kd-Jr-vx6" kind="relationship" relationship="viewControllers" id="54V-xA-Uo9"/>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="HLk-gE-jaj" kind="relationship" relationship="viewControllers" id="5Hm-cj-pkU"/>
+                        <segue destination="jRf-Ev-JJb" kind="relationship" relationship="viewControllers" id="54V-xA-Uo9"/>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="4sb-I5-VB2"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="HfE-Ws-oeo"/>
+                        <segue destination="HLk-gE-jaj" kind="relationship" relationship="viewControllers" id="aeD-vB-JDp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-106" y="-559"/>
+            <point key="canvasLocation" x="-575" y="-1122"/>
         </scene>
-        <!--Desserts-->
+        <!--Social-->
         <scene sceneID="q8U-F5-VRx">
             <objects>
-                <viewController storyboardIdentifier="sbDesserts" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HLk-gE-jaj" userLabel="Desserts" customClass="DessertsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sbSocial" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HLk-gE-jaj" userLabel="Social" customClass="SocialViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V7Q-LF-6xc"/>
                         <viewControllerLayoutGuide type="bottom" id="6fP-pl-8Vt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dLH-g9-e5B">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Desserts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fui-2W-QTg">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Be Social" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fui-2W-QTg">
                                 <rect key="frame" x="192" y="329" width="216" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Desserts" image="wedding_cake-32.png" id="yd9-Eh-vsA"/>
+                    <tabBarItem key="tabBarItem" title="Be Social" image="collaboration-32.png" id="yd9-Eh-vsA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5H-4W-1rV" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1166" y="338"/>
+            <point key="canvasLocation" x="1104" y="-965"/>
         </scene>
         <!--Home-->
         <scene sceneID="lL7-5Y-a9b">
@@ -155,24 +257,62 @@
                         <viewControllerLayoutGuide type="bottom" id="pzj-Wh-nzd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="975" id="XQV-86-WHK">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Orange" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHk-pD-heo">
-                                <rect key="frame" x="0.0" y="20" width="768" height="532"/>
-                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Orange" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHk-pD-heo" userLabel="orangeContainer">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="375"/>
+                                <color key="backgroundColor" red="1" green="0.50196078431372548" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="1024" bounces="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="50" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="1nh-UX-1SR">
-                                <rect key="frame" x="0.0" y="568" width="768" height="472"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="1024" bounces="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="50" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="1nh-UX-1SR" userLabel="tableContainer">
+                                <rect key="frame" x="0.0" y="546" width="768" height="480"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="infinite" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbHomeCell" rowHeight="50" id="4SD-ou-wAn">
+                                    <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="infinite" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbMenuCell" rowHeight="50" id="4SD-ou-wAn">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4SD-ou-wAn" id="enL-hk-upT">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="g95-Cg-Oiw" kind="show" identifier="segMenu" id="0Qg-1k-mYP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="infinite" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbNewsCell" rowHeight="50" id="KDN-u3-kPk">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KDN-u3-kPk" id="9jY-5x-23a">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="infinite" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbGamesCell" rowHeight="50" id="PgG-c5-3rD">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PgG-c5-3rD" id="c0c-3p-RTe">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="infinite" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbEventsCell" rowHeight="50" id="Gcl-bO-hUL">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gcl-bO-hUL" id="rmq-jC-uIz">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="infinite" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbGiftsCell" rowHeight="50" id="3mI-pR-JUP">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3mI-pR-JUP" id="g7O-bY-shV">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="infinite" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbAboutCell" rowHeight="50" id="TQZ-0r-zvh">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TQZ-0r-zvh" id="RfA-yx-a5u">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
@@ -183,24 +323,39 @@
                                     <outlet property="delegate" destination="6Kd-Jr-vx6" id="klh-yl-kuC"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="352" image="RestaurantBack_2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="WPE-Qv-bic">
-                                <rect key="frame" x="0.0" y="20" width="768" height="352"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="368" image="RestaurantBack_2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="WPE-Qv-bic" userLabel="imageContainer">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="368"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="22" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZc-Zi-B4A">
-                                <rect key="frame" x="0.0" y="380" width="768" height="192"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="22" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZc-Zi-B4A" userLabel="textContainer">
+                                <rect key="frame" x="0.0" y="375" width="768" height="170"/>
                                 <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <mutableString key="text">The restaurant is an authentic Brazilian-American “Churrascaria”, or steakhouse.
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">The restaurant is an authentic Brazilian-American “Churrascaria”, or steakhouse.
 Treat yourself to our 50-60 item seasonal salad area that includes appetizers, gourmet vegetables, soups, and salads. Turn your place card to green and prepare to be swarmed by a troop of carvers generously serving various cuts of seasoned beef, lamb, pork, chicken, and Brazilian sausage, all accompanied by traditional side items and house-baked Brazilian cheese bread.
 As you dine endlessly on Brazilian fare, let one of our in-house wine connoisseurs select the perfect pairing from our extensive, award-winning wine lists, or sip on a freshly-made signature cocktail — the Caipirinha.
-Complete your dining experience with one of our many decadent dessert selections and then relax with an after-dinner drink or steaming espresso and enjoy the ambiance and service perfection that is uniquely.</mutableString>
-                                <fontDescription key="fontDescription" name="Herculanum" family="Herculanum" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="15" name="Herculanum"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Complete your dining experience with one of our many decadent dessert selections and then relax with an after-dinner drink or steaming espresso and enjoy the ambiance and service perfection that is uniquely.</string>
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="15" name="Herculanum"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="control_panel-32.png" id="weK-aB-xRW"/>
+                    <navigationItem key="navigationItem" title="Restaurant Name" id="fiG-5A-Zkb"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="768" height="1024"/>
                     <connections>
@@ -210,15 +365,55 @@ Complete your dining experience with one of our many decadent dessert selections
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8b-0X-6TW" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="-2043"/>
+            <point key="canvasLocation" x="152" y="-2762"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7Mq-Dy-K87">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3ll-84-nYp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cWX-Yw-dty">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AFf-6S-nEG" kind="relationship" relationship="rootViewController" id="obc-FQ-I6q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cPS-cZ-r5j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="327" y="129"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="Ctd-QH-eDN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jRf-Ev-JJb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="control_panel-32.png" id="weK-aB-xRW"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="Fit-9d-YGD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6Kd-Jr-vx6" kind="relationship" relationship="rootViewController" id="rjg-Bo-Xuy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yWG-km-POv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-678" y="-2172"/>
         </scene>
     </scenes>
     <resources>
         <image name="RestaurantBack_1.jpg" width="1000" height="400"/>
         <image name="RestaurantBack_2.jpg" width="1000" height="400"/>
+        <image name="collaboration-32.png" width="32" height="32"/>
         <image name="control_panel-32.png" width="32" height="32"/>
-        <image name="restaurant-32.png" width="32" height="32"/>
-        <image name="wedding_cake-32.png" width="32" height="32"/>
-        <image name="wine-32.png" width="32" height="32"/>
+        <image name="put_in_motion-32.png" width="32" height="32"/>
+        <image name="waiter-32.png" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="obc-FQ-I6q"/>
+    </inferredMetricsTieBreakers>
 </document>
