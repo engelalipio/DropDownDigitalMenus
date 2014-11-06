@@ -26,7 +26,9 @@
     return @"HorizontalCell";
 }
 
-
+-(CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.0f;
+}
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellIdentifier = @"HorizontalCell";
@@ -38,9 +40,15 @@
     
     UIImage  *image = nil;
     
+    UIImageView *imageView = nil;
+    
     CGRect frameRect ;
     
-    frameRect =  CGRectMake(0, 0, kCellHeight,kTableLength);
+    CGAffineTransform transform ;
+    
+    frameRect =  CGRectMake(0, 0, kCellHeight,kCellWidth);
+    
+    transform = CGAffineTransformMakeRotation(- M_PI * 0.5);
     
     HorizontalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
@@ -49,28 +57,32 @@
         cell =  [[HorizontalTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
 
-    
+    [cell.contentView setFrame:frameRect];
+    [cell.contentView setContentMode:UIViewContentModeScaleToFill];
+ 
+    //[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+ 
     if (self.items){
         keys = [self.items allKeys];
         values = [self.items allValues];
         
         imageName = [values  objectAtIndex:[indexPath row]];
         
-        
         image = [UIImage imageNamed:imageName];
         
-        //[cell.textLabel setText:[NSString stringWithFormat:@"%f",image.size.height]];
-    
-        //[cell.imageView setFrame:frameRect];
-        [cell.imageView setImage:image];
-        [cell.imageView setTransform:CGAffineTransformMakeRotation(- M_PI * 0.5)];
+        imageView = [[UIImageView alloc] initWithFrame:frameRect];
         
-        [cell setContentMode:UIViewContentModeScaleAspectFill];
-        [cell setBackgroundColor:[UIColor blackColor]];
-        //[cell setFrame:CGRectMake(kRowHorizontalPadding * 0.5, kRowVerticalPadding * 0.5, kTableLength - kRowHorizontalPadding, kCellHeight)];
-        //[cell setFrame:CGRectMake(0, 0, kCellWidth, kCellHeight)];
+        [imageView setImage:image];
+        [imageView setTransform:transform];
+        
+        [cell.contentView addSubview:imageView];
+        [imageView sizeThatFits:frameRect.size];
+ 
+        [cell setBackgroundColor:kVerticalTableBackgroundColor];
+        
+        
         NSLog(@"%f",cell.frame.size.width);
-        
+    
     }
     
     return cell;
@@ -98,12 +110,13 @@
         self.horizontalTableView.rowHeight = kCellWidth;
         self.horizontalTableView.backgroundColor = kVerticalTableBackgroundColor;
         
-        self.horizontalTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        self.horizontalTableView.separatorColor = [UIColor clearColor];
+        self.horizontalTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
+        self.horizontalTableView.separatorColor = [UIColor orangeColor];
         
         self.horizontalTableView.dataSource = self;
         self.horizontalTableView.delegate = self;
         
+        self.selectedBackgroundView.backgroundColor =  kHorizontalTableSelectedBackgroundColor;
      
         [self addSubview:self.horizontalTableView];
     }

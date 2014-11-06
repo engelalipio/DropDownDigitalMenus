@@ -37,14 +37,14 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 50;
+    return 60;
 }
 
 -(UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    UIView *customTitleView = [ [UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 50)];
+    UIView *customTitleView = [ [UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 60)];
     
-    UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 50)];
+    UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 60)];
     
     titleLabel.text = @"The Most Incredible Dining Experience";
     
@@ -67,7 +67,7 @@
         
         footer = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
         [footer setDelegate:self];
-        [footer setFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, 50)];
+        [footer setFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, 60)];
         
         message = [NSString stringWithFormat:@"Sucessfully initialized [initWithAdType:ADAdTypeBanner]"];
     }
@@ -468,7 +468,7 @@
     @try{
         
         if (! self.tableView){
-            self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 20.0f, 768, 1024)];
+            self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, kTableYStart, kTabletWidth, kTableHeight)];
         }
         
         
@@ -530,7 +530,7 @@
             [pageContentViewController setTitleText:imageTitle];
             [pageContentViewController setPageIndex:anyIndex];
             
-            message = [NSString stringWithFormat: @"Loading Page Content for %@", pageContentViewController.titleText];
+           // message = [NSString stringWithFormat: @"Loading Page Content for %@", pageContentViewController.titleText];
         }
         
     }
@@ -655,15 +655,43 @@
 }
 
 
+-(void) viewDidAppear:(BOOL)animated{
+    NSString *message = @"";
+    NSIndexPath *indexPath = nil;
+    @try {
+            [self startTimer];
+        
+        indexPath = [self.tableView indexPathForSelectedRow];
+        
+        if (indexPath){
+            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        }
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
+        indexPath = nil;
+    }
+    
+   
+}
+
+-(void) viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [self stopTimer];
+    NSLog(@"Home View Timer stopped");
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     // Do any additional setup after loading the view.
     [self initCategorySections];
-    [self startTimer];
     [self initTableView];
- 
 
 }
 

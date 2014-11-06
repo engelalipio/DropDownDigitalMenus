@@ -28,6 +28,8 @@
                         *appsMenuData,
                         *meatsMenuData,
                         *dessertsMenuData;
+    
+    NSInteger currentInterval;
    
 }
 -(void) initMenuCategories;
@@ -36,32 +38,238 @@
 @end
 
 @implementation MenuViewController
-@synthesize pageControl = _pageControl;
-@synthesize indexPath = _indexPath;
-@synthesize timer = _timer;
-@synthesize loop  = _loop;
+
+@synthesize pageControl   = _pageControl;
+@synthesize indexPath     = _indexPath;
+@synthesize drinksTimer   = _drinksTimer;
+@synthesize appsTimer     = _appsTimer;
+@synthesize meatsTimer    = _meatsTimer;
+@synthesize dessertsTimer = _dessertsTimer;
+@synthesize loop          = _loop;
 
 #pragma -mark Utility Methods
+
+- (void)drinksTimerFireMethod:(NSTimer *)t{
+    
+    NSString *message       = @"";
+    NSIndexSet *indexSet    = nil; 
+    NSInteger randomAnimation = 0;
+    @try {
+        randomAnimation = arc4random_uniform(5);
+        indexSet = [[NSIndexSet alloc] initWithIndex:0];
+        [self.tableView beginUpdates];
+        [self.tableView reloadSections:indexSet withRowAnimation:randomAnimation];
+        [self.tableView endUpdates];
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+    }
+}
+
+
+- (void)appsTimerFireMethod:(NSTimer *)t{
+    
+    NSString *message       = @"";
+    NSIndexSet *indexSet    = nil;
+    NSInteger randomAnimation = 0;
+    @try {
+        randomAnimation = arc4random_uniform(5);
+        indexSet = [[NSIndexSet alloc] initWithIndex:1];
+        [self.tableView beginUpdates];
+        [self.tableView reloadSections:indexSet withRowAnimation:randomAnimation];
+        [self.tableView endUpdates];
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+    }
+}
+
+- (void)meatsTimerFireMethod:(NSTimer *)t{
+    
+    NSString *message       = @"";
+    NSIndexSet *indexSet    = nil;
+    NSInteger randomAnimation = 0;
+    @try {
+        randomAnimation = arc4random_uniform(5);
+        indexSet = [[NSIndexSet alloc] initWithIndex:2];
+        [self.tableView beginUpdates];
+        [self.tableView reloadSections:indexSet withRowAnimation:randomAnimation];
+        [self.tableView endUpdates];
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+    }
+}
+
+- (void)dessertsTimerFireMethod:(NSTimer *)t{
+    
+    NSString *message       = @"";
+    NSIndexSet *indexSet    = nil;
+    NSInteger randomAnimation = 0;
+    @try {
+        randomAnimation = arc4random_uniform(5);
+        indexSet = [[NSIndexSet alloc] initWithIndex:3];
+        [self.tableView beginUpdates];
+        [self.tableView reloadSections:indexSet withRowAnimation:randomAnimation];
+        [self.tableView endUpdates];
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+    }
+}
+
+-(void) startTimers{
+    
+    NSInteger interval = 0;
+    
+    if (self.drinksTimer == nil){
+        
+        while (interval < 4 ) {
+           interval = arc4random_uniform(10);
+        }
+       
+    
+        self.drinksTimer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeInterval:interval sinceDate:[NSDate date]]
+                                              interval:interval
+                                                target:self
+                                              selector:@selector(drinksTimerFireMethod:)
+                                              userInfo:nil
+                                               repeats:YES];
+        
+        self.loop = [NSRunLoop currentRunLoop];
+        
+       [self.loop addTimer:self.drinksTimer forMode:NSDefaultRunLoopMode];
+    }
+    
+    if (self.appsTimer == nil){
+        
+        while (interval < 4 ) {
+            interval = arc4random_uniform(10);
+        }
+        
+        self.appsTimer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeInterval:interval sinceDate:[NSDate date]]
+                                                      interval:interval
+                                                        target:self
+                                                      selector:@selector(appsTimerFireMethod:)
+                                                      userInfo:nil
+                                                       repeats:YES];
+        
+        self.loop = [NSRunLoop currentRunLoop];
+        
+        [self.loop addTimer:self.appsTimer forMode:NSDefaultRunLoopMode];
+    }
+    
+    if (self.meatsTimer == nil){
+        
+        while (interval < 4 ) {
+            interval = arc4random_uniform(10);
+        }
+        
+        self.meatsTimer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeInterval:interval sinceDate:[NSDate date]]
+                                                  interval:interval
+                                                    target:self
+                                                  selector:@selector(meatsTimerFireMethod:)
+                                                  userInfo:nil
+                                                   repeats:YES];
+        
+        self.loop = [NSRunLoop currentRunLoop];
+        
+        [self.loop addTimer:self.meatsTimer forMode:NSDefaultRunLoopMode];
+    }
+    
+    if (self.dessertsTimer == nil){
+        
+        
+        while (interval < 4 ) {
+            interval = arc4random_uniform(10);
+        }
+        
+        self.dessertsTimer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeInterval:interval sinceDate:[NSDate date]]
+                                                   interval:interval
+                                                     target:self
+                                                   selector:@selector(dessertsTimerFireMethod:)
+                                                   userInfo:nil
+                                                    repeats:YES];
+        
+        self.loop = [NSRunLoop currentRunLoop];
+        
+        [self.loop addTimer:self.dessertsTimer forMode:NSDefaultRunLoopMode];
+    }
+    
+}
+
+-(void)stopTimers{
+    if (self.drinksTimer != nil){
+        [self.drinksTimer invalidate];
+    }
+    NSLog(@"Stopped Drinks timer");
+    self.drinksTimer = nil;
+    
+    if (self.appsTimer != nil){
+        [self.appsTimer invalidate];
+    }
+    NSLog(@"Stopped Apps timer");
+    self.appsTimer = nil;
+    
+    if (self.meatsTimer != nil){
+        [self.meatsTimer invalidate];
+    }
+    NSLog(@"Stopped Meats timer");
+    self.meatsTimer = nil;
+    
+    if (self.dessertsTimer != nil){
+        [self.dessertsTimer invalidate];
+    }
+    NSLog(@"Stopped Desserts timer");
+    self.dessertsTimer = nil;
+}
 
 
 -(void) initMenuCategories{
     
-    NSString *message = @"",
+    NSString *message       = @"",
              *drinkFormat   = @"BarBack_%d.jpg",
-             *appFormat     = @"SaladBar_%d.jpg",
+             *appFormat     = @"SaladBarBack_%d.jpg",
              *meatFormat    = @"MeatBack_%d.jpg",
              *dessertFormat = @"DessertBack_%d.jpg";
     
-    int drinkCount = 8,
-        appCount   = 8,
-        meatCount  = 11,
+    int drinkCount   = 8,
+        appCount     = 9,
+        meatCount    = 11,
         dessertCount = 7;
     
     @try{
         
         
         if (! menuTitles){
-            menuTitles = [[NSMutableArray alloc] initWithObjects: @"Drinks",@"Salads and Sides", @"Meats", @"Desserts", nil];
+            menuTitles = [[NSMutableArray alloc] initWithObjects: @"Drinks",
+                                                                  @"Salads and Sides",
+                                                                  @"Meats",
+                                                                  @"Desserts", nil];
             
         }
         
@@ -80,7 +288,7 @@
                         drinkTitle = @"Custom Drinks";
                         break;
                     case 1:
-                        drinkTitle = @"Champaigne";
+                        drinkTitle = @"Champagne";
                         break;
                     case 2:
                         drinkTitle = @"Guarana";
@@ -89,7 +297,7 @@
                         drinkTitle = @"Strawberries";
                         break;
                     case 4:
-                        drinkTitle = @"Caipirinhas";
+                        drinkTitle = @"Caipirinha";
                         break;
                     case 5:
                         drinkTitle = @"Other Drinks";
@@ -119,30 +327,32 @@
                 
                 switch (iApps) {
                     case 0:
-                        appTitle = @"Fresh Asparagus";
+                        appTitle = @"Salad bar area";
                         break;
                     case 1:
-                        appTitle = @"Carrots";
+                        appTitle = @"Fresh buffalo mozzarella, fresh tomatoes";
                         break;
                     case 2:
-                        appTitle = @"Various Lettuces";
+                        appTitle = @"Fruit salad";
                         break;
                     case 3:
-                        appTitle = @"Peppers";
+                        appTitle = @"Sample four freshly made in-house salad dressings";
                         break;
                     case 4:
-                        appTitle = @"Vinagrete";
+                        appTitle = @"Greek olives, shrimp salad, imported Italian salamis, spicy surimi sushi";
                         break;
                     case 5:
-                        appTitle = @"Potato and Pasta Salads";
+                        appTitle = @"Steamed asparagus with strawberry sauce, Brazilian hearts of palm, grilled Portobello mushrooms";
                         break;
                     case 6:
-                        appTitle = @"Cucumbers";
+                        appTitle = @"Jasmine rice, soup du jour";
                         break;
                     case 7:
-                        appTitle = @"Cocktail Shrimp";
+                        appTitle = @"Gourmet artisan breads,imported Italian salamis, sautéed mushrooms";
                         break;
-    
+                    case 8:
+                        appTitle = @"Greek olives, fresh salmon,herbed sweet onions";
+                        break;
                     
                 }
                 
@@ -162,37 +372,37 @@
                 
                 switch (iMeats) {
                     case 0:
-                        meatTitle = @"Bacon Wrapped Filet Mignon";
+                        meatTitle = @"Chicken Breast wrapped in Bacon";
                         break;
                     case 1:
-                        meatTitle = @"Garlic Alcantra";
+                        meatTitle = @"Filet Mignon";
                         break;
                     case 2:
-                        meatTitle = @"Pork Loion";
+                        meatTitle = @"Herb-Marinated Pork Loin";
                         break;
                     case 3:
                         meatTitle = @"Garlic Picanha";
                         break;
                     case 4:
-                        meatTitle = @"Traditional Picanha";
+                        meatTitle = @"Brazilian Picanha";
                         break;
                     case 5:
                         meatTitle = @"Brazilian Sausage";
                         break;
                     case 6:
-                        meatTitle = @"Lamb";
+                        meatTitle = @"Leg of Lamb";
                         break;
                     case 7:
-                        meatTitle = @"Beef";
+                        meatTitle = @"Brazilian Alcatra";
                         break;
                     case 8:
-                        meatTitle = @"Parmisan Pork";
+                        meatTitle = @"Parmesan-Crusted Pork Loin";
                         break;
                     case 9:
-                        meatTitle = @"Beef Roast";
+                        meatTitle = @"Flank Steak";
                         break;
                     case 10:
-                        meatTitle = @"Bacon Wrapped Pork";
+                        meatTitle = @"Filet Mignon wrapped in Bacon";
                         break;
                 }
                 
@@ -213,28 +423,25 @@
                 
                 switch (iDessert) {
                     case 0:
-                        dessertTitle = @"Custom Drinks";
+                        dessertTitle = @"Chocolate Mousse Cake";
                         break;
                     case 1:
-                        dessertTitle = @"Champaigne";
+                        dessertTitle = @"Key Lime Pie";
                         break;
                     case 2:
-                        dessertTitle = @"Guarana";
+                        dessertTitle = @"Brazilian Flan";
                         break;
                     case 3:
-                        dessertTitle = @"Strawberries";
+                        dessertTitle = @"Coconut Chess Pie";
                         break;
                     case 4:
-                        dessertTitle = @"Caipirinhas";
+                        dessertTitle = @"Crème Brûlée";
                         break;
                     case 5:
-                        dessertTitle = @"Other Drinks";
+                        dessertTitle = @"Brazilian Papaya Cream";
                         break;
                     case 6:
-                        dessertTitle = @"Soft Drinks";
-                        break;
-                    case 7:
-                        dessertTitle = @"Various Wines";
+                        dessertTitle = @"Pecan Pie";
                         break;
                 }
                 
@@ -261,20 +468,152 @@
 
 -(void) initTableView{
     NSString *message = @"";
+    CGRect tableRect ;
+   
     @try {
         
+        
+        tableRect = CGRectMake(0.0f, kTableYStart, kTabletWidth, kTableHeight);
+        
         if (! self.tableView){
-            self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 20.0f, 768, kCellHeight)];
+            self.tableView = [[UITableView alloc] initWithFrame:tableRect];
         }
         
         [self.tableView registerClass:[HorizontalTableViewCell class] forCellReuseIdentifier:@"HorizontalCell"];
         
-        [self.tableView setBackgroundColor:[UIColor colorWithHexString:@"800000"]];
+        self.tableView.backgroundColor = kVerticalTableBackgroundColor;
+        [self.tableView.tableHeaderView setBackgroundColor:[UIColor blackColor]];
+       
         
         [self.tableView setDelegate:self];
         [self.tableView setDataSource:self];
-
+                  
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
         
+    }
+}
+
+#pragma -mark Table View Events
+
+
+-(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString *message    = @"",
+             *title      = @"",
+             *menuKey    = @"",
+             *imageName  = @"",
+             *cellId     = @"";
+    
+    UITableViewCell *cell = nil;
+ 
+    NSInteger index = -1;
+    
+    CGRect frameRect,
+           labelRect;
+    
+    UIImage *image = nil;
+    
+    UIImageView *imageView = nil;
+    
+    UILabel *labelView = nil;
+    
+    @try {
+        
+        frameRect =  CGRectMake(kRowHorizontalPadding * 0.5,kRowVerticalPadding * 0.5,
+                                kTableLength - kRowHorizontalPadding,kCellHeight - kRowVerticalPadding);
+      
+        labelRect =  CGRectMake(kRowHorizontalPadding * 0.5,kCellHeight - kArticleTitleLabelPadding,
+                                kTableLength -4 ,kArticleTitleLabelPadding - kRowVerticalPadding);
+ 
+        cellId = @"HorizontalCell";
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+        
+        if (! cell){
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+            
+        }
+    
+        // @"Drinks",@"Salads and Sides", @"Meats", @"Desserts"
+        
+        switch ([indexPath section]) {
+            case 0:
+                menuKey   = [NSString stringWithFormat:@"BarBack_%ld.jpg",(long)index];
+                
+                index     = arc4random_uniform([drinkImages count]);
+                
+                imageName = [drinkImages objectAtIndex:index];
+                title     = [drinkTitles objectAtIndex:index];
+                
+                break;
+            case 1:
+                menuKey   = [NSString stringWithFormat:@"SaladBarBack_%ld.jpg",(long) index];
+                
+                index     = arc4random_uniform([appImages count]);
+                
+                imageName = [appImages objectAtIndex:index];
+                title     = [appTitles objectAtIndex:index];
+            
+                break;
+            case 2:
+                menuKey   = [NSString stringWithFormat:@"MeatBack_%ld.jpg",(long) index];
+
+                index     = arc4random_uniform([meatImages count]);
+                
+                imageName = [meatImages objectAtIndex:index];
+                title     = [meatTitles objectAtIndex:index];
+                
+                break;
+            case 3:
+                menuKey   = [NSString stringWithFormat:@"DessertBack_%ld.jpg",(long) index];
+
+                index     = arc4random_uniform([dessertImages count]);
+                
+                imageName = [dessertImages objectAtIndex:index];
+                title     = [dessertTitles objectAtIndex:index];
+               
+                break;
+        }
+        
+        image = [UIImage imageNamed:imageName];
+        
+        imageView = [[UIImageView alloc] initWithFrame:frameRect];
+        
+        [imageView setImage:image];
+        
+        cell.backgroundColor =  kHorizontalTableSelectedBackgroundColor;
+        
+        labelView = [[UILabel alloc] initWithFrame:labelRect];
+        
+        [labelView setBackgroundColor:[UIColor blackColor]];
+        
+        [labelView setAlpha:0.7];
+        
+        [labelView setTextColor:[UIColor whiteColor]];
+        
+        [labelView setFont:[UIFont systemFontOfSize:17.0]];
+        
+        [labelView setText:title];
+        
+        [imageView addSubview:labelView];
+        
+        [cell.contentView addSubview:imageView];
+        
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    
+        [imageView sizeThatFits:frameRect.size];
+        [labelView sizeThatFits:labelRect.size];
+        
+        
+
     }
     @catch (NSException *exception) {
         message = [exception description];
@@ -285,12 +624,13 @@
         }
         message = @"";
     }
+    
+    return cell;
+    
 }
 
-#pragma -mark Table View Events
 
-
-
+/* TODO: Uncomment to use horizontal table functionality
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSString *message   = @"",
@@ -349,10 +689,7 @@
 
         [cell setItems:items];
         [cell setBackgroundColor:[UIColor colorWithHexString:@"800000"]];
-        /*[cell.textLabel setTextColor:[UIColor whiteColor]];
-        [cell.textLabel setFont:[UIFont systemFontOfSize:17.0]];
-        [cell.textLabel setText:title];
-        [cell.imageView setImage:[UIImage imageNamed:imageName]];*/
+ 
         
         
     }
@@ -368,22 +705,35 @@
     
     return cell;
 
-}
+}*/
+
 
 -(UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 768, 22)];
+    float x,
+          y,
+          w,
+          h;
+    
+    x =  kRowVerticalPadding * 0.5;
+    y =  kRowVerticalPadding * 0.5;
+    w =  kTableLength - kRowHorizontalPadding;
+    h =  kTableYStart;
+    
+    
+    CGRect frameRect =  CGRectMake(x,y,w,h);
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:frameRect];
     
     NSString *sectionTitle = @"";
               sectionTitle = [menuTitles objectAtIndex:section];
     
-    [titleLabel setBackgroundColor:[UIColor blackColor]];
-    [titleLabel setTextColor:[UIColor orangeColor]];
-    [titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
+    [titleLabel setBackgroundColor:kVerticalTableBackgroundColor];
+    titleLabel.TextColor = kHorizontalTableSelectedBackgroundColor;
+    [titleLabel setFont:[UIFont systemFontOfSize:16.0f]];
     [titleLabel setText:sectionTitle];
 
-    
     return titleLabel;
 }
 
@@ -393,8 +743,8 @@
     NSString *sectionTitle = @"";
               sectionTitle = [menuTitles objectAtIndex:section];
     return sectionTitle;
-}*/
-
+}
+*/
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     NSInteger sectionCount = 4;
     // @"Drinks",@"Salads and Sides", @"Meats", @"Desserts"
@@ -426,11 +776,22 @@
      self.tableView.rowHeight = kCellHeight + (kRowVerticalPadding * 0.5) + ((kRowVerticalPadding * 0.5) * 0.5);
 }
 
+-(void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self startTimers];
+    [self initTableView];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.navigationItem.backBarButtonItem setTintColor:[UIColor whiteColor]];
     [self initMenuCategories];
-    [self initTableView];
+}
+
+-(void) viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [self stopTimers];
 }
 
 - (void)didReceiveMemoryWarning {

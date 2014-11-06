@@ -15,9 +15,18 @@
 
 @property (strong, nonatomic) UIPageControl *pageControl;
 
-@property (nonatomic,strong) NSTimer   *timer;
+@property (nonatomic,strong) NSTimer   *drinksTimer;
+@property (nonatomic,strong) NSTimer   *appsTimer;
+@property (nonatomic,strong) NSTimer   *meatsTimer;
+@property (nonatomic,strong) NSTimer   *dessertsTimer;
+
 @property (nonatomic,strong) NSRunLoop *loop;
 
 
 @property(nonatomic,strong) NSIndexPath *indexPath;
+
+
+-(void) startTimers;
+-(void) stopTimers;
+
 @end
