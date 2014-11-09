@@ -12,12 +12,6 @@
 
 @interface MenuDetailViewController : UITableViewController
 
-@property (strong, nonatomic) IBOutlet UITextView *drinksTextLabel;
-@property (strong, nonatomic) IBOutlet UITextView *wineTextLabel;
 
-
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
-
-@property (strong, nonatomic) NSMutableDictionary *menuDetailData;
 
 @end
