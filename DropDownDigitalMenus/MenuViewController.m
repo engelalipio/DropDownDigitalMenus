@@ -11,6 +11,8 @@
 #import "PageContentViewController.h"
 #import "HorizontalTableViewCell.h"
 #import "Constants.h"
+#import "MenuDetailViewController.h"
+#import "SaladDetailViewController.h"
 
 @interface MenuViewController ()
 {
@@ -504,6 +506,7 @@
 #pragma -mark Table View Events
 
 
+
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSString *message    = @"",
@@ -532,8 +535,20 @@
       
         labelRect =  CGRectMake(kRowHorizontalPadding * 0.5,kCellHeight - kArticleTitleLabelPadding,
                                 kTableLength -4 ,kArticleTitleLabelPadding - kRowVerticalPadding);
- 
-        cellId = @"HorizontalCell";
+        
+        
+        
+        switch ([indexPath section]) {
+            case 0:
+                cellId = @"HorizontalCell1";
+                break;
+                
+            case 1:
+                cellId = @"HorizontalCell";
+                break;
+        }
+
+    
         
         cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         
@@ -799,14 +814,62 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
+-(void) performSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    //Executing Members
+    if ([identifier length] > 0){
+        
+        NSLog(@"%@",identifier);
+    }
+}
+
+
+-(BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    BOOL result = YES;
+    NSString *segName = identifier;
+    
+    if (! [segName length] > 0){
+        result = NO;
+    }
+    
+    return result;
+}
+
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+
+    UIViewController *destVC = nil;
+    
+    NSString *message = @"";
+
+    
+    @try {
+        
+ 
+
+        
+        
+        destVC =   [segue destinationViewController];
+        
+        message = [NSString stringWithFormat:@"%@",destVC.description];
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
+    }
+    
 }
-*/
+
 
 @end

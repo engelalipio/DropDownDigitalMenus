@@ -96,7 +96,7 @@
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
+    return 150;
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -125,7 +125,7 @@
         title = [imageName stringByReplacingOccurrencesOfString:@".gif" withString:@""];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         [cell setBackgroundColor:self.tableView.backgroundColor];
-        [cell.textLabel setTextColor:[UIColor whiteColor]];
+        [cell.textLabel setTextColor:[UIColor orangeColor]];
         
         [cell.textLabel setFont:[UIFont systemFontOfSize:25.0]];
         [cell.textLabel setText:title];

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Salad_Title</key>
+	<string>Salad Area</string>
+	<key>Salad_Desc</key>
+	<string>Once seated, guests can then begin their dining experience by helping themselves to our extravagant 50-60 item seasonal salad area. You will find this is a steakhouse that even vegetarians love™. Sample four freshly made in-house salad dressings, gourmet artisan breads, imported cheeses, fresh buffalo mozzarella, steamed asparagus with strawberry sauce, Brazilian hearts of palm, grilled Portobello mushrooms, Greek olives, shrimp salad, imported Italian salamis, sautéed mushrooms, herbed sweet onions, feijoada (black beans), jasmine rice, spicy surimi sushi, soup du jour, and many other specialties.</string>
+	<key>Meats_Title</key>
+	<string>16 Cuts Above Any Steakhouse</string>
+	<key>Meats_Desc</key>
+	<string>This Brazilian-inspired restaurant specializes in slow-roasted and perfectly seasoned cuts of beef, lamb, pork, chicken, and Brazilian sausage. This technique comes to the United States straight from Southern Brazil, where Gauchos (cowboys) prepare meals over a campfire.
+
+At Texas de Brazil, the skilled gauchos journey through the restaurant with the grilled meats on sword-like skewers taken directly off the grill, stopping at each table to carve slices for diners. This style of service allows guests to experience a wide variety of offerings.</string>
+	<key>Desserts_Title</key>
+	<string>Almost Too Beautiful to Eat</string>
+	<key>Desserts_Desc</key>
+	<string>To conclude your dining experience, treat yourself to one of our delectable desserts.
+
+Brazilian Cheesecake
+Crème Brûlée
+Brazilian Flan
+Chocolate Mousse Cake
+Bananas Foster Pie
+Key Lime Pie
+Carrot Cake
+Pecan Pie
+Brazilian Papaya Cream
+Coconut Chess Pie
+Moscato Berry Tira Mi Su**
+*Dessert is an a la carte item. Selections may vary by location or hours.</string>
+	<key>Wine_Title</key>
+	<string>Churrascaria World of Wines</string>
+	<key>Wine_Desc</key>
+	<string>Our extensive collection features a fantastic variety of wines from all over the world. We believe that wine should be fun, unpretentious, and enjoyed by everyone. Wine is an integral part of our dining experience. Our Wine Spectator award-winning wine list features wines from all over the world with a focus on California and South America. We have wines for all levels of wine aficionados, from beginners to experts alike.
+
+Our private label wines are exclusively made for Texas de Brazil by Santa Rita Vineyards in Chile. Our private label wines are well-rounded, balanced, and easy drinking to complement our food. Next time you dine with us, please ask your server about our featured wine. We do quarterly features of 90+ rated wines at very agreeable prices. Saúde!</string>
+	<key>Bar_Title</key>
+	<string>Premium sprits. Elegant Atmosphere.</string>
+	<key>Bar_Desc</key>
+	<string>Slip into Beijos Bar and Lounge and enjoy a delicious beverage in a chic atmosphere. We are pleased to feature several traditional Brazilian creations, such as our signature cocktail and most popular drink, “the Caipirinha.” With such a wide-array of premium liquors, fine cognacs and specialty martinis, there is something for everyone!
+
+Whether you prefer a perfectly aged single malt scotch or an after-dinner flight of port, you will be amazed by the collection, variety, and service we present. Relax and enjoy. Cheers!</string>
+</dict>
+</plist>
