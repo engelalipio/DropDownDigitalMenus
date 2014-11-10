@@ -168,6 +168,10 @@
 		0FD438F51A10489D00A2436F /* forward-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FD438F41A10489D00A2436F /* forward-25.png */; };
 		0FD438F91A104C4D00A2436F /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD438F71A104C4D00A2436F /* ItemViewController.m */; };
 		0FD438FA1A104C4D00A2436F /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FD438F81A104C4D00A2436F /* ItemViewController.xib */; };
+		0FD438FE1A110CFF00A2436F /* Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD438FD1A110CFF00A2436F /* Formatter.m */; };
+		0FD439011A110DBF00A2436F /* NumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD439001A110DBF00A2436F /* NumberFormatter.m */; };
+		0FE60ADA1A116F9900435F32 /* MeatDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE60AD91A116F9900435F32 /* MeatDetailViewController.m */; };
+		0FE60ADD1A116FB100435F32 /* DessertDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE60ADC1A116FB100435F32 /* DessertDetailViewController.m */; };
 		0FF46D3019F881FC00E51218 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF46D2F19F881FC00E51218 /* main.m */; };
 		0FF46D3319F881FC00E51218 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF46D3219F881FC00E51218 /* AppDelegate.m */; };
 		0FF46D3619F881FC00E51218 /* ServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF46D3519F881FC00E51218 /* ServiceViewController.m */; };
@@ -395,6 +399,15 @@
 		0FD438F61A104C4D00A2436F /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
 		0FD438F71A104C4D00A2436F /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
 		0FD438F81A104C4D00A2436F /* ItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
+		0FD438FC1A110CFF00A2436F /* Formatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Formatter.h; sourceTree = "<group>"; };
+		0FD438FD1A110CFF00A2436F /* Formatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Formatter.m; sourceTree = "<group>"; };
+		0FD438FF1A110DBF00A2436F /* NumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberFormatter.h; sourceTree = "<group>"; };
+		0FD439001A110DBF00A2436F /* NumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberFormatter.m; sourceTree = "<group>"; };
+		0FD439021A110E2B00A2436F /* Formatter_Protected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Formatter_Protected.h; sourceTree = "<group>"; };
+		0FE60AD81A116F9900435F32 /* MeatDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeatDetailViewController.h; sourceTree = "<group>"; };
+		0FE60AD91A116F9900435F32 /* MeatDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeatDetailViewController.m; sourceTree = "<group>"; };
+		0FE60ADB1A116FB100435F32 /* DessertDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DessertDetailViewController.h; sourceTree = "<group>"; };
+		0FE60ADC1A116FB100435F32 /* DessertDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DessertDetailViewController.m; sourceTree = "<group>"; };
 		0FF46D2A19F881FC00E51218 /* DropDownDigitalMenus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropDownDigitalMenus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF46D2E19F881FC00E51218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FF46D2F19F881FC00E51218 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -625,6 +638,18 @@
 				0F2ACD7B1A01B5640028B6E2 /* Tic-Tac-Toe.json */,
 			);
 			name = Games;
+			sourceTree = "<group>";
+		};
+		0FD438FB1A110CBF00A2436F /* Formatter */ = {
+			isa = PBXGroup;
+			children = (
+				0FD438FC1A110CFF00A2436F /* Formatter.h */,
+				0FD438FD1A110CFF00A2436F /* Formatter.m */,
+				0FD438FF1A110DBF00A2436F /* NumberFormatter.h */,
+				0FD439001A110DBF00A2436F /* NumberFormatter.m */,
+				0FD439021A110E2B00A2436F /* Formatter_Protected.h */,
+			);
+			name = Formatter;
 			sourceTree = "<group>";
 		};
 		0FF46D2119F881FA00E51218 = {
@@ -869,6 +894,7 @@
 		0FF46DDC19F994DA00E51218 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0FD438FB1A110CBF00A2436F /* Formatter */,
 				0F2ACD4219FC2BC90028B6E2 /* Content */,
 				0F2ACD2D19FAC4690028B6E2 /* UI */,
 				0FF46E1919F9977600E51218 /* Categories */,
@@ -962,6 +988,10 @@
 				0FD438AE1A0B151100A2436F /* MenuDetailViewController.m */,
 				0FD438B41A0B376B00A2436F /* SaladDetailViewController.h */,
 				0FD438B51A0B376B00A2436F /* SaladDetailViewController.m */,
+				0FE60AD81A116F9900435F32 /* MeatDetailViewController.h */,
+				0FE60AD91A116F9900435F32 /* MeatDetailViewController.m */,
+				0FE60ADB1A116FB100435F32 /* DessertDetailViewController.h */,
+				0FE60ADC1A116FB100435F32 /* DessertDetailViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -1257,6 +1287,7 @@
 				0FF46DF819F9952A00E51218 /* AFURLConnectionOperation.m in Sources */,
 				0FD438F91A104C4D00A2436F /* ItemViewController.m in Sources */,
 				0FF46DFA19F9952A00E51218 /* UIImageView+AFNetworking.m in Sources */,
+				0FD439011A110DBF00A2436F /* NumberFormatter.m in Sources */,
 				0FF46E2019F9979200E51218 /* UIImage+ImageEffects.m in Sources */,
 				0FD438911A047FEA00A2436F /* HorizontalTableViewCell.m in Sources */,
 				0F2ACD821A01E7AC0028B6E2 /* MenuViewController.m in Sources */,
@@ -1265,6 +1296,7 @@
 				0FF46E2119F9979200E51218 /* UIColor+ColorWithHexString.m in Sources */,
 				0F2ACD3519FAD74F0028B6E2 /* ContainerCellView.m in Sources */,
 				0F2ACD3119FAC4AE0028B6E2 /* HeaderImageCell.m in Sources */,
+				0FE60ADD1A116FB100435F32 /* DessertDetailViewController.m in Sources */,
 				0FF46E2219F9979200E51218 /* UIView+Additions.m in Sources */,
 				0FD438B61A0B376B00A2436F /* SaladDetailViewController.m in Sources */,
 				0FF46E0819F9953500E51218 /* JTDataMappings.m in Sources */,
@@ -1276,6 +1308,7 @@
 				0FF46E0A19F9953500E51218 /* JTMappings.m in Sources */,
 				0FF46E1519F9958300E51218 /* SWRevealViewController.m in Sources */,
 				0FF46DF319F9952A00E51218 /* AFHTTPRequestOperation.m in Sources */,
+				0FE60ADA1A116F9900435F32 /* MeatDetailViewController.m in Sources */,
 				0F2ACD7F1A01B7A80028B6E2 /* GameViewController.m in Sources */,
 				0FF46DF219F9952A00E51218 /* AFHTTPClient.m in Sources */,
 				0FF46E0919F9953500E51218 /* JTDateMappings.m in Sources */,
@@ -1286,6 +1319,7 @@
 				0FF46D3319F881FC00E51218 /* AppDelegate.m in Sources */,
 				0FF46D3619F881FC00E51218 /* ServiceViewController.m in Sources */,
 				0FF46DF519F9952A00E51218 /* AFJSONRequestOperation.m in Sources */,
+				0FD438FE1A110CFF00A2436F /* Formatter.m in Sources */,
 				0FF46E0D19F9953500E51218 /* NSObject+JTObjectMapping.m in Sources */,
 				0FF46D3019F881FC00E51218 /* main.m in Sources */,
 				0FF46DF719F9952A00E51218 /* AFPropertyListRequestOperation.m in Sources */,

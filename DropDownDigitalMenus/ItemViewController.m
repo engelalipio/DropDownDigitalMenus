@@ -7,8 +7,12 @@
 //
 
 #import "ItemViewController.h"
+#import "NumberFormatter.h"
 
 @interface ItemViewController ()
+{
+    float originalPrice;
+}
 -(void) configureView;
 @end
 
@@ -24,9 +28,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    originalPrice = 0.0f;
+    [self.itemStepper setValue:1];
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     
-    
+    [self extractOriginalPrice];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,22 +72,77 @@
     
 }
 
-- (IBAction)stepperAction:(UIStepper *)sender {
+-(void) extractOriginalPrice{
     
     NSString *message  = @"";
-    int quantity    = 0;
+    
+    float    price     = 0.0f;
+    
+    NSRange range ;
     @try {
         
+    
+        range = [self.labelPrice.text rangeOfString:@"$"];
+        
+        if ( range.location != NSNotFound){
+            price = [[self.labelPrice.text substringFromIndex:1] floatValue];
+        }
+        
+        originalPrice = price;
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        message = @"";
+        price   = 0.0f;
+    }
+    
+}
+
+- (IBAction)stepperAction:(UIStepper *)sender {
+    
+    NSString *message    = @"";
+    
+    int   quantity       = 1;
+    
+    float price          = 0;
+    
+    NSRange range ;
+    
+    NumberFormatter *formatter = nil;
+    
+    NSNumber *numberPrice = nil;
+    
+    @try {
+        
+        if (originalPrice == 0.0f){
+            [self extractOriginalPrice];
+        }
         
         quantity = self.itemStepper.value;
+    
+        range = [self.labelPrice.text rangeOfString:@"$"];
         
+        if ( range.location != NSNotFound){
+            price = [[self.labelPrice.text substringFromIndex:1] floatValue];
+            
+        }
         
         if (quantity <= 0){
-            quantity = 0;
+            quantity = 1;
         }
+        
+        price = originalPrice * quantity;
         
         [self.labelQuantity setText:[NSString stringWithFormat:@"%d",quantity]];
         
+        formatter = [NumberFormatter currencyFormatterWithDecimalDigitsCount:2];
+        
+        numberPrice =  [[NSNumber alloc] initWithFloat:price];
+        
+        [self.labelPrice setText:[formatter stringFromValue:numberPrice]];
         
     }
     @catch (NSException *exception) {

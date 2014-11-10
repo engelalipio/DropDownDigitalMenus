@@ -287,28 +287,28 @@
                 
                 switch (iDrinks) {
                     case 0:
-                        drinkTitle = @"Custom Drinks";
+                        drinkTitle = @"Wide-array of premium liquors, fine cognacs and specialty martinis";
                         break;
                     case 1:
-                        drinkTitle = @"Champagne";
+                        drinkTitle = @"Traditional Brazilian Creations";
                         break;
                     case 2:
-                        drinkTitle = @"Guarana";
+                        drinkTitle = @"Cocktails";
                         break;
                     case 3:
-                        drinkTitle = @"Strawberries";
+                        drinkTitle = @"Tropical Daiquiris";
                         break;
                     case 4:
                         drinkTitle = @"Caipirinha";
                         break;
                     case 5:
-                        drinkTitle = @"Other Drinks";
+                        drinkTitle = @"Specialty Martinins";
                         break;
                     case 6:
-                        drinkTitle = @"Soft Drinks";
+                        drinkTitle = @"Exotic Mojitos";
                         break;
                     case 7:
-                        drinkTitle = @"Various Wines";
+                        drinkTitle = @"Non-Alcoholic Beverages";
                         break;
                  }
                 
@@ -368,7 +368,7 @@
         if (! meatsMenuData){
             meatImages = [[NSMutableArray alloc] initWithCapacity:meatCount];
             meatTitles = [[NSMutableArray alloc] initWithCapacity:meatCount];
-            for(int iMeats = 0; iMeats < meatCount; iMeats++ ){
+            for(int iMeats = 0; iMeats < meatCount; iMeats++ ){ 
                 NSString *meatImageName = [NSString stringWithFormat:meatFormat,iMeats],
                          *meatTitle  = meatImageName;
                 
@@ -505,9 +505,7 @@
 
 #pragma -mark Table View Events
 
-
-
--(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+ -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSString *message    = @"",
              *title      = @"",
@@ -540,11 +538,17 @@
         
         switch ([indexPath section]) {
             case 0:
-                cellId = @"HorizontalCell1";
+                cellId = @"cbDrinks";
                 break;
                 
             case 1:
-                cellId = @"HorizontalCell";
+                cellId = @"cbSalads";
+                break;
+            case 2:
+                cellId = @"cbMeats";
+                break;
+            case 3:
+                cellId = @"cbDesserts";
                 break;
         }
 
@@ -818,11 +822,54 @@
 #pragma mark - Navigation
 
 -(void) performSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    
+    UIStoryboardSegue *seg = nil;
+    MenuDetailViewController *drinksVC = nil;
+    SaladDetailViewController *saladsVC = nil;
+    
+    UIViewController *vc = nil;
+    
+    NSIndexPath *indexPath = nil;
+    
     //Executing Members
     if ([identifier length] > 0){
         
         NSLog(@"%@",identifier);
     }
+    
+   /* if (sender){
+        indexPath = (NSIndexPath *) sender;
+        
+        switch ([indexPath section]) {
+            case 0:
+                drinksVC =  [[MenuDetailViewController alloc] init];
+                vc = drinksVC;
+                break;
+                
+            case 1:
+                saladsVC  = [[SaladDetailViewController alloc] init];
+                vc = saladsVC;
+                break;
+            case 2:
+                
+                break;
+            case 3:
+                
+                break;
+        }
+        
+        
+        seg = [[UIStoryboardSegue alloc] initWithIdentifier:identifier source:self destination:vc];
+        
+        
+        [self presentViewController:vc animated:YES completion:nil];
+ 
+        
+    }*/
+    
+    
+
+    
 }
 
 
@@ -851,13 +898,11 @@
     
     @try {
         
- 
-
-        
         
         destVC =   [segue destinationViewController];
+
         
-        message = [NSString stringWithFormat:@"%@",destVC.description];
+
     }
     @catch (NSException *exception) {
         message = [exception description];

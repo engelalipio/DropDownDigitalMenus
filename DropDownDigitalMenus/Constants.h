@@ -88,6 +88,8 @@
 
 #define kTintColor @"13658F"
 
+#define kAllDigits      @ "0123456789"
+
 
 // Width (or length before rotation) of the table view embedded within another table view's row
 #define kTableLength                                768

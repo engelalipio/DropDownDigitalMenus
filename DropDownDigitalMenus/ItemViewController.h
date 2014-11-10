@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *labelQuantity;
 @property (strong, nonatomic) IBOutlet UIStepper *itemStepper;
 @property (strong, nonatomic) IBOutlet UIButton *addToOrderButton;
+@property (strong, nonatomic) IBOutlet UILabel *labelTitle;
 
 
 - (IBAction)addToOrderAction:(UIButton *)sender;
