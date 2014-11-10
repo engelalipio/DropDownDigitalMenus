@@ -164,6 +164,10 @@
 		0FD438E91A0DAF4D00A2436F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FD438D71A0DAF4D00A2436F /* Icon@2x.png */; };
 		0FD438EB1A0DB11C00A2436F /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FD438EA1A0DB11C00A2436F /* Images-2.xcassets */; };
 		0FD438F11A0DD86000A2436F /* HomeScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FD438F01A0DD86000A2436F /* HomeScreen.png */; };
+		0FD438F31A1044B000A2436F /* plus-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FD438F21A1044AF00A2436F /* plus-32.png */; };
+		0FD438F51A10489D00A2436F /* forward-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FD438F41A10489D00A2436F /* forward-25.png */; };
+		0FD438F91A104C4D00A2436F /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD438F71A104C4D00A2436F /* ItemViewController.m */; };
+		0FD438FA1A104C4D00A2436F /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FD438F81A104C4D00A2436F /* ItemViewController.xib */; };
 		0FF46D3019F881FC00E51218 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF46D2F19F881FC00E51218 /* main.m */; };
 		0FF46D3319F881FC00E51218 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF46D3219F881FC00E51218 /* AppDelegate.m */; };
 		0FF46D3619F881FC00E51218 /* ServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF46D3519F881FC00E51218 /* ServiceViewController.m */; };
@@ -386,6 +390,11 @@
 		0FD438D71A0DAF4D00A2436F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		0FD438EA1A0DB11C00A2436F /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		0FD438F01A0DD86000A2436F /* HomeScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HomeScreen.png; sourceTree = "<group>"; };
+		0FD438F21A1044AF00A2436F /* plus-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-32.png"; sourceTree = "<group>"; };
+		0FD438F41A10489D00A2436F /* forward-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forward-25.png"; sourceTree = "<group>"; };
+		0FD438F61A104C4D00A2436F /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		0FD438F71A104C4D00A2436F /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
+		0FD438F81A104C4D00A2436F /* ItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
 		0FF46D2A19F881FC00E51218 /* DropDownDigitalMenus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropDownDigitalMenus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF46D2E19F881FC00E51218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FF46D2F19F881FC00E51218 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -552,6 +561,9 @@
 		0F2ACD2D19FAC4690028B6E2 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0FD438F61A104C4D00A2436F /* ItemViewController.h */,
+				0FD438F71A104C4D00A2436F /* ItemViewController.m */,
+				0FD438F81A104C4D00A2436F /* ItemViewController.xib */,
 				0F2ACD2E19FAC4AE0028B6E2 /* HeaderImageCell.h */,
 				0F2ACD2F19FAC4AE0028B6E2 /* HeaderImageCell.m */,
 				0F2ACD3019FAC4AE0028B6E2 /* HeaderImageCell.xib */,
@@ -696,6 +708,8 @@
 		0FF46D5719F88B1500E51218 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				0FD438F41A10489D00A2436F /* forward-25.png */,
+				0FD438F21A1044AF00A2436F /* plus-32.png */,
 				0FD438C61A0DAF4D00A2436F /* Icon-40.png */,
 				0FD438C71A0DAF4D00A2436F /* Icon-40@2x.png */,
 				0FD438C81A0DAF4D00A2436F /* Icon-40@3x.png */,
@@ -1103,6 +1117,7 @@
 				0F2ACC5319FA0EFF0028B6E2 /* BarBack_5.jpg in Resources */,
 				0F2ACCDE19FA12F70028B6E2 /* Kitchen_1.jpg in Resources */,
 				0FD438A81A071C5D00A2436F /* SaladBarBack_5.jpg in Resources */,
+				0FD438F51A10489D00A2436F /* forward-25.png in Resources */,
 				0F2ACCEC19FA13140028B6E2 /* SaladBar_4.jpg in Resources */,
 				0F2ACCEF19FA13140028B6E2 /* SaladBar_7.jpg in Resources */,
 				0FD438DF1A0DAF4D00A2436F /* Icon-76.png in Resources */,
@@ -1177,7 +1192,9 @@
 				0F2ACC6019FA0F0B0028B6E2 /* DessertBack_3.jpg in Resources */,
 				0F2ACCF219FA13250028B6E2 /* Table_0.jpg in Resources */,
 				0FD438E71A0DAF4D00A2436F /* Icon-Small@3x.png in Resources */,
+				0FD438F31A1044B000A2436F /* plus-32.png in Resources */,
 				0F2ACCEB19FA13140028B6E2 /* SaladBar_3.jpg in Resources */,
+				0FD438FA1A104C4D00A2436F /* ItemViewController.xib in Resources */,
 				0F2ACCD419FA12D50028B6E2 /* Entree_4.jpg in Resources */,
 				0F2ACCA119FA126A0028B6E2 /* imgGamesButtonBrown.png in Resources */,
 				0FF46D4119F881FC00E51218 /* LaunchScreen.xib in Resources */,
@@ -1238,6 +1255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FF46DF819F9952A00E51218 /* AFURLConnectionOperation.m in Sources */,
+				0FD438F91A104C4D00A2436F /* ItemViewController.m in Sources */,
 				0FF46DFA19F9952A00E51218 /* UIImageView+AFNetworking.m in Sources */,
 				0FF46E2019F9979200E51218 /* UIImage+ImageEffects.m in Sources */,
 				0FD438911A047FEA00A2436F /* HorizontalTableViewCell.m in Sources */,
