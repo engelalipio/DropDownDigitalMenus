@@ -14,6 +14,11 @@
 
 @implementation AppDelegate
 
+@synthesize drinkItems = _drinkItems;
+@synthesize saladItems = _saladItems;
+@synthesize meatItems  = _meatItems;
+@synthesize dessertItems = _dessertItems;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 @interface ItemViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
@@ -18,6 +19,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *addToOrderButton;
 @property (strong, nonatomic) IBOutlet UILabel *labelTitle;
 
+
+- (IBAction)cancelOrder:(UIButton *)sender;
 
 - (IBAction)addToOrderAction:(UIButton *)sender;
 

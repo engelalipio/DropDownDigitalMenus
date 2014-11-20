@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ServiceViewController : UIViewController
+@interface ServiceViewController : UITableViewController
 
 
+@property (strong, nonatomic) IBOutlet UIButton *pageButton;
+
+- (IBAction)pageServer:(UIButton *)sender;
 
 @end
 

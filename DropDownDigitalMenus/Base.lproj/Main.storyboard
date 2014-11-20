@@ -495,34 +495,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L2A-Mr-kUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="-2862"/>
-        </scene>
-        <!--Service-->
-        <scene sceneID="hNz-n2-bh7">
-            <objects>
-                <viewController storyboardIdentifier="sbService" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" userLabel="Service" customClass="ServiceViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
-                        <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Service" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="287" y="448" width="195" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="1" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.50196078431372548" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Service" image="waiter-32.png" id="acW-dT-cKf"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="280" y="-945"/>
+            <point key="canvasLocation" x="1430" y="-2886"/>
         </scene>
         <!--Games-->
         <scene sceneID="wg7-f3-ORb">
@@ -620,9 +593,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="jRf-Ev-JJb" kind="relationship" relationship="viewControllers" id="54V-xA-Uo9"/>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="4sb-I5-VB2"/>
+                        <segue destination="8ro-vk-RHL" kind="relationship" relationship="viewControllers" id="3A7-aT-AKF"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="HfE-Ws-oeo"/>
-                        <segue destination="HLk-gE-jaj" kind="relationship" relationship="viewControllers" id="aeD-vB-JDp"/>
+                        <segue destination="byA-60-evw" kind="relationship" relationship="viewControllers" id="qfL-nI-JWn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -638,7 +611,7 @@
                         <viewControllerLayoutGuide type="bottom" id="6fP-pl-8Vt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dLH-g9-e5B">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Be Social" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fui-2W-QTg">
@@ -654,7 +627,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5H-4W-1rV" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1104" y="-965"/>
+            <point key="canvasLocation" x="1134" y="-901"/>
         </scene>
         <!--Home-->
         <scene sceneID="lL7-5Y-a9b">
@@ -763,8 +736,8 @@ As you dine endlessly on Brazilian fare, let one of our in-house wine connoisseu
                         </subviews>
                         <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Churrascaria" id="fiG-5A-Zkb">
-                        <barButtonItem key="backBarButtonItem" title="Home" id="IQk-Nz-Zev"/>
+                    <navigationItem key="navigationItem" title="CHURRASCARIA" id="fiG-5A-Zkb">
+                        <barButtonItem key="backBarButtonItem" title="HOME" id="IQk-Nz-Zev"/>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="768" height="1024"/>
@@ -775,7 +748,7 @@ As you dine endlessly on Brazilian fare, let one of our in-house wine connoisseu
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8b-0X-6TW" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="347" y="-2886"/>
+            <point key="canvasLocation" x="1" y="-2932"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7Mq-Dy-K87">
@@ -785,6 +758,8 @@ As you dine endlessly on Brazilian fare, let one of our in-house wine connoisseu
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cWX-Yw-dty">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
@@ -815,7 +790,7 @@ As you dine endlessly on Brazilian fare, let one of our in-house wine connoisseu
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWG-km-POv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-622" y="-2487"/>
+            <point key="canvasLocation" x="-128" y="-2927"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WYf-7P-k9E">
@@ -825,6 +800,8 @@ As you dine endlessly on Brazilian fare, let one of our in-house wine connoisseu
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hI9-7p-83q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
@@ -836,7 +813,7 @@ As you dine endlessly on Brazilian fare, let one of our in-house wine connoisseu
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NfY-Ss-YXQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1173" y="-2886"/>
+            <point key="canvasLocation" x="1257" y="-2756"/>
         </scene>
         <!--SaladBar-->
         <scene sceneID="rwp-lB-jf1">
@@ -2006,6 +1983,534 @@ House Specialty Sauces
             </objects>
             <point key="canvasLocation" x="2280" y="-3762"/>
         </scene>
+        <!--Order-->
+        <scene sceneID="tDI-B6-8OA">
+            <objects>
+                <tableViewController storyboardIdentifier="sbOrder" title="Order" useStoryboardIdentifierAsRestorationIdentifier="YES" id="byA-60-evw" userLabel="Order" customClass="OrderViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="static" style="plain" rowHeight="100" sectionHeaderHeight="30" sectionFooterHeight="1" id="l41-LL-Ovy">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="957"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <sections>
+                            <tableViewSection headerTitle="BEVERAGES" id="Zxb-LU-5sv">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="RWf-Am-z82" detailTextLabel="0zH-gZ-hp9" imageView="vBB-Bm-eBz" rowHeight="100" style="IBUITableViewCellStyleSubtitle" id="KBn-83-4PY">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KBn-83-4PY" id="cIo-mn-7L0">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Caipirinha" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RWf-Am-z82">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="BarBack_4.jpg" id="vBB-Bm-eBz">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Quantity: 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0zH-gZ-hp9">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="$8.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9m-6k-FLu">
+                                                    <rect key="frame" x="713" y="30" width="74" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="74" id="y34-fp-RZC"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="m9m-6k-FLu" secondAttribute="trailing" constant="-27" id="NTk-9p-OQo"/>
+                                                <constraint firstItem="m9m-6k-FLu" firstAttribute="top" secondItem="cIo-mn-7L0" secondAttribute="topMargin" constant="22" id="gS5-8V-UXz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="SALADS &amp; SIDES" id="yC0-Px-cPv">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="1aM-q1-RGt" detailTextLabel="6TP-FF-9wo" imageView="X0O-Gi-rJ4" rowHeight="100" style="IBUITableViewCellStyleSubtitle" id="rRU-mc-lgV">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rRU-mc-lgV" id="6gf-EF-z0d">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Fruit Salad" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1aM-q1-RGt">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="WineBack_0.jpg" id="X0O-Gi-rJ4">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Quantity: 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6TP-FF-9wo">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="$7.50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Gr-jw-fdM">
+                                                    <rect key="frame" x="713" y="30" width="74" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="74" id="zES-ui-2Ju"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="5Gr-jw-fdM" firstAttribute="top" secondItem="6gf-EF-z0d" secondAttribute="topMargin" constant="22" id="KNA-w1-GQr"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5Gr-jw-fdM" secondAttribute="trailing" constant="-27" id="lvM-eV-bPf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="MEATS" id="VGq-EW-Ysp">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="BQ9-AF-QlI" detailTextLabel="reR-hn-RDF" imageView="aZP-1O-mbD" rowHeight="100" style="IBUITableViewCellStyleSubtitle" id="pCZ-37-tyL">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pCZ-37-tyL" id="vnW-iH-iKc">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Brazilian Picanha" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BQ9-AF-QlI">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Options: Medium-Rare, Low Salt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="reR-hn-RDF">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="MeatBack_4.jpg" id="aZP-1O-mbD">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="backgroundColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="$10.25" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3Q-B5-7wi">
+                                                    <rect key="frame" x="713" y="30" width="74" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="74" id="0Pd-ZF-BK4"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="H3Q-B5-7wi" secondAttribute="trailing" constant="-27" id="4HO-jI-mN6"/>
+                                                <constraint firstItem="H3Q-B5-7wi" firstAttribute="top" secondItem="vnW-iH-iKc" secondAttribute="topMargin" constant="22" id="MVw-lr-mlE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="f1f-7i-61x" detailTextLabel="EEf-n2-kqv" imageView="Dca-MU-vrh" rowHeight="100" style="IBUITableViewCellStyleSubtitle" id="Ruz-Mj-dCN">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ruz-Mj-dCN" id="fEf-du-8vR">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Chicken Breast wrapped in Bacon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f1f-7i-61x">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Options: Outer Skewer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EEf-n2-kqv">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="MeatBack_0.jpg" id="Dca-MU-vrh">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="backgroundColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="$9.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8y-IR-aKn">
+                                                    <rect key="frame" x="713" y="30" width="74" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="74" id="D4h-hU-xjm"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="n8y-IR-aKn" firstAttribute="top" secondItem="fEf-du-8vR" secondAttribute="topMargin" constant="22" id="476-n3-fYM"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="n8y-IR-aKn" secondAttribute="trailing" constant="-27" id="B6q-mJ-jwJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="DESSERTS" id="BHg-PL-dA2">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="5U3-wP-hld" detailTextLabel="AtB-l3-O75" imageView="5dg-yh-g9Y" rowHeight="100" style="IBUITableViewCellStyleSubtitle" id="acw-XZ-FzJ">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="acw-XZ-FzJ" id="x2D-Uv-L1B">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Pecan Pie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5U3-wP-hld">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Options: Vanilla Ice-Cream" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AtB-l3-O75">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="DessertBack_6.jpg" id="5dg-yh-g9Y">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="backgroundColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="$6.25" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kN9-Wv-dVg">
+                                                    <rect key="frame" x="713" y="30" width="74" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="74" id="y64-vv-ub1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="kN9-Wv-dVg" firstAttribute="top" secondItem="x2D-Uv-L1B" secondAttribute="topMargin" constant="22" id="BoJ-Xo-GhF"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="kN9-Wv-dVg" secondAttribute="trailing" constant="-27" id="LDx-3d-dNa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="ORDER DETAIL" id="gvN-Uv-xhH">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="s2G-5e-dbx">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s2G-5e-dbx" id="TYm-Be-9IR">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CURRENT ORDER - 5 ITEMS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1o-bQ-RhJ">
+                                                    <rect key="frame" x="234" y="8" width="300" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGO-Ca-7hV">
+                                                    <rect key="frame" x="634" y="46" width="120" height="30"/>
+                                                    <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <state key="normal" title="PAY NOW">
+                                                        <color key="titleColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="payOrder:" destination="byA-60-evw" eventType="touchUpInside" id="sQB-Jr-eaj"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89D-Xp-byr">
+                                                    <rect key="frame" x="324" y="44" width="120" height="30"/>
+                                                    <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <state key="normal" title="PLACE ORDER">
+                                                        <color key="titleColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="placeOrder:" destination="byA-60-evw" eventType="touchUpInside" id="KPg-3q-a33"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$41.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="poO-z1-AGS">
+                                                    <rect key="frame" x="696" y="17" width="58" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="px5-1p-ya2">
+                                                    <rect key="frame" x="15" y="44" width="120" height="30"/>
+                                                    <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <state key="normal" title="EDIT ORDER">
+                                                        <color key="titleColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="changeOrder:" destination="byA-60-evw" eventType="touchUpInside" id="5gf-K4-Caw"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Order" image="restaurant-32.png" id="319-pi-Uad"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="768" height="957"/>
+                    <connections>
+                        <outlet property="changeOrder" destination="px5-1p-ya2" id="JhE-aT-4nf"/>
+                        <outlet property="orderButton" destination="89D-Xp-byr" id="emq-oY-yFG"/>
+                        <outlet property="payButton" destination="rGO-Ca-7hV" id="cXZ-AB-pya"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0GN-CV-6Iz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="470" y="-1639.5"/>
+        </scene>
+        <!--Service-->
+        <scene sceneID="ddv-5a-eKR">
+            <objects>
+                <tableViewController storyboardIdentifier="sbService" title="Service" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8ro-vk-RHL" customClass="ServiceViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="static" style="plain" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="100" sectionHeaderHeight="41" sectionFooterHeight="1" id="TZ1-pM-HjB">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="957"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <sections>
+                            <tableViewSection headerTitle="ORDER STATUS" id="Mic-qe-Kch">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="iO2-St-E1z" detailTextLabel="Rkl-t6-Kbo" rowHeight="100" style="IBUITableViewCellStyleSubtitle" id="M1w-zT-hJF">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M1w-zT-hJF" id="f1D-dX-wtn">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="SEND TO KITCHEN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iO2-St-E1z">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Current Duration: 6 minutes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rkl-t6-Kbo">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="CALL SERVER" id="jPj-R0-TMk">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="0f8-e0-2LQ">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0f8-e0-2LQ" id="yJb-Ow-zvl">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lr-it-s7K">
+                                                    <rect key="frame" x="340" y="50" width="104" height="30"/>
+                                                    <color key="backgroundColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="Page Server">
+                                                        <color key="titleColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="pageServer:" destination="8ro-vk-RHL" eventType="touchUpInside" id="Pr4-W7-2nl"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CLICK THE BUTTON TO PAGE YOUR SERVER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbv-Bd-a38">
+                                                    <rect key="frame" x="209" y="22" width="383" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Service" image="waiter-32.png" id="pUf-FD-Hs6"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="768" height="957"/>
+                    <connections>
+                        <outlet property="pageButton" destination="4lr-it-s7K" id="aNw-YS-66b"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7SJ-Tc-jNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="57" y="-1256.5"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="4gj-0Y-VZe">
+            <objects>
+                <viewController storyboardIdentifier="sbNews" title="News" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sIH-oI-E0v" customClass="NewsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7QA-PI-ne8"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nn5-3f-PEb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="975" id="YU9-cv-Srq">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Orange" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jz7-5p-1cd" userLabel="orangeContainer">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="375"/>
+                                <color key="backgroundColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="304" image="RestaurantBack_3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Xu7-01-D1q" userLabel="imageContainer">
+                                <rect key="frame" x="0.0" y="64" width="768" height="304"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXy-hr-lDK" userLabel="textContainer">
+                                <rect key="frame" x="214" y="383" width="500" height="150"/>
+                                <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="REVIEW: The Churrascaria NYC">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+November 14th, 2014 | Press
+The Celebrity Cafe – New York, NY Author Rating:  4.0 Stars – Very Good You will NEVER leave hungry after a meal at Texas de Brazil Churrascaria; an exciting Brazilian Steakhouse located at XXXX Third Avenue, New York NY 10021. Dinner hours start at 5:30 pm Monday through Friday and end at 10:00 pm (10:30 […]</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NewsBack_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="n5h-9V-TzN">
+                                <rect key="frame" x="16" y="383" width="150" height="150"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NewsBack_1.png" translatesAutoresizingMaskIntoConstraints="NO" id="xby-x9-ujH">
+                                <rect key="frame" x="16" y="541" width="150" height="150"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eO0-TI-L1x" userLabel="textContainer">
+                                <rect key="frame" x="214" y="699" width="500" height="150"/>
+                                <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="REVIEW: The Churrascaria NYC">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+November 14th, 2014 | Press
+The Celebrity Cafe – New York, NY Author Rating:  4.0 Stars – Very Good You will NEVER leave hungry after a meal at Texas de Brazil Churrascaria; an exciting Brazilian Steakhouse located at XXXX Third Avenue, New York NY 10021. Dinner hours start at 5:30 pm Monday through Friday and end at 10:00 pm (10:30 […]</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.91764705882352937" blue="0.7686274509803922" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NewsBack_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qn9-P9-GfX">
+                                <rect key="frame" x="16" y="699" width="150" height="150"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NewsBack_3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="X6l-j8-qJ9">
+                                <rect key="frame" x="16" y="866" width="150" height="150"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qd-8c-pve" userLabel="textContainer">
+                                <rect key="frame" x="214" y="866" width="500" height="150"/>
+                                <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="REVIEW: The Churrascaria NYC">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+November 14th, 2014 | Press
+The Celebrity Cafe – New York, NY Author Rating:  4.0 Stars – Very Good You will NEVER leave hungry after a meal at Texas de Brazil Churrascaria; an exciting Brazilian Steakhouse located at XXXX Third Avenue, New York NY 10021. Dinner hours start at 5:30 pm Monday through Friday and end at 10:00 pm (10:30 […]</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.91764705882352937" blue="0.7686274509803922" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHP-Fk-nsO" userLabel="textContainer">
+                                <rect key="frame" x="214" y="541" width="500" height="150"/>
+                                <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <attributedString key="attributedText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="LATEST NEWS &amp; UPDATES" id="oCR-IG-7ck">
+                        <barButtonItem key="backBarButtonItem" title="NEWS" id="EDk-f8-DSC"/>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="768" height="1024"/>
+                    <connections>
+                        <outlet property="imageView" destination="Xu7-01-D1q" id="JUE-5f-fBd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dLa-rR-Ac5" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="261" y="-3411"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="g8r-pD-VAh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jqh-RP-qyq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K0c-PM-S57">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sIH-oI-E0v" kind="relationship" relationship="rootViewController" id="Gfh-Ot-UgZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YOu-Ma-uab" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-248" y="-3559"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BarBack_3.jpg" width="1000" height="400"/>
@@ -2030,6 +2535,10 @@ House Specialty Sauces
         <image name="MeatBack_7.jpg" width="1000" height="400"/>
         <image name="MeatBack_8.jpg" width="999" height="400"/>
         <image name="MeatBack_9.jpg" width="1000" height="400"/>
+        <image name="NewsBack_0.png" width="150" height="150"/>
+        <image name="NewsBack_1.png" width="150" height="150"/>
+        <image name="NewsBack_2.png" width="150" height="150"/>
+        <image name="NewsBack_3.jpg" width="150" height="150"/>
         <image name="RestaurantBack_1.jpg" width="1000" height="400"/>
         <image name="RestaurantBack_3.jpg" width="1000" height="400"/>
         <image name="SaladBarBack_0.jpg" width="1000" height="400"/>
@@ -2046,12 +2555,13 @@ House Specialty Sauces
         <image name="collaboration-32.png" width="32" height="32"/>
         <image name="control_panel-32.png" width="32" height="32"/>
         <image name="put_in_motion-32.png" width="32" height="32"/>
+        <image name="restaurant-32.png" width="32" height="32"/>
         <image name="waiter-32.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Y3f-ct-Bf2"/>
-        <segue reference="uSA-hZ-hEL"/>
-        <segue reference="PSK-oQ-1hD"/>
         <segue reference="7F8-jg-uv8"/>
+        <segue reference="PSK-oQ-1hD"/>
+        <segue reference="uSA-hZ-hEL"/>
+        <segue reference="Y3f-ct-Bf2"/>
     </inferredMetricsTieBreakers>
 </document>

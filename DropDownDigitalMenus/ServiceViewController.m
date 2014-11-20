@@ -29,55 +29,6 @@
 }
 
 
-
-#pragma mark - TableView Events
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSDictionary *sectionData = [categorySections objectAtIndex:section];
-    NSString *header = [sectionData objectForKey:@"description"];
-    return header;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 20.0;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 200.0;
-}
-
--(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    NSString *message   = @"",
-             *imageName = @"";
-    
-    ContainerTableCellTableViewCell *cell = nil;
-    
-    @try {
-        
-        cell = [tableView dequeueReusableCellWithIdentifier:@"ContainerTableCell"];
-        
-        NSDictionary *cellData = [categorySections objectAtIndex:[indexPath section]];  // Note we're using section, not row here
-        NSArray *articleData = [cellData objectForKey:@"items"];
-        
-        /*imageName = [articleData objectAtIndex:0];
-         
-         [cell.imageView setImage:[UIImage imageNamed:imageName]];*/
-        
-        [cell setCollectionData:articleData];
-        
-    }
-    @catch (NSException *exception) {
-        message = [exception description];
-    }
-    @finally {
-        if ([message length] > 0){
-            NSLog(@"%@",message);
-        }
-        message = @"";
-    }
-    
-    return cell;
-}
-
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSInteger rows = 1;
     
@@ -85,7 +36,7 @@
 }
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    NSInteger sections = 1;
+    NSInteger sections = 2;
     
     if (categorySections){
         // sections = [categorySections count];
@@ -94,4 +45,12 @@
     return sections;
 }
 
+- (IBAction)pageServer:(UIButton *)sender {
+    
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Page Server Confirmation" message:@"Are you sure you want to page your server?" delegate:self
+                                          cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
+    
+    [alert show];
+}
 @end

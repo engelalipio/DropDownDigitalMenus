@@ -302,7 +302,7 @@
                         drinkTitle = @"Caipirinha";
                         break;
                     case 5:
-                        drinkTitle = @"Specialty Martinins";
+                        drinkTitle = @"Specialty Martinis";
                         break;
                     case 6:
                         drinkTitle = @"Exotic Mojitos";

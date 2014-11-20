@@ -54,11 +54,18 @@
 }
 */
 
+- (IBAction)cancelOrder:(UIButton *)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
 - (IBAction)addToOrderAction:(UIButton *)sender {
     
     NSString *message  = @"";
     
     @try {
+        
     
         [self dismissViewControllerAnimated:YES completion:nil];
     

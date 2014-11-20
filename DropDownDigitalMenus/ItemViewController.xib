@@ -57,7 +57,7 @@
                         <color key="titleColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
-                        <action selector="addToOrderAction:" destination="-1" eventType="touchUpInside" id="8nJ-CO-ooC"/>
+                        <action selector="cancelOrder:" destination="-1" eventType="touchUpInside" id="Vz0-Ks-oed"/>
                     </connections>
                 </button>
                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="bfy-Q2-o71">
