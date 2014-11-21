@@ -48,8 +48,8 @@
     
     titleLabel.text = @"The Most Incredible Dining Experience";
     
-    titleLabel.textColor = [UIColor orangeColor];
-    
+    //titleLabel.textColor = [UIColor orangeColor];
+    titleLabel.textColor = kVerticalTableBackgroundColor;
     titleLabel.font = [UIFont systemFontOfSize:20];
     
     titleLabel.backgroundColor = [UIColor clearColor];
@@ -94,8 +94,23 @@
     
     @try {
         
-        
-        cellId = @"cbMenuCell";
+        switch (indexPath.row) {
+            case 0:
+                cellId = @"cbDrinksCell";
+                break;
+            case 1:
+                cellId = @"cbAppsCell";
+                break;
+            case 2:
+                cellId = @"cbEntreesCell";
+                break;
+            case 3:
+                cellId = @"cbDessertsCell";
+                break;
+            case 4:
+                cellId = @"cbAboutCell";
+                break;
+        }
         
         cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         
@@ -107,11 +122,11 @@
 
         title = [categoryHomeData objectAtIndex:indexPath.row];
         
-        /*[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-        [cell setBackgroundColor:self.tableView.backgroundColor];*/
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        cell.contentView.backgroundColor = kVerticalTableBackgroundColor;
         
         [cell.textLabel setTextColor:[UIColor whiteColor]];
-        [cell.textLabel setFont:[UIFont systemFontOfSize:17.0]];
+        [cell.textLabel setFont:[UIFont systemFontOfSize:22.0]];
         [cell.textLabel setText:title];
         
     
@@ -402,18 +417,13 @@
     @try{
         
         
-        categoryHomeData = [[NSArray alloc] initWithObjects:@"Our Menu",@"Current News",@"Special Events",@"Gift Cards",@"About Us" , nil];
+        categoryHomeData = [[NSArray alloc] initWithObjects:@"Beverages",@"Appetizers",@"Entrees",@"Desserts",@"About Us" , nil];
         
-        self.pageTitles  = [[NSArray alloc] initWithObjects:@"RestaurantBack_0.jpg", @"RestaurantBack_1.jpg",@"RestaurantBack_2.jpg", @"RestaurantBack_3.jpg",@"RestaurantBack_4.jpg",@"RestaurantBack_5.jpg",@"RestaurantBack_6.jpg", nil];
+        self.pageTitles  = [[NSArray alloc] initWithObjects:@"RestaurantBack_7.jpg",@"RestaurantBack_8.jpg", nil];
         
-        categorySections = @[ @{ @"description": @"Churrascaria",
-                                 @"items": @[ @{ @"image": @"RestaurantBack_0.jpg" },
-                                              @{ @"image": @"RestaurantBack_1.jpg" },
-                                              @{ @"image": @"RestaurantBack_2.jpg" },
-                                              @{ @"image": @"RestaurantBack_3.jpg" },
-                                              @{ @"image": @"RestaurantBack_4.jpg" },
-                                              @{ @"image": @"RestaurantBack_5.jpg" },
-                                              @{ @"image": @"RestaurantBack_6.jpg" }
+        categorySections = @[ @{ @"description": @"Casa D'Angelo",
+                                 @"items": @[ @{ @"image": @"RestaurantBack_7.jpg" },
+                                              @{ @"image": @"RestaurantBack_8.jpg" }
                                               ]
                                  }/*@{ @"description": @"Drinks",
                          @"items": @[ @{ @"title": @"Article A1" },
@@ -475,7 +485,7 @@
         /*[self.tableView registerClass:[ContainerTableCellTableViewCell class]
                forCellReuseIdentifier:@"ContainerTableCell"];*/
         
-        [self.tableView setBackgroundColor:[UIColor colorWithHexString:@"800000"]];
+        [self.tableView setBackgroundColor:[UIColor colorWithHexString:kVerticalTableBackgroundColor]];
         
         [self.tableView setDelegate:self];
         [self.tableView setDataSource:self];

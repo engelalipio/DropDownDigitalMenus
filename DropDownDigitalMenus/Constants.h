@@ -112,10 +112,10 @@
 #define kRowHorizontalPadding                       2
 
 // The background color of the vertical table view
-#define kVerticalTableBackgroundColor             [UIColor colorWithHexString: @"800000"]  //[UIColor colorWithRed:0.58823529 green:0.58823529 blue:0.58823529 alpha:1.0]
-
+#define kVerticalTableBackgroundColor        [UIColor colorWithHexString: @"004080"]  //[UIColor colorWithRed:0.58823529 green:0.58823529 blue:0.58823529 alpha:1.0]
+//004080
 // Background color for the horizontal table view (the one embedded inside the rows of our vertical table)
 #define kHorizontalTableBackgroundColor            [UIColor colorWithHexString:@"FF8000" ] //[UIColor colorWithRed:0.6745098 green:0.6745098 blue:0.6745098 alpha:1.0]
 
 // The background color on the horizontal table view for when we select a particular cell
-#define kHorizontalTableSelectedBackgroundColor    [UIColor orangeColor];
+#define kHorizontalTableSelectedBackgroundColor    [UIColor whiteColor];

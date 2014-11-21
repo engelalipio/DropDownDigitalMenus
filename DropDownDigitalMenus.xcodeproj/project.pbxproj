@@ -128,6 +128,11 @@
 		0F2ACD7C1A01B5640028B6E2 /* Tic-Tac-Toe.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F2ACD7B1A01B5640028B6E2 /* Tic-Tac-Toe.json */; };
 		0F2ACD7F1A01B7A80028B6E2 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2ACD7E1A01B7A80028B6E2 /* GameViewController.m */; };
 		0F2ACD821A01E7AC0028B6E2 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2ACD811A01E7AC0028B6E2 /* MenuViewController.m */; };
+		0F7270841A1EBC1400F9C2E2 /* Airport.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F7270811A1EBC1400F9C2E2 /* Airport.jpg */; };
+		0F7270851A1EBC1400F9C2E2 /* Hotel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F7270821A1EBC1400F9C2E2 /* Hotel.jpg */; };
+		0F7270861A1EBC1400F9C2E2 /* Mall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F7270831A1EBC1400F9C2E2 /* Mall.jpg */; };
+		0F7270891A1EC0B500F9C2E2 /* RestaurantBack_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F7270871A1EC0B500F9C2E2 /* RestaurantBack_7.jpg */; };
+		0F72708A1A1EC0B500F9C2E2 /* RestaurantBack_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F7270881A1EC0B500F9C2E2 /* RestaurantBack_8.jpg */; };
 		0FD438911A047FEA00A2436F /* HorizontalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD4388F1A047FEA00A2436F /* HorizontalTableViewCell.m */; };
 		0FD438921A047FEA00A2436F /* HorizontalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FD438901A047FEA00A2436F /* HorizontalTableViewCell.xib */; };
 		0FD4389C1A071BB800A2436F /* SaladBarBack_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0FD438931A071BB800A2436F /* SaladBarBack_0.jpg */; };
@@ -361,6 +366,11 @@
 		0F2ACD7E1A01B7A80028B6E2 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		0F2ACD801A01E7AC0028B6E2 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		0F2ACD811A01E7AC0028B6E2 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		0F7270811A1EBC1400F9C2E2 /* Airport.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Airport.jpg; sourceTree = "<group>"; };
+		0F7270821A1EBC1400F9C2E2 /* Hotel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Hotel.jpg; sourceTree = "<group>"; };
+		0F7270831A1EBC1400F9C2E2 /* Mall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mall.jpg; sourceTree = "<group>"; };
+		0F7270871A1EC0B500F9C2E2 /* RestaurantBack_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RestaurantBack_7.jpg; sourceTree = "<group>"; };
+		0F7270881A1EC0B500F9C2E2 /* RestaurantBack_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RestaurantBack_8.jpg; sourceTree = "<group>"; };
 		0FD4388E1A047FEA00A2436F /* HorizontalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalTableViewCell.h; sourceTree = "<group>"; };
 		0FD4388F1A047FEA00A2436F /* HorizontalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalTableViewCell.m; sourceTree = "<group>"; };
 		0FD438901A047FEA00A2436F /* HorizontalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HorizontalTableViewCell.xib; sourceTree = "<group>"; };
@@ -519,6 +529,8 @@
 		0F2ACC4519FA0EAA0028B6E2 /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				0F7270871A1EC0B500F9C2E2 /* RestaurantBack_7.jpg */,
+				0F7270881A1EC0B500F9C2E2 /* RestaurantBack_8.jpg */,
 				0FE60AE51A11B8E400435F32 /* NewsBack_0.png */,
 				0FE60AE61A11B8E400435F32 /* NewsBack_1.png */,
 				0FE60AE71A11B8E400435F32 /* NewsBack_2.png */,
@@ -658,6 +670,16 @@
 			name = Games;
 			sourceTree = "<group>";
 		};
+		0F7270801A1EBBF200F9C2E2 /* DropDown */ = {
+			isa = PBXGroup;
+			children = (
+				0F7270811A1EBC1400F9C2E2 /* Airport.jpg */,
+				0F7270821A1EBC1400F9C2E2 /* Hotel.jpg */,
+				0F7270831A1EBC1400F9C2E2 /* Mall.jpg */,
+			);
+			name = DropDown;
+			sourceTree = "<group>";
+		};
 		0FD438FB1A110CBF00A2436F /* Formatter */ = {
 			isa = PBXGroup;
 			children = (
@@ -739,6 +761,7 @@
 		0FF46D5619F88B0200E51218 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0F7270801A1EBBF200F9C2E2 /* DropDown */,
 				0F2ACD621A0052FF0028B6E2 /* Games */,
 				0F2ACC9019FA12370028B6E2 /* Buttons */,
 				0F2ACC4519FA0EAA0028B6E2 /* Backgrounds */,
@@ -1135,6 +1158,7 @@
 				0F2ACCA219FA126A0028B6E2 /* imgPayButtonBrown.png in Resources */,
 				0FD438AA1A071C6800A2436F /* SaladBarBack_8.jpg in Resources */,
 				0F2ACCC219FA12C30028B6E2 /* Drink_1.jpg in Resources */,
+				0F7270851A1EBC1400F9C2E2 /* Hotel.jpg in Resources */,
 				0FE60AEB1A11B8E400435F32 /* NewsBack_2.png in Resources */,
 				0F2ACC7B19FA0F210028B6E2 /* MeatBack_4.jpg in Resources */,
 				0F2ACD3C19FAE1B20028B6E2 /* ContainerCellViewCell.xib in Resources */,
@@ -1148,6 +1172,7 @@
 				0F2ACC9D19FA126A0028B6E2 /* imgDessertsButtonBrown.png in Resources */,
 				0F2ACC7819FA0F210028B6E2 /* MeatBack_1.jpg in Resources */,
 				0F2ACC8319FA0F210028B6E2 /* RestaurantBack_1.jpg in Resources */,
+				0F72708A1A1EC0B500F9C2E2 /* RestaurantBack_8.jpg in Resources */,
 				0FD438F11A0DD86000A2436F /* HomeScreen.png in Resources */,
 				0F2ACC5019FA0EFF0028B6E2 /* BarBack_0.jpg in Resources */,
 				0FF46E1419F9958300E51218 /* reveal-icon@2x.png in Resources */,
@@ -1156,6 +1181,7 @@
 				0FD438E61A0DAF4D00A2436F /* Icon-Small@2x.png in Resources */,
 				0FF46E1319F9958300E51218 /* reveal-icon.png in Resources */,
 				0F2ACC4F19FA0EFF0028B6E2 /* BarBack_1.jpg in Resources */,
+				0F7270861A1EBC1400F9C2E2 /* Mall.jpg in Resources */,
 				0F2ACCEA19FA13140028B6E2 /* SaladBar_2.jpg in Resources */,
 				0FD438A21A071BB800A2436F /* SaladBarBack_6.jpg in Resources */,
 				0FE60AEC1A11B8E400435F32 /* NewsBack_3.jpg in Resources */,
@@ -1217,6 +1243,7 @@
 				0F2ACC8219FA0F210028B6E2 /* RestaurantBack_0.jpg in Resources */,
 				0F2ACD761A00534A0028B6E2 /* Simon.gif in Resources */,
 				0FD438DE1A0DAF4D00A2436F /* Icon-72@2x.png in Resources */,
+				0F7270891A1EC0B500F9C2E2 /* RestaurantBack_7.jpg in Resources */,
 				0F2ACCED19FA13140028B6E2 /* SaladBar_5.jpg in Resources */,
 				0FD438A01A071BB800A2436F /* SaladBarBack_4.jpg in Resources */,
 				0F2ACCF319FA13250028B6E2 /* Table_1.jpg in Resources */,
@@ -1258,6 +1285,7 @@
 				0F2ACD771A00534A0028B6E2 /* Tetris.gif in Resources */,
 				0F2ACC9A19FA126A0028B6E2 /* imgDrinksButtonBrown.png in Resources */,
 				0F2ACD6E1A00534A0028B6E2 /* Bingo.gif in Resources */,
+				0F7270841A1EBC1400F9C2E2 /* Airport.jpg in Resources */,
 				0FD438E31A0DAF4D00A2436F /* Icon-Small-50.png in Resources */,
 				0F2ACCF719FA15570028B6E2 /* wine-32.png in Resources */,
 				0FD438D91A0DAF4D00A2436F /* Icon-40@2x.png in Resources */,
