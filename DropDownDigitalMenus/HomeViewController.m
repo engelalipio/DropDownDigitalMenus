@@ -22,6 +22,7 @@
 }
 -(void) initTableView;
 -(void) initCategorySections;
+-(void) roundCorner;
 @end
 
 @implementation HomeViewController
@@ -83,6 +84,13 @@
     return footer;
 }
 
+-(void) roundCorner{
+//Add border and rounded corners to text view
+self.addressLabel.layer.cornerRadius = 10;
+self.addressLabel.layer.borderWidth = 1;
+self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+}
+
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSString *message   = @"",
@@ -102,13 +110,16 @@
                 cellId = @"cbAppsCell";
                 break;
             case 2:
-                cellId = @"cbEntreesCell";
+                cellId = @"cbSoupsCell";
                 break;
             case 3:
-                cellId = @"cbDessertsCell";
+                cellId = @"cbSaladsCell";
                 break;
             case 4:
-                cellId = @"cbAboutCell";
+                cellId = @"cbEntreesCell";
+                break;
+            case 5:
+                cellId = @"cbDessertsCell";
                 break;
         }
         
@@ -417,7 +428,7 @@
     @try{
         
         
-        categoryHomeData = [[NSArray alloc] initWithObjects:@"Beverages",@"Appetizers",@"Entrees",@"Desserts",@"About Us" , nil];
+        categoryHomeData = [[NSArray alloc] initWithObjects:@"Beverages",@"Appetizers",@"Soups",@"Salads",@"Entrees",@"Desserts", nil];
         
         self.pageTitles  = [[NSArray alloc] initWithObjects:@"RestaurantBack_7.jpg",@"RestaurantBack_8.jpg", nil];
         
@@ -700,8 +711,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self roundCorner];
     [self initCategorySections];
     [self initTableView];
+    
 
 }
 

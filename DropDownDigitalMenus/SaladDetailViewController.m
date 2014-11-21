@@ -116,6 +116,7 @@
 }
 
 
+
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     NSInteger sectionCount = 1  ;
     return sectionCount;
@@ -123,15 +124,14 @@
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSInteger rowCount = 1;
-
+    
     switch (section) {
         case 0:
-            rowCount = 8;
+            rowCount = 2;
             break;
- 
+            
     }
     return rowCount;
 }
-
 
 @end

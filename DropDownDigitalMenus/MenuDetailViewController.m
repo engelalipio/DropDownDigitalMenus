@@ -121,13 +121,13 @@
     // @"Drinks",@"Salads and Sides", @"Meats", @"Desserts"
     switch (section) {
      case 0:
-            rowCount = 3;
-     break;
-     case 1:
             rowCount = 2;
      break;
+     case 1:
+            rowCount = 4;
+     break;
      case 2:
-            rowCount = 3;
+            rowCount = 2;
      break;
     
      }

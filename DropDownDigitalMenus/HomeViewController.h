@@ -12,6 +12,7 @@
 @interface HomeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIPageViewControllerDataSource,UIAlertViewDelegate,ADBannerViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UILabel *addressLabel;
 
 @property (strong,nonatomic)  NSArray *pageTitles;
 @property (strong,nonatomic)  NSArray *pageImages;

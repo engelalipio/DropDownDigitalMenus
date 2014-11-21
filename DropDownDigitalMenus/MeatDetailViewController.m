@@ -105,7 +105,7 @@
 
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    NSInteger sectionCount = 1  ;
+    NSInteger sectionCount = 3  ;
     return sectionCount;
 }
 
@@ -114,9 +114,14 @@
     
     switch (section) {
         case 0:
-            rowCount = 9;
+            rowCount = 4;
             break;
-            
+        case 1:
+            rowCount = 5;
+            break;
+        case 2:
+            rowCount = 5;
+            break;
     }
     return rowCount;
 }
