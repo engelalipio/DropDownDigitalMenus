@@ -10,7 +10,7 @@
 #import "Constants.h"
 
 
-@interface MenuDetailViewController : UITableViewController
+@interface BeveragesViewController : UITableViewController
 
 
 

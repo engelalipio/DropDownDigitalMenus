@@ -8,8 +8,72 @@
 
 #import "DessertDetailViewController.h"
 #import "ItemViewController.h"
+#import "AppDelegate.h"
+#import "Constants.h"
+
+@interface DessertDetailViewController(){
+    AppDelegate *appDelegate;
+}
+-(void) checkOrderCount;
+@end
 
 @implementation DessertDetailViewController
+
+
+
+-(void)checkOrderCount{
+    
+    NSString *message   = @"",
+             *orderItem = @"";
+    
+    NSInteger orderItems      = 0,
+              currentOrderCount = 0,
+              itemsCount       = 0;
+    
+    @try {
+        
+        itemsCount = kOrderTabItemIndex;
+        
+        if (! appDelegate){
+            appDelegate = [AppDelegate currentDelegate];
+        }
+        
+        currentOrderCount = [appDelegate currentOrderItems];
+        if (! currentOrderCount){
+            currentOrderCount = 0;
+            [appDelegate setCurrentOrderItems:currentOrderCount];
+        }
+        
+        orderItem =  [[[[self.tabBarController tabBar] items] objectAtIndex:itemsCount] badgeValue];
+        if (! orderItem){
+            orderItem = @"0";
+        }
+        if (orderItem){
+            
+            orderItems = [orderItem intValue];
+            if (orderItems < currentOrderCount){
+                orderItems = currentOrderCount;
+                orderItem = [NSString stringWithFormat:@"%d",orderItems];
+                [[[[self.tabBarController tabBar] items] objectAtIndex:itemsCount] setBadgeValue:orderItem];
+            }
+
+        }
+        
+        
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        message   = @"";
+        orderItem = @"";
+        
+        orderItems = 0;
+        itemsCount = 0;
+    }
+    
+}
 
 
 #pragma -mark Table View Events
@@ -119,5 +183,9 @@
     return rowCount;
 }
 
+-(void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self checkOrderCount];
+}
 
 @end

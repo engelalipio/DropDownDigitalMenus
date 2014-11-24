@@ -90,6 +90,8 @@
 
 #define kAllDigits      @ "0123456789"
 
+#define kOrderTabItemIndex 3
+
 
 // Width (or length before rotation) of the table view embedded within another table view's row
 #define kTableLength                                768
@@ -111,11 +113,16 @@
 // Horizontal padding for the embedded table view within the row
 #define kRowHorizontalPadding                       2
 
+#define kTableCellTitleColor  [UIColor colorWithHexString: @"804000"]
+
 // The background color of the vertical table view
-#define kVerticalTableBackgroundColor        [UIColor colorWithHexString: @"004080"]  //[UIColor colorWithRed:0.58823529 green:0.58823529 blue:0.58823529 alpha:1.0]
+#define kVerticalTableBackgroundColor        [UIColor colorWithHexString: @"DEAA60"]  //[UIColor colorWithRed:0.58823529 green:0.58823529 blue:0.58823529 alpha:1.0]
 //004080
 // Background color for the horizontal table view (the one embedded inside the rows of our vertical table)
-#define kHorizontalTableBackgroundColor            [UIColor colorWithHexString:@"FF8000" ] //[UIColor colorWithRed:0.6745098 green:0.6745098 blue:0.6745098 alpha:1.0]
+#define kHorizontalTableBackgroundColor            [UIColor colorWithHexString:@"DEAA60" ] //[UIColor colorWithRed:0.6745098 green:0.6745098 blue:0.6745098 alpha:1.0]
 
 // The background color on the horizontal table view for when we select a particular cell
-#define kHorizontalTableSelectedBackgroundColor    [UIColor whiteColor];
+#define kHorizontalTableSelectedBackgroundColor   [UIColor colorWithHexString: @"804000"]
+
+
+

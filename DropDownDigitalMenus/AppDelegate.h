@@ -22,10 +22,14 @@ typedef int OrderTypeSelection;
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic, assign)    NSInteger currentOrderItems;
 @property (strong, nonatomic) NSMutableDictionary *drinkItems;
 @property (strong, nonatomic) NSMutableDictionary *saladItems;
 @property (strong, nonatomic) NSMutableDictionary *meatItems;
 @property (strong, nonatomic) NSMutableDictionary *dessertItems;
+
++(AppDelegate *) currentDelegate;
+
 @end
 
 

@@ -5,13 +5,15 @@
 //  Created by Engel Alipio on 11/9/14.
 //  Copyright (c) 2014 Digital World International. All rights reserved.
 //
-
+#import "Constants.h"
 #import "ItemViewController.h"
 #import "NumberFormatter.h"
+#import "AppDelegate.h"
 
 @interface ItemViewController ()
 {
     float originalPrice;
+    AppDelegate *appDelegate;
 }
 -(void) configureView;
 @end
@@ -22,6 +24,7 @@
     
     CGRect imageRect = CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height);
     
+    //[self.imageView setImage:[UIImage imageNamed:@"wine_glass-512.png"]];
     [self.imageView setFrame:imageRect];
     
 }
@@ -30,6 +33,11 @@
     [super viewDidLoad];
     originalPrice = 0.0f;
     [self.itemStepper setValue:1];
+    
+    if (! appDelegate){
+        appDelegate = [AppDelegate currentDelegate];
+    }
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -42,6 +50,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+   
 }
 
 /*
@@ -62,11 +71,23 @@
 
 - (IBAction)addToOrderAction:(UIButton *)sender {
     
-    NSString *message  = @"";
+    NSString *message   = @"";
+    
+    NSInteger orderItems = 0,
+              quantity   = 0;
     
     @try {
         
-    
+        orderItems = [appDelegate currentOrderItems];
+        
+        quantity =  [self.labelQuantity.text integerValue];
+        if (! orderItems){
+            orderItems =  quantity;
+        }else{
+            orderItems = orderItems + quantity ;
+        }
+        message = [NSString stringWithFormat:@"%d order item(s)", orderItems];
+        [appDelegate setCurrentOrderItems:orderItems];
         [self dismissViewControllerAnimated:YES completion:nil];
     
     }
@@ -75,6 +96,11 @@
     }
     @finally {
         
+        orderItems = 0;
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
     }
     
 }

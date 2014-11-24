@@ -11,7 +11,7 @@
 #import "PageContentViewController.h"
 #import "HorizontalTableViewCell.h"
 #import "Constants.h"
-#import "MenuDetailViewController.h"
+#import "BeveragesViewController.h"
 #import "SaladDetailViewController.h"
 
 @interface MenuViewController ()
@@ -824,7 +824,7 @@
 -(void) performSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
     
     UIStoryboardSegue *seg = nil;
-    MenuDetailViewController *drinksVC = nil;
+    BeveragesViewController *drinksVC = nil;
     SaladDetailViewController *saladsVC = nil;
     
     UIViewController *vc = nil;

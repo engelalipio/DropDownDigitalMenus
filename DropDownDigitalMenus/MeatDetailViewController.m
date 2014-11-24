@@ -5,14 +5,74 @@
 //  Created by Engel Alipio on 11/10/14.
 //  Copyright (c) 2014 Digital World International. All rights reserved.
 //
-
+#import "AppDelegate.h"
 #import "MeatDetailViewController.h"
 #import "ItemViewController.h"
+#import "Constants.h"
+
+@interface MeatDetailViewController()
+{
+    AppDelegate *appDelegate;
+}
+-(void) checkOrderCount;
+@end
 
 @implementation MeatDetailViewController
 
 
+-(void)checkOrderCount{
+    
+    NSString *message   = @"",
+             *orderItem = @"";
+    
+    NSInteger orderItems      = 0,
+              currentOrderCount = 0,
+              itemsCount       = 0;
+    
+    @try {
+        
+        itemsCount = kOrderTabItemIndex;
+        
+        if (! appDelegate){
+            appDelegate = [AppDelegate currentDelegate];
+        }
+        
+        currentOrderCount = [appDelegate currentOrderItems];
+        if (! currentOrderCount){
+            currentOrderCount = 0;
+            [appDelegate setCurrentOrderItems:currentOrderCount];
+        }
+        
+        orderItem =  [[[[self.tabBarController tabBar] items] objectAtIndex:itemsCount] badgeValue];
+        if (! orderItem){
+            orderItem = @"0";
+        }
+        if (orderItem){
+            
+            orderItems = [orderItem intValue];
+            if (orderItems < currentOrderCount){
+                orderItems = currentOrderCount;
+                orderItem = [NSString stringWithFormat:@"%d",orderItems];
+               [[[[self.tabBarController tabBar] items] objectAtIndex:itemsCount] setBadgeValue:orderItem];
+            }
 
+        }
+        
+        
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        message   = @"";
+        orderItem = @"";
+        
+        orderItems = 0;
+        itemsCount = 0;
+    }
+    
+}
 
 #pragma -mark Table View Events
 
@@ -105,7 +165,7 @@
 
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    NSInteger sectionCount = 3  ;
+    NSInteger sectionCount = 4  ;
     return sectionCount;
 }
 
@@ -122,9 +182,16 @@
         case 2:
             rowCount = 5;
             break;
+        case 3:
+            rowCount = 9;
+            break;
     }
     return rowCount;
 }
 
+-(void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self checkOrderCount];
+}
 
 @end

@@ -31,7 +31,7 @@
         
         [self.tableView setDataSource:self];
         [self.tableView setDelegate:self];
-        [self.tableView setBackgroundColor:[UIColor colorWithHexString:@"800000"]];
+        self.tableView.backgroundColor = kVerticalTableBackgroundColor;
         
     }
     @catch (NSException *exception) {

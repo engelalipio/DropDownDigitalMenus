@@ -34,7 +34,8 @@
 #pragma mark - TableView Events
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return CGFLOAT_MIN;
+   // return CGFLOAT_MIN;
+    return 60;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -62,15 +63,25 @@
 
 
 -(UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    ADBannerView *footer = nil;
+    //ADBannerView *footer = nil;
+    UIImageView *footer = nil;
+    UIImage *image = nil;
     NSString *message = @"";
     @try {
         
-        footer = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
+        footer = [[UIImageView alloc]
+                  initWithImage:[UIImage imageNamed:@"your_ad_here_banner.jpg"]];
+        
+ 
+        [footer setFrame:CGRectMake(0, 0,  self.tableView.frame.size.width, 60)];
+   
+
+        
+       /* footer = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
         [footer setDelegate:self];
         [footer setFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, 60)];
         
-        message = [NSString stringWithFormat:@"Sucessfully initialized [initWithAdType:ADAdTypeBanner]"];
+        message = [NSString stringWithFormat:@"Sucessfully initialized [initWithAdType:ADAdTypeBanner]"];*/
     }
     @catch (NSException *exception) {
         message = [exception description];
@@ -91,11 +102,32 @@ self.addressLabel.layer.borderWidth = 1;
 self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 }
 
+
+-(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *message   = @"";
+    
+    
+    @try {
+        
+        if (cell){
+            //This will set the background of all of the views within the tablecell
+            cell.contentView.superview.backgroundColor = kVerticalTableBackgroundColor;
+        }
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        message = @"";
+    }
+
+}
+
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSString *message   = @"",
              *title     = @"",
-             *imageName = @"",
              *cellId    = @"";
     
     UITableViewCell *cell = nil;
@@ -134,9 +166,8 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         title = [categoryHomeData objectAtIndex:indexPath.row];
         
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-        cell.contentView.backgroundColor = kVerticalTableBackgroundColor;
         
-        [cell.textLabel setTextColor:[UIColor whiteColor]];
+        cell.textLabel.backgroundColor = kTableCellTitleColor;
         [cell.textLabel setFont:[UIFont systemFontOfSize:22.0]];
         [cell.textLabel setText:title];
         
@@ -430,7 +461,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         
         categoryHomeData = [[NSArray alloc] initWithObjects:@"Beverages",@"Appetizers",@"Soups",@"Salads",@"Entrees",@"Desserts", nil];
         
-        self.pageTitles  = [[NSArray alloc] initWithObjects:@"RestaurantBack_7.jpg",@"RestaurantBack_8.jpg", nil];
+        self.pageTitles  = [[NSArray alloc] initWithObjects:@"RestaurantBack_8.jpg", nil];
         
         categorySections = @[ @{ @"description": @"Casa D'Angelo",
                                  @"items": @[ @{ @"image": @"RestaurantBack_7.jpg" },
@@ -496,7 +527,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         /*[self.tableView registerClass:[ContainerTableCellTableViewCell class]
                forCellReuseIdentifier:@"ContainerTableCell"];*/
         
-        [self.tableView setBackgroundColor:[UIColor colorWithHexString:kVerticalTableBackgroundColor]];
+        self.tableView.backgroundColor =  kTableCellTitleColor;
         
         [self.tableView setDelegate:self];
         [self.tableView setDataSource:self];

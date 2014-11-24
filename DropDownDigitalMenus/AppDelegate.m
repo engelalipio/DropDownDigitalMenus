@@ -18,7 +18,12 @@
 @synthesize saladItems = _saladItems;
 @synthesize meatItems  = _meatItems;
 @synthesize dessertItems = _dessertItems;
+@synthesize currentOrderItems = _currentOrderItems;
 
+
++(AppDelegate *) currentDelegate{
+    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

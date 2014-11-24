@@ -6,19 +6,75 @@
 //  Copyright (c) 2014 Digital World International. All rights reserved.
 //
 
-#import "MenuDetailViewController.h"
+#import "BeveragesViewController.h"
 #import "Constants.h"
 #import "ItemViewController.h"
+#import "AppDelegate.h"
 
-@interface MenuDetailViewController ()
+@interface BeveragesViewController ()
 {
     NSMutableArray *menuTitles;
+    AppDelegate *appDelegate;
 }
-
+-(void) checkOrderCount;
 @end
 
-@implementation MenuDetailViewController
+@implementation BeveragesViewController
 
+
+-(void)checkOrderCount{
+    
+    NSString *message   = @"",
+             *orderItem = @"";
+    
+    NSInteger orderItems      = 0,
+    currentOrderCount         = 0,
+    itemsCount                = 0;
+    
+    @try {
+        
+        itemsCount = kOrderTabItemIndex;
+        
+        if (! appDelegate){
+            appDelegate = [AppDelegate currentDelegate];
+        }
+        
+        currentOrderCount = [appDelegate currentOrderItems];
+        if (! currentOrderCount){
+            currentOrderCount = 0;
+            [appDelegate setCurrentOrderItems:currentOrderCount];
+        }
+        
+        orderItem =  [[[[self.tabBarController tabBar] items] objectAtIndex:itemsCount] badgeValue];
+        if (! orderItem){
+            orderItem = @"0";
+        }
+        if (orderItem){
+            
+            orderItems = [orderItem intValue];
+            if (orderItems < currentOrderCount){
+                orderItems = currentOrderCount;
+                orderItem = [NSString stringWithFormat:@"%d",orderItems];
+                [[[[self.tabBarController tabBar] items] objectAtIndex:itemsCount] setBadgeValue:orderItem];
+            }
+
+        }
+        
+        
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        message   = @"";
+        orderItem = @"";
+        
+        orderItems = 0;
+        itemsCount = 0;
+    }
+    
+}
 
 #pragma -mark Table View Events
 
@@ -96,7 +152,13 @@
         CGRect imageRect = CGRectMake(0.0f, 60.0f, 600,600);
         
         [item.imageView setFrame:imageRect];
-        [item.imageView setImage:image];
+        
+        if (! image){
+            [item.imageView setImage:[UIImage imageNamed:@"wine_glass-512.png"]];
+        }else{
+        
+            [item.imageView setImage:image];
+        }
         
         [item.labelTitle setText:title];
         [item.labelPrice setText:[NSString stringWithFormat:@"$%@",price]];
@@ -134,8 +196,15 @@
     return rowCount;
 }
 
+
+-(void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self checkOrderCount];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+ 
     // Do any additional setup after loading the view.
     //[self roundLabel];
 }
