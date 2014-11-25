@@ -167,8 +167,9 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         
-        cell.textLabel.backgroundColor = kTableCellTitleColor;
+       // cell.textLabel.backgroundColor = kTableCellTitleColor;
         [cell.textLabel setFont:[UIFont systemFontOfSize:22.0]];
+        [cell.textLabel setTextColor:kTableCellTitleColor];
         [cell.textLabel setText:title];
         
     

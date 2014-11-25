@@ -15,6 +15,7 @@
 {
     AppDelegate *appDelegate;
 }
+-(void) initTableView;
 @end
 
 @implementation SaladDetailViewController
@@ -22,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+        [self initTableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,6 +33,58 @@
 
 
 #pragma -mark Table View Events
+
+
+
+-(void) initTableView{
+    
+    NSString *message = @"";
+    
+    @try{
+        
+        if (! self.tableView){
+            self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, kTableYStart, kTabletWidth, kTableHeight)];
+        }
+        
+        
+        self.tableView.backgroundColor =  kVerticalTableBackgroundColor;
+        
+        [self.tableView setDelegate:self];
+        [self.tableView setDataSource:self];
+        
+        
+    }
+    @catch(NSException *error){
+        message = [error description];
+    }
+    @finally{
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+    }
+    
+}
+
+
+-(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *message   = @"";
+    @try {
+        
+        if (cell){
+            //This will set the background of all of the views within the tablecell
+            cell.contentView.superview.backgroundColor = kVerticalTableBackgroundColor;
+        }
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        message = @"";
+    }
+    
+}
+
 
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -173,6 +227,7 @@
     }
     
 }
+
 
 -(void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
