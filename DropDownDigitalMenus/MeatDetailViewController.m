@@ -13,6 +13,7 @@
 @interface MeatDetailViewController()
 {
     AppDelegate *appDelegate;
+    UIImageView *selectedImageView;
 }
 -(void) checkOrderCount;
 -(void) initTableView;
@@ -21,14 +22,249 @@
 @implementation MeatDetailViewController
 
 
+#pragma -mark Cart Animation
+
+- (CGRect)approximateFrameForTabBarItemAtIndex:(NSUInteger)barItemIndex inTabBar:(UITabBar *)tabBar {
+    
+    CGRect tabBarRect;
+    
+    NSArray *barItems = nil;
+    
+    NSString *message = @"";
+    
+    CGFloat barMidX = 0.0f,
+            distanceBetweenBarItems = 0.0f,
+            totalBarItemsWidth = 0.0f,
+            barItemX = 0.0f;
+    
+    CGSize  barItemSize;
+    
+    @try {
+        
+        barItems = tabBar.items;
+        
+        barMidX = CGRectGetMidX([tabBar frame]);
+        
+        barItemSize = CGSizeMake(80.0, 45.0);
+        
+        distanceBetweenBarItems = 110.0;
+        
+        barItemX = barItemIndex * distanceBetweenBarItems + barItemSize.width * 0.5;
+        
+        totalBarItemsWidth = ([barItems count]-1) * distanceBetweenBarItems + barItemSize.width;
+        
+        barItemX += barMidX - round(totalBarItemsWidth * 0.5);
+        
+        tabBarRect =  CGRectMake(barItemX, CGRectGetMinY([tabBar frame]), 30.0, barItemSize.height);
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
+        
+        barItems = nil;
+        
+        message = @"";
+        
+        barMidX = 0.0f;
+        distanceBetweenBarItems = 0.0f;
+        totalBarItemsWidth = 0.0f;
+        barItemX = 0.0f;
+    
+    }
+    
+    return tabBarRect;
+}
+
+
+-(void) animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+    
+    NSString *message   = @"",
+             *orderItem = @"";
+    
+    NSInteger orderItems        = 0,
+              currentOrderCount = 0,
+              itemsCount        = 0;
+    
+    @try {
+        
+        itemsCount = kOrderTabItemIndex;
+        
+        if (! appDelegate){
+            appDelegate = [AppDelegate currentDelegate];
+        }
+        
+        currentOrderCount = [appDelegate currentOrderItems];
+        if (! currentOrderCount){
+            currentOrderCount = 0;
+            [appDelegate setCurrentOrderItems:currentOrderCount];
+        }
+        orderItem = [NSString stringWithFormat:@"%d",currentOrderCount];
+        [[[[self.tabBarController tabBar] items] objectAtIndex:itemsCount] setBadgeValue:orderItem];
+    
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        message   = @"";
+        orderItem = @"";
+        
+        orderItems = 0;
+        itemsCount = 0;
+    }
+    
+}
+
+- (void) initiateAddToCart:(NSInteger) orderItems{
+    
+    
+    static float const curvingIntoCartAnimationDuration = kAnimationSpeed;
+    
+    CALayer *layerToAnimate = nil;
+    
+    CAKeyframeAnimation *itemViewCurvingIntoCartAnimation = nil;
+    
+    CABasicAnimation    *itemViewShrinkingAnimation = nil,
+    *itemAlphaFadeAnimation     = nil;
+    
+    CAAnimationGroup    *shrinkFadeAndCurveAnimation = nil;
+    
+    NSString *message = @"";
+    
+    @try {
+        
+        
+        //Obtaining the Image Layer to animate
+        
+        layerToAnimate = selectedImageView.layer;
+        
+        itemViewCurvingIntoCartAnimation = [self itemViewCurvingIntoCartAnimation];
+        
+        
+        
+        itemViewShrinkingAnimation =  [CABasicAnimation animationWithKeyPath:@"bounds"];
+        
+        itemViewShrinkingAnimation.toValue = [NSValue valueWithCGRect:
+                                              CGRectMake(0.0,0.0, selectedImageView.bounds.size.width/2.5,
+                                                         selectedImageView.bounds.size.height/2.5)];
+        
+        itemAlphaFadeAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        
+        itemAlphaFadeAnimation.toValue = [NSNumber numberWithFloat:0.5];
+        
+        shrinkFadeAndCurveAnimation = [CAAnimationGroup animation];
+        
+        [shrinkFadeAndCurveAnimation setAnimations:[NSArray arrayWithObjects:
+                                                    itemViewCurvingIntoCartAnimation,
+                                                    itemViewShrinkingAnimation,
+                                                    itemAlphaFadeAnimation,
+                                                    nil]];
+        
+        [shrinkFadeAndCurveAnimation setRepeatCount:orderItems];
+        [shrinkFadeAndCurveAnimation setDuration:curvingIntoCartAnimationDuration];
+        [shrinkFadeAndCurveAnimation setDelegate:self];
+        [shrinkFadeAndCurveAnimation setRemovedOnCompletion:NO];
+        [shrinkFadeAndCurveAnimation setValue:@"shrinkAndCurveToAddToOrderAnimation" forKey:@"name"];
+        
+        [layerToAnimate addAnimation:shrinkFadeAndCurveAnimation forKey:nil];
+        
+        
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if ([message length] > 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
+    }
+}
+
+- (CAKeyframeAnimation *) itemViewCurvingIntoCartAnimation {
+    
+    NSString *message =@"";
+    
+    float riseAbovePoint = 300.0f;
+    
+    CGRect positionOfItemViewInView,
+           orderTableItemRect;
+    
+    CGPoint beginningPointOfQuadCurve,
+            endPointOfQuadCurve,
+            controlPointOfQuadCurve;
+    
+    UIBezierPath * quadBezierPathOfAnimation = nil;
+    
+    CAKeyframeAnimation * itemViewCurvingIntoCartAnimation ;
+    
+    UITabBarItem *orderTabItem = nil;
+    
+    @try {
+        
+        //Originating Image
+        positionOfItemViewInView = selectedImageView.frame;
+        
+        orderTabItem = (UITabBarItem*)  [[[self.tabBarController tabBar] items] objectAtIndex:kOrderTabItemIndex];
+        
+        orderTableItemRect = [self approximateFrameForTabBarItemAtIndex:kOrderTabItemIndex inTabBar:self.tabBarController.tabBar];
+        
+        UIImageView *orderImage = [[UIImageView alloc ] initWithFrame:orderTableItemRect];
+        
+        if (orderImage){
+            [orderImage setImage:orderTabItem.image];
+        }
+        
+        beginningPointOfQuadCurve = positionOfItemViewInView.origin;
+        
+        endPointOfQuadCurve = CGPointMake(orderImage.frame.origin.x + orderImage.frame.size.width/2,
+                                          orderImage.frame.origin.y + orderImage.frame.size.height/2) ;
+        
+        controlPointOfQuadCurve = CGPointMake((beginningPointOfQuadCurve.x + endPointOfQuadCurve.x *2)/2,
+                                              beginningPointOfQuadCurve.y -riseAbovePoint);
+        
+        quadBezierPathOfAnimation = [UIBezierPath bezierPath];
+        
+        [quadBezierPathOfAnimation moveToPoint:beginningPointOfQuadCurve];
+        
+        [quadBezierPathOfAnimation addQuadCurveToPoint:endPointOfQuadCurve controlPoint:controlPointOfQuadCurve];
+        
+        itemViewCurvingIntoCartAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+        
+        itemViewCurvingIntoCartAnimation.path = quadBezierPathOfAnimation.CGPath;
+        
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        message = @"";
+    }
+    
+    
+    return itemViewCurvingIntoCartAnimation;
+}
+
+
 -(void)checkOrderCount{
     
     NSString *message   = @"",
              *orderItem = @"";
     
-    NSInteger orderItems      = 0,
+    NSInteger orderItems        = 0,
               currentOrderCount = 0,
-              itemsCount       = 0;
+              entCount          = 0,
+              itemsCount        = 0;
     
     @try {
         
@@ -45,21 +281,32 @@
         }
         
         orderItem =  [[[[self.tabBarController tabBar] items] objectAtIndex:itemsCount] badgeValue];
+        
         if (! orderItem){
             orderItem = @"0";
         }
         if (orderItem){
-            
+        
             orderItems = [orderItem intValue];
             if (orderItems < currentOrderCount){
-                orderItems = currentOrderCount;
-                orderItem = [NSString stringWithFormat:@"%d",orderItems];
-               [[[[self.tabBarController tabBar] items] objectAtIndex:itemsCount] setBadgeValue:orderItem];
+                
+                if (selectedImageView != nil){
+                    
+                    if (appDelegate.entreeItems){
+                        
+                        entCount = [[appDelegate.entreeItems objectForKey:@"Quantity"] integerValue];
+                        
+                        [self initiateAddToCart:entCount];
+
+                    }
+                }
+
+
             }
 
         }
         
-        
+
         
     }
     @catch (NSException *exception) {
@@ -196,6 +443,12 @@
         }
     }
     
+
+    if ( selectedCell.imageView){
+        selectedImageView =  selectedCell.imageView;
+    }
+    
+    
     [self setModalPresentationStyle:UIModalPresentationCustom];
     
     [self presentViewController:item animated:YES completion:^(void) {
@@ -204,7 +457,8 @@
         
         [item.imageView setFrame:imageRect];
         [item.imageView setImage:image];
-        
+
+        [item setFoodType:Entrees];
         [item.labelTitle setText:title];
         [item.labelPrice setText:[NSString stringWithFormat:@"$%@",price]];
         [item.labelDescription setText:desc];
@@ -218,7 +472,7 @@
 
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    NSInteger sectionCount = 4  ;
+    NSInteger sectionCount = 3;//4 /*Make 4 to include beef*/
     return sectionCount;
 }
 
@@ -227,7 +481,7 @@
     
     switch (section) {
         case 0:
-            rowCount = 4;
+            rowCount = 9;
             break;
         case 1:
             rowCount = 5;
@@ -236,7 +490,7 @@
             rowCount = 5;
             break;
         case 3:
-            rowCount = 9;
+            rowCount = 4;
             break;
     }
     return rowCount;

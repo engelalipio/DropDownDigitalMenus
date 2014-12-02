@@ -16,8 +16,10 @@
 
 @synthesize drinkItems = _drinkItems;
 @synthesize saladItems = _saladItems;
-@synthesize meatItems  = _meatItems;
+@synthesize soupItems  = _soupItems;
+@synthesize entreeItems  = _entreeItems;
 @synthesize dessertItems = _dessertItems;
+@synthesize appItems = _appItems;
 @synthesize currentOrderItems = _currentOrderItems;
 
 

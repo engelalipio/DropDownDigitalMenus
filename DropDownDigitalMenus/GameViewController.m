@@ -23,6 +23,8 @@
 
 @implementation GameViewController
 
+@synthesize gameURL = _gameURL;
+
 #pragma -mark Web View Methods
 
 -(void)webViewDidStartLoad:(UIWebView *)webView{
@@ -132,65 +134,30 @@
 
 #pragma -mark Utility Methods
 
--(void) initWebView{
+-(void) prepareWebView{
     
-    NSString *message = @"",
-             *html    = @"";
+    NSString *vUrl = [NSString stringWithFormat:@"http://%@", self.gameURL] ;
     
-    NSURL    *url     = nil;
-    @try {
+    NSURLRequest *request = nil;
+    
+    NSURL *url = [NSURL URLWithString:vUrl];
+    
+    request = [[NSURLRequest alloc] initWithURL:url];
+    
+    if ([vUrl length] > 0){
         
-        if (! self.webView){
-            _webView = [[UIWebView alloc] init];
-            [self.webView setDelegate:self];
-        }
-        gameSWF = @"neave_tictactoe.swf";
-        gameCodeBase = @"http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0";
-        plugInPage = @"http://www.macromedia.com/go/getflashplayer";
-        baseURL    = @"http://neave.com/tic-tac-toe/";
+        url  = [NSURL URLWithString:vUrl];
+        [self.webView setDelegate:self];
         
-        embedHTML = @"\
-        <html><head>\
-        <style type=\"text/css\">\
-        body {\
-        background-color: transparent;\
-        color: white;\
-        }\
-        </style>\
-        </head><body style=\"margin:0\">\
-        <div align=\"center\">\
-        <object classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\" codebase=\"%@\" width=\"642\" height=\"839\">\
-        <param name=\"movie\" value=\"%@\">\
-        <param name=\"quality\" value=\"high\">\
-        <embed src=\"%@\" quality=\"high\" pluginspage=\"%@\" type=\"application/x-shockwave-flash\" width=\"642\" height=\"839\"></embed>\
-        </object>\
-        </div>\
-        </html>";
-        
-        html = [NSString stringWithFormat:embedHTML, gameCodeBase, gameSWF, gameSWF,plugInPage];
-        url  = [[NSURL alloc] initWithString:baseURL];
-        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
         [self.webView loadRequest:request];
-        //[self.webView loadHTMLString:html baseURL:url];
-       
-
-        
     }
-    @catch (NSException *exception) {
-        message = [exception description];
-    }
-    @finally {
-        if ([message length] >0){
-            NSLog(@"%@",message);
-        }
-        message = @"";
-    }
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self initWebView];
+    [self prepareWebView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -199,9 +166,9 @@
 }
 
 
- 
 
-
-
-
+- (IBAction)backAction:(UIButton *)sender {
+    self.gameURL = @"";
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
 @end

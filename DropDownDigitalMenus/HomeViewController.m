@@ -462,12 +462,10 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         
         categoryHomeData = [[NSArray alloc] initWithObjects:@"Beverages",@"Appetizers",@"Soups",@"Salads",@"Entrees",@"Desserts", nil];
         
-        self.pageTitles  = [[NSArray alloc] initWithObjects:@"RestaurantBack_8.jpg", nil];
+        self.pageTitles  = [[NSArray alloc] initWithObjects:@"HomeImage.jpg", nil];
         
         categorySections = @[ @{ @"description": @"Casa D'Angelo",
-                                 @"items": @[ @{ @"image": @"RestaurantBack_7.jpg" },
-                                              @{ @"image": @"RestaurantBack_8.jpg" }
-                                              ]
+                                 @"items": @[ @{ @"image": @"HomeImage.jpg" }]
                                  }/*@{ @"description": @"Drinks",
                          @"items": @[ @{ @"title": @"Article A1" },
                                          @{ @"title": @"Article A2" },

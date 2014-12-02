@@ -9,7 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
+typedef enum {
+   Beverage  = 0,
+   Appetizer = 1,
+   Soups     = 2,
+   Salads    = 3,
+   Entrees   = 4,
+   Desserts  = 5
+} FoodType;
+
 @interface ItemViewController : UIViewController
+
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 @property (strong, nonatomic) IBOutlet UILabel *labelDescription;
@@ -18,7 +28,7 @@
 @property (strong, nonatomic) IBOutlet UIStepper *itemStepper;
 @property (strong, nonatomic) IBOutlet UIButton *addToOrderButton;
 @property (strong, nonatomic) IBOutlet UILabel *labelTitle;
-
+@property (assign, nonatomic) FoodType foodType;
 
 - (IBAction)cancelOrder:(UIButton *)sender;
 

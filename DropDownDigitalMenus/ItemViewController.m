@@ -9,6 +9,8 @@
 #import "ItemViewController.h"
 #import "NumberFormatter.h"
 #import "AppDelegate.h"
+#import "AppetizersViewController.h"
+#import "MeatDetailViewController.h"
 
 @interface ItemViewController ()
 {
@@ -19,6 +21,8 @@
 @end
 
 @implementation ItemViewController
+
+@synthesize foodType = _foodType;
 
 -(void) configureView{
     
@@ -63,6 +67,7 @@
 }
 */
 
+
 - (IBAction)cancelOrder:(UIButton *)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -76,6 +81,11 @@
     NSInteger orderItems = 0,
               quantity   = 0;
     
+    NSMutableDictionary *items = nil;
+    
+    NSArray *keys = nil,
+            *values = nil;
+    
     @try {
         
         orderItems = [appDelegate currentOrderItems];
@@ -87,7 +97,39 @@
             orderItems = orderItems + quantity ;
         }
         message = [NSString stringWithFormat:@"%d order item(s)", orderItems];
+        
+        keys = [[NSArray alloc] initWithObjects:@"Title",@"Description", @"Price", @"Quantity", @"Image", nil];
+        
+        values = [[NSArray alloc] initWithObjects:self.labelTitle.text,self.labelDescription.text,
+                  self.labelPrice.text,self.labelQuantity.text, self.imageView.image, nil];
+        
+        items = [[NSMutableDictionary alloc] initWithObjects:values forKeys:keys];
+        
+        
+        switch (self.foodType) {
+            case Beverage:
+                [appDelegate setDrinkItems:items];
+                break;
+            case Appetizer:
+                [appDelegate setAppItems:items];
+                break;
+            case Soups:
+                [appDelegate setSoupItems:items];
+                break;
+            case Salads:
+                [appDelegate setSaladItems:items];
+                break;
+            case Entrees:
+                [appDelegate setEntreeItems:items];
+                break;
+            case Desserts:
+                [appDelegate setDessertItems:items];
+                break;
+        }
+        
+        
         [appDelegate setCurrentOrderItems:orderItems];
+        
         [self dismissViewControllerAnimated:YES completion:nil];
     
     }
@@ -153,6 +195,7 @@
         if (originalPrice == 0.0f){
             [self extractOriginalPrice];
         }
+    
         
         quantity = self.itemStepper.value;
     
@@ -176,6 +219,7 @@
         numberPrice =  [[NSNumber alloc] initWithFloat:price];
         
         [self.labelPrice setText:[formatter stringFromValue:numberPrice]];
+        
         
     }
     @catch (NSException *exception) {

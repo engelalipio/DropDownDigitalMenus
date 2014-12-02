@@ -92,6 +92,8 @@
 
 #define kOrderTabItemIndex 3
 
+#define kAnimationSpeed 0.85f
+
 
 // Width (or length before rotation) of the table view embedded within another table view's row
 #define kTableLength                                768

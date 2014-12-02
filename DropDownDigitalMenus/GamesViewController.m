@@ -7,7 +7,7 @@
 //
 
 #import "GamesViewController.h"
-#import "GamesViewController.h"
+#import "GameViewController.h"
 #import "UIColor+ColorWithHexString.h"
 @interface GamesViewController ()
 {
@@ -50,9 +50,7 @@
     NSString *message = @"";
     @try {
         
-        games = [[NSArray alloc] initWithObjects:@"Bingo.gif",@"Curve.gif",@"Dodge.gif",@"Mini-Putt.gif",
-                                                 @"Hexxagon.gif", @"Air-Hockey.gif",@"Memory.gif", @"Pacman.gif",
-                                                 @"Simon.gif", @"Tetris.gif", @"Tic-Tac-Toe.gif",nil];
+        games = [[NSArray alloc] initWithObjects: @"PopPopRush", @"SmartyBubbles", @"SpeedPoolKing",@"Mahjong",@"FitItQuick",@"CartoonFlight",nil];
         
     }
     @catch (NSException *exception) {
@@ -65,6 +63,14 @@
         message = @"";
     }
     
+}
+
+-(void) viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+    if (self.tableView.indexPathForSelectedRow){
+        [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:NO];
+    }
 }
 
 - (void)viewDidLoad {
@@ -84,7 +90,7 @@
 #pragma mark - TableView Events
 
 -(NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return @"Games and Applications";
+    return @"GAMES";
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -125,7 +131,7 @@
         title = [imageName stringByReplacingOccurrencesOfString:@".gif" withString:@""];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         [cell setBackgroundColor:self.tableView.backgroundColor];
-        [cell.textLabel setTextColor:[UIColor orangeColor]];
+        [cell.textLabel setTextColor: [UIColor colorWithHexString: @"800000"]];
         
         [cell.textLabel setFont:[UIFont systemFontOfSize:25.0]];
         [cell.textLabel setText:title];
@@ -189,8 +195,34 @@
     
     NSIndexPath *selectedIP = [self.tableView indexPathForSelectedRow];
     
-    GamesViewController *destVC = (GamesViewController*) [segue destinationViewController];
+    GameViewController *destVC = (GameViewController*) [segue destinationViewController];
     
+    NSString *gameURL = @"";
+    
+    switch([selectedIP row]){
+        case 5:
+            gameURL = @"play.famobi.com/cartoon-flight";
+            break;
+        case 1:
+            gameURL = @"play.famobi.com/pop-pop-rush";
+            break;
+        case 2:
+            gameURL = @"play.famobi.com/smarty-bubbles";
+            break;
+        case 3:
+            gameURL = @"play.famobi.com/speed-pool-king";
+            break;
+        case 4:
+            gameURL = @"play.famobi.com/mahjong-relax";
+            break;
+        case 0:
+            gameURL = @"play.famobi.com/fit-it-quick";
+            break;
+    }
+    
+    if (destVC){
+        [destVC setGameURL:gameURL];
+    }
     
 }
 
