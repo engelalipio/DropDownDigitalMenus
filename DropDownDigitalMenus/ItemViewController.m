@@ -18,19 +18,71 @@
     AppDelegate *appDelegate;
 }
 -(void) configureView;
+
 @end
 
 @implementation ItemViewController
 
 @synthesize foodType = _foodType;
+@synthesize entreeType = _entreeType;
 
 -(void) configureView{
     
     CGRect imageRect = CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height);
-    
-    //[self.imageView setImage:[UIImage imageNamed:@"wine_glass-512.png"]];
     [self.imageView setFrame:imageRect];
+
+}
+
+-(void) configureSegs{
     
+    switch (self.foodType) {
+        case Beverage:
+           // [self.sweetSeg setHidden:NO];
+            break;
+        case Appetizer:
+            [self.glutenSeg setHidden:NO];
+            [self.sauceTypeSeg setHidden:NO];
+            break;
+        case Soups:
+            [self.glutenSeg setHidden:NO];
+            [self.cheeseTypeSeg setHidden:NO];
+            break;
+        case Salads:
+            [self.dressingTypeSeg setHidden:NO];
+            [self.cheeseTypeSeg setHidden:NO];
+            [self.glutenSeg setHidden:NO];
+            break;
+        case Entrees:
+            
+            switch (self.entreeType) {
+                case Beef:
+                    [self.steakSeg setHidden:NO];
+                    [self.cheeseTypeSeg setHidden:NO];
+                    [self.sidesSeg setHidden:NO];
+                    break;
+                    
+                case Chicken:
+                    [self.sauceTypeSeg setHidden:NO];
+                    [self.sidesSeg setHidden:NO];
+                    break;
+                    
+                case Seafood:
+                    [self.sauceTypeSeg setHidden:NO];
+                    [self.sidesSeg setHidden:NO];
+                    break;
+                case Pasta:
+                    [self.glutenSeg setHidden:NO];
+                    [self.sauceTypeSeg setHidden:NO];
+                    [self.sidesSeg setHidden:NO];
+                    [self.cheeseTypeSeg setHidden:NO];
+                    break;
+            }
+            
+            break;
+        case Desserts:
+            [self.glutenSeg setHidden:NO];
+            break;
+    }
 }
 
 - (void)viewDidLoad {
@@ -47,9 +99,20 @@
 
 -(void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    
+    [self configureSegs];
     [self extractOriginalPrice];
 }
+
+-(void) viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [self.sweetSeg setHidden:YES];
+    [self.glutenSeg setHidden:YES];
+    [self.sauceTypeSeg setHidden:YES];
+    [self.sidesSeg setHidden:YES];
+    [self.cheeseTypeSeg setHidden:YES];
+    [self.steakSeg setHidden:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

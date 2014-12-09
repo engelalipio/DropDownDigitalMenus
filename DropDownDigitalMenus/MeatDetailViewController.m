@@ -457,8 +457,25 @@
         
         [item.imageView setFrame:imageRect];
         [item.imageView setImage:image];
-
         [item setFoodType:Entrees];
+        
+        switch (indexPath.section) {
+            case 0:
+                [item setEntreeType:Beef];
+                break;
+            case 1:
+                [item setEntreeType:Chicken];
+                break;
+            case 2:
+                [item setEntreeType:Seafood];
+                break;
+            case 3:
+                [item setEntreeType:Pasta];
+                break;
+        }
+        
+        [item configureSegs];
+
         [item.labelTitle setText:title];
         [item.labelPrice setText:[NSString stringWithFormat:@"$%@",price]];
         [item.labelDescription setText:desc];
@@ -472,7 +489,7 @@
 
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    NSInteger sectionCount = 3;//4 /*Make 4 to include beef*/
+    NSInteger sectionCount = 4;//4 /*Make 4 to include beef*/
     return sectionCount;
 }
 
@@ -480,7 +497,7 @@
     NSInteger rowCount = 1;
     
     switch (section) {
-        case 0:
+        case 3:
             rowCount = 9;
             break;
         case 1:
@@ -489,7 +506,7 @@
         case 2:
             rowCount = 5;
             break;
-        case 3:
+        case 0:
             rowCount = 4;
             break;
     }

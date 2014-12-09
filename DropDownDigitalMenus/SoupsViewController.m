@@ -447,7 +447,7 @@
         [item.labelPrice setText:[NSString stringWithFormat:@"$%@",price]];
         [item.labelDescription setText:desc];
         [item.labelQuantity setText:@"1"];
-        
+        [item configureSegs];
         
     }];
 }
