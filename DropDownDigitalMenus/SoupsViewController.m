@@ -462,7 +462,7 @@
     
     switch (section) {
         case 0:
-            rowCount = 2;
+            rowCount = 8;
             break;
             
     }

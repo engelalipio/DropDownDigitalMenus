@@ -460,16 +460,16 @@
         [item setFoodType:Entrees];
         
         switch (indexPath.section) {
-            case 0:
+            /*case 0:
                 [item setEntreeType:Beef];
-                break;
-            case 1:
+                break;*/
+            case 0:
                 [item setEntreeType:Chicken];
                 break;
-            case 2:
+            case 1:
                 [item setEntreeType:Seafood];
                 break;
-            case 3:
+            case 2:
                 [item setEntreeType:Pasta];
                 break;
         }
@@ -489,7 +489,7 @@
 
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    NSInteger sectionCount = 4;//4 /*Make 4 to include beef*/
+    NSInteger sectionCount = 3;//4 /*Make 4 to include beef*/
     return sectionCount;
 }
 
@@ -497,18 +497,18 @@
     NSInteger rowCount = 1;
     
     switch (section) {
-        case 3:
+        case 2:
             rowCount = 9;
+            break;
+        case 0:
+            rowCount = 5;
             break;
         case 1:
             rowCount = 5;
             break;
-        case 2:
-            rowCount = 5;
-            break;
-        case 0:
+        /*case 0:
             rowCount = 4;
-            break;
+            break;*/
     }
     return rowCount;
 }

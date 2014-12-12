@@ -31,7 +31,8 @@
         
         [self.tableView setDataSource:self];
         [self.tableView setDelegate:self];
-        self.tableView.backgroundColor = kVerticalTableBackgroundColor;
+        
+        self.tableView.backgroundColor = [UIColor colorWithHexString:@"004080"];//kVerticalTableBackgroundColor;
         
     }
     @catch (NSException *exception) {
@@ -50,7 +51,7 @@
     NSString *message = @"";
     @try {
         
-        games = [[NSArray alloc] initWithObjects: @"PopPopRush", @"SmartyBubbles", @"SpeedPoolKing",@"Mahjong",@"FitItQuick",@"CartoonFlight",nil];
+        games = [[NSArray alloc] initWithObjects: @"Pop Pop Rush", @"Smarty Bubbles", @"Speed Pool King",@"Mahjong",@"Fit It Quick",@"Cartoon Flight",nil];
         
     }
     @catch (NSException *exception) {
@@ -90,7 +91,7 @@
 #pragma mark - TableView Events
 
 -(NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return @"GAMES";
+    return @"";
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -127,11 +128,13 @@
             
         }
         
-        imageName = [games objectAtIndex:indexPath.row];
-        title = [imageName stringByReplacingOccurrencesOfString:@".gif" withString:@""];
+        title = [games objectAtIndex:indexPath.row];
+    
+        imageName = [title stringByReplacingOccurrencesOfString:@" " withString:@""];
+        
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         [cell setBackgroundColor:self.tableView.backgroundColor];
-        [cell.textLabel setTextColor: [UIColor colorWithHexString: @"800000"]];
+        [cell.textLabel setTextColor: [UIColor whiteColor]];//[UIColor colorWithHexString: @"800000"]];
         
         [cell.textLabel setFont:[UIFont systemFontOfSize:25.0]];
         [cell.textLabel setText:title];
@@ -203,19 +206,19 @@
         case 5:
             gameURL = @"play.famobi.com/cartoon-flight";
             break;
-        case 1:
+        case 0:
             gameURL = @"play.famobi.com/pop-pop-rush";
             break;
-        case 2:
+        case 1:
             gameURL = @"play.famobi.com/smarty-bubbles";
             break;
-        case 3:
+        case 2:
             gameURL = @"play.famobi.com/speed-pool-king";
             break;
-        case 4:
+        case 3:
             gameURL = @"play.famobi.com/mahjong-relax";
             break;
-        case 0:
+        case 4:
             gameURL = @"play.famobi.com/fit-it-quick";
             break;
     }

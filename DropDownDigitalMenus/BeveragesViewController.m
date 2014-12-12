@@ -477,7 +477,7 @@
     // @"Drinks",@"Salads and Sides", @"Meats", @"Desserts"
     switch (section) {
      case 0:
-            rowCount = 4;
+            rowCount = 9    ;
      break;
      }
     return rowCount;
