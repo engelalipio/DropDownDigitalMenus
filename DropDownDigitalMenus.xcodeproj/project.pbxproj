@@ -22,6 +22,7 @@
 		0F023FE91A2D5965007556E9 /* PopPopRush.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F023FE71A2D5965007556E9 /* PopPopRush.png */; };
 		0F023FEA1A2D5965007556E9 /* FlowFree.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F023FE81A2D5965007556E9 /* FlowFree.png */; };
 		0F023FEC1A2D5A4F007556E9 /* CartoonFlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F023FEB1A2D5A4F007556E9 /* CartoonFlight.png */; };
+		0F153D331A3A7B7E0073DED2 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F153D321A3A7B7E0073DED2 /* WeatherViewController.m */; };
 		0F2ACC4E19FA0EFF0028B6E2 /* BarBack_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F2ACC4619FA0EFF0028B6E2 /* BarBack_2.jpg */; };
 		0F2ACC4F19FA0EFF0028B6E2 /* BarBack_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F2ACC4719FA0EFF0028B6E2 /* BarBack_1.jpg */; };
 		0F2ACC5019FA0EFF0028B6E2 /* BarBack_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F2ACC4819FA0EFF0028B6E2 /* BarBack_0.jpg */; };
@@ -341,6 +342,8 @@
 		0F023FE71A2D5965007556E9 /* PopPopRush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PopPopRush.png; sourceTree = "<group>"; };
 		0F023FE81A2D5965007556E9 /* FlowFree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FlowFree.png; sourceTree = "<group>"; };
 		0F023FEB1A2D5A4F007556E9 /* CartoonFlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CartoonFlight.png; sourceTree = "<group>"; };
+		0F153D311A3A7B7E0073DED2 /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
+		0F153D321A3A7B7E0073DED2 /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
 		0F2ACC4619FA0EFF0028B6E2 /* BarBack_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BarBack_2.jpg; sourceTree = "<group>"; };
 		0F2ACC4719FA0EFF0028B6E2 /* BarBack_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BarBack_1.jpg; sourceTree = "<group>"; };
 		0F2ACC4819FA0EFF0028B6E2 /* BarBack_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BarBack_0.jpg; sourceTree = "<group>"; };
@@ -1367,6 +1370,8 @@
 				0F72708C1A1ED65E00F9C2E2 /* AppetizersViewController.m */,
 				0F72708E1A1ED68300F9C2E2 /* SoupsViewController.h */,
 				0F72708F1A1ED68300F9C2E2 /* SoupsViewController.m */,
+				0F153D311A3A7B7E0073DED2 /* WeatherViewController.h */,
+				0F153D321A3A7B7E0073DED2 /* WeatherViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -1769,6 +1774,7 @@
 				0F2ACD2A19FAA7270028B6E2 /* HomeViewController.m in Sources */,
 				0FF46E0B19F9953500E51218 /* JTSetMappings.m in Sources */,
 				0FF46E2119F9979200E51218 /* UIColor+ColorWithHexString.m in Sources */,
+				0F153D331A3A7B7E0073DED2 /* WeatherViewController.m in Sources */,
 				0F2ACD3519FAD74F0028B6E2 /* ContainerCellView.m in Sources */,
 				0F2ACD3119FAC4AE0028B6E2 /* HeaderImageCell.m in Sources */,
 				0FE60ADD1A116FB100435F32 /* DessertDetailViewController.m in Sources */,
