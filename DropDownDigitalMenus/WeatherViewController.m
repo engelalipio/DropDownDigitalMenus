@@ -27,11 +27,7 @@
     
     @try{
         
-        isHidden = [self.webView isHidden];
-        
-        if (self.webView.request != nil && ! isHidden){
-            [self.webView setHidden:YES];
-        }
+        [self.weatherImage setAlpha:0.30f];
     }
     @catch(NSException *exception){
         errMessage = [exception description];
@@ -54,10 +50,7 @@
     
     @try {
         if (request != nil){
-            isHidden = [self.webView isHidden];
-            if (! isHidden){
-                [self.webView setHidden:YES];
-            }
+ 
             result = YES;
             message = [NSString stringWithFormat:@"shouldStartLoadWithRequest for %@",request.URL.description];
         }
@@ -80,7 +73,7 @@
     NSString *errMessage = @"";
     
     @try{
-        [self.webView setHidden:NO];
+      [self.weatherImage setAlpha:0.0f];
     }
     @catch(NSException *exception){
         errMessage = [exception description];

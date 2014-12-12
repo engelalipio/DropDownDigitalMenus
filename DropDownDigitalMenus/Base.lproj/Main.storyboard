@@ -395,7 +395,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nr8-du-2lp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1880" y="-2301.5"/>
+            <point key="canvasLocation" x="2860" y="-2301.5"/>
         </scene>
         <!--Menu-->
         <scene sceneID="2SY-IT-SjL">
@@ -533,7 +533,7 @@
                                             <color key="backgroundColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="AFf-6S-nEG" kind="show" identifier="segGame" id="1gw-xu-H41"/>
+                                            <segue destination="AFf-6S-nEG" kind="show" identifier="segGame" id="eRI-ka-PA7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -555,7 +555,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-661" y="200"/>
+            <point key="canvasLocation" x="543" y="876"/>
         </scene>
         <!--Game View-->
         <scene sceneID="LLI-DJ-xH9">
@@ -575,27 +575,28 @@
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1024" id="tb8-Wa-YFi"/>
                                 </constraints>
                             </webView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAA-22-uF2">
-                                <rect key="frame" x="329" y="937" width="110" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="put_in_motion-256.png" translatesAutoresizingMaskIntoConstraints="NO" id="ljo-Un-r5a">
+                                <rect key="frame" x="256" y="447" width="256" height="258"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAA-22-uF2">
+                                <rect key="frame" x="720" y="72" width="32" height="32"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="110" id="YTj-TY-1QA"/>
+                                    <constraint firstAttribute="width" constant="32" id="YTj-TY-1QA"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="CLOSE">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <state key="normal" title="X"/>
                                 <connections>
                                     <action selector="backAction:" destination="AFf-6S-nEG" eventType="touchUpInside" id="Gl3-Qi-qeD"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="AAA-22-uF2" secondAttribute="centerX" constant="5" id="2xs-BZ-QlR"/>
-                            <constraint firstItem="AAA-22-uF2" firstAttribute="top" secondItem="kCT-Ve-5tf" secondAttribute="bottom" constant="873" id="Dqr-1o-Ete"/>
-                            <constraint firstItem="AAA-22-uF2" firstAttribute="centerX" secondItem="2qE-v0-g9T" secondAttribute="centerX" id="NBI-Uj-QrX"/>
-                            <constraint firstItem="AAA-22-uF2" firstAttribute="top" secondItem="2qE-v0-g9T" secondAttribute="bottom" constant="-151" id="Spi-xB-kVq"/>
+                            <constraint firstItem="AAA-22-uF2" firstAttribute="top" secondItem="kCT-Ve-5tf" secondAttribute="bottom" constant="8" id="Dqr-1o-Ete"/>
+                            <constraint firstItem="AAA-22-uF2" firstAttribute="centerX" secondItem="2qE-v0-g9T" secondAttribute="centerX" constant="352" id="NBI-Uj-QrX"/>
+                            <constraint firstItem="AAA-22-uF2" firstAttribute="top" secondItem="2qE-v0-g9T" secondAttribute="bottom" constant="-1016" id="Spi-xB-kVq"/>
                             <constraint firstItem="2qE-v0-g9T" firstAttribute="leading" secondItem="PFg-sw-nR8" secondAttribute="leadingMargin" constant="-16" id="Vgv-mU-cwy"/>
                             <constraint firstItem="2qE-v0-g9T" firstAttribute="leading" secondItem="PFg-sw-nR8" secondAttribute="leading" id="aN7-n0-OXh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2qE-v0-g9T" secondAttribute="trailing" constant="-16" id="d3G-jv-d8a"/>
@@ -616,17 +617,25 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Game" id="Pn4-aa-9dc"/>
+                    <navigationItem key="navigationItem" title="Game" id="Pn4-aa-9dc">
+                        <barButtonItem key="rightBarButtonItem" image="delete_sign-32.png" id="JAy-BL-g8m">
+                            <connections>
+                                <action selector="closeAction:" destination="AFf-6S-nEG" id="DaW-bY-aTD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="btnBack" destination="AAA-22-uF2" id="JWa-3S-ctk"/>
+                        <outlet property="btnClose" destination="JAy-BL-g8m" id="GPY-wC-H2m"/>
+                        <outlet property="gameImage" destination="ljo-Un-r5a" id="gdE-0e-o4c"/>
                         <outlet property="webView" destination="2qE-v0-g9T" id="shj-Ue-6VM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vT-Ls-Dv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="667" y="317"/>
+            <point key="canvasLocation" x="2095" y="996"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -643,9 +652,10 @@
                         <segue destination="jRf-Ev-JJb" kind="relationship" relationship="viewControllers" id="54V-xA-Uo9"/>
                         <segue destination="8ro-vk-RHL" kind="relationship" relationship="viewControllers" id="3A7-aT-AKF"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="HfE-Ws-oeo"/>
+                        <segue destination="pD2-px-4LS" kind="relationship" relationship="viewControllers" id="VUB-hd-5ET"/>
+                        <segue destination="SBa-Er-jZ4" kind="relationship" relationship="viewControllers" id="d4n-v9-rPT"/>
                         <segue destination="byA-60-evw" kind="relationship" relationship="viewControllers" id="qfL-nI-JWn"/>
-                        <segue destination="sIH-oI-E0v" kind="relationship" relationship="viewControllers" id="VUB-hd-5ET"/>
-                        <segue destination="Z32-th-Fe3" kind="relationship" relationship="viewControllers" id="d4n-v9-rPT"/>
+                        <segue destination="6QX-oq-cg9" kind="relationship" relationship="viewControllers" id="iAt-ry-uMl"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -677,7 +687,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5H-4W-1rV" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1218" y="-761"/>
+            <point key="canvasLocation" x="2198" y="-761"/>
         </scene>
         <!--Home-->
         <scene sceneID="lL7-5Y-a9b">
@@ -800,29 +810,6 @@
             </objects>
             <point key="canvasLocation" x="-281" y="-3176"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="7Mq-Dy-K87">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3ll-84-nYp" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cWX-Yw-dty">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="AFf-6S-nEG" kind="relationship" relationship="rootViewController" id="obc-FQ-I6q"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cPS-cZ-r5j" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="217" y="-147"/>
-        </scene>
         <!--Home-->
         <scene sceneID="Ctd-QH-eDN">
             <objects>
@@ -879,24 +866,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13h-sy-hxw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4824" y="-2778"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="LKf-Or-hC5">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="XGm-oa-agD" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Nj8-eK-kTy"/>
-                        <viewControllerLayoutGuide type="bottom" id="kBP-fR-rJ6"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Pk9-7H-ibC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AWi-7J-DjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BeD-ET-nc8">
@@ -1194,7 +1163,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3g8-2j-mky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2940" y="-1823.5"/>
+            <point key="canvasLocation" x="3920" y="-1823.5"/>
         </scene>
         <!--Appetizers-->
         <scene sceneID="XdQ-kt-zG8">
@@ -1544,7 +1513,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sag-oA-oWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2940" y="-1823.5"/>
+            <point key="canvasLocation" x="3920" y="-1823.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nt7-dz-g6q">
@@ -1562,7 +1531,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNZ-qt-eGQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3038" y="-1926"/>
+            <point key="canvasLocation" x="4018" y="-1926"/>
         </scene>
         <!--Entrees-->
         <scene sceneID="oba-5J-ijz">
@@ -2436,7 +2405,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8AA-Qf-bMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2276" y="-1518.5"/>
+            <point key="canvasLocation" x="3256" y="-1518.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4aU-lP-Dht">
@@ -2454,7 +2423,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8eb-ff-lv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1964" y="-1720"/>
+            <point key="canvasLocation" x="2944" y="-1720"/>
         </scene>
         <!--Desserts-->
         <scene sceneID="YvZ-ov-Ucu">
@@ -3064,7 +3033,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0GN-CV-6Iz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="431" y="-1780.5"/>
+            <point key="canvasLocation" x="1411" y="-1780.5"/>
         </scene>
         <!--Service-->
         <scene sceneID="ddv-5a-eKR">
@@ -3148,7 +3117,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7SJ-Tc-jNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-73" y="-1342.5"/>
+            <point key="canvasLocation" x="907" y="-1342.5"/>
         </scene>
         <!--News-->
         <scene sceneID="4gj-0Y-VZe">
@@ -3158,152 +3127,33 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                         <viewControllerLayoutGuide type="top" id="7QA-PI-ne8"/>
                         <viewControllerLayoutGuide type="bottom" id="Nn5-3f-PEb"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="975" id="YU9-cv-Srq">
-                        <rect key="frame" x="0.0" y="64" width="768" height="975"/>
+                    <view key="view" contentMode="scaleToFill" id="YU9-cv-Srq">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jz7-5p-1cd" userLabel="whiteContainer">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="375"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="304" image="RestaurantBack_3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Xu7-01-D1q" userLabel="imageContainer">
-                                <rect key="frame" x="0.0" y="28" width="768" height="340"/>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="975" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZIx-u6-62x">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="news-256.png" translatesAutoresizingMaskIntoConstraints="NO" id="Si8-sr-CQH">
+                                <rect key="frame" x="256" y="360" width="256" height="256"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXy-hr-lDK" userLabel="textContainer">
-                                <rect key="frame" x="214" y="383" width="500" height="150"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="REVIEW: The Churrascaria NYC">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-November 14th, 2014 | Press
-The Celebrity Cafe – New York, NY Author Rating:  4.0 Stars – Very Good You will NEVER leave hungry after a meal at Texas de Brazil Churrascaria; an exciting Brazilian Steakhouse located at XXXX Third Avenue, New York NY 10021. Dinner hours start at 5:30 pm Monday through Friday and end at 10:00 pm (10:30 […]</string>
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NewsBack_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="n5h-9V-TzN">
-                                <rect key="frame" x="16" y="383" width="150" height="150"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NewsBack_1.png" translatesAutoresizingMaskIntoConstraints="NO" id="xby-x9-ujH">
-                                <rect key="frame" x="16" y="541" width="150" height="150"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eO0-TI-L1x" userLabel="textContainer">
-                                <rect key="frame" x="214" y="699" width="500" height="150"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="REVIEW: The Churrascaria NYC">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-November 14th, 2014 | Press
-The Celebrity Cafe – New York, NY Author Rating:  4.0 Stars – Very Good You will NEVER leave hungry after a meal at Texas de Brazil Churrascaria; an exciting Brazilian Steakhouse located at XXXX Third Avenue, New York NY 10021. Dinner hours start at 5:30 pm Monday through Friday and end at 10:00 pm (10:30 […]</string>
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="0.91764705882352937" blue="0.7686274509803922" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NewsBack_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qn9-P9-GfX">
-                                <rect key="frame" x="16" y="699" width="150" height="150"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NewsBack_3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="X6l-j8-qJ9">
-                                <rect key="frame" x="16" y="866" width="150" height="150"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qd-8c-pve" userLabel="textContainer">
-                                <rect key="frame" x="214" y="866" width="500" height="150"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="REVIEW: The Churrascaria NYC">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-November 14th, 2014 | Press
-The Celebrity Cafe – New York, NY Author Rating:  4.0 Stars – Very Good You will NEVER leave hungry after a meal at Texas de Brazil Churrascaria; an exciting Brazilian Steakhouse located at XXXX Third Avenue, New York NY 10021. Dinner hours start at 5:30 pm Monday through Friday and end at 10:00 pm (10:30 […]</string>
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="0.91764705882352937" blue="0.7686274509803922" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHP-Fk-nsO" userLabel="textContainer">
-                                <rect key="frame" x="214" y="541" width="500" height="150"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="REVIEW: The Churrascaria NYC">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-November 14th, 2014 | Press
-The Celebrity Cafe – New York, NY Author Rating:  4.0 Stars – Very Good You will NEVER leave hungry after a meal at Texas de Brazil Churrascaria; an exciting Brazilian Steakhouse located at XXXX Third Avenue, New York NY 10021. Dinner hours start at 5:30 pm Monday through Friday and end at 10:00 pm (10:30 […]</string>
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="0.91764705882352937" blue="0.7686274509803922" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Gt2-Q6-KFs">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
-                                <items>
-                                    <navigationItem title="Latest News" id="b7V-xt-GTH"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="News" image="news-32.png" id="N3V-DI-S9Q"/>
-                    <navigationItem key="navigationItem" title="LATEST NEWS &amp; UPDATES" id="oCR-IG-7ck">
-                        <barButtonItem key="backBarButtonItem" title="NEWS" id="EDk-f8-DSC"/>
-                    </navigationItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="News" id="oCR-IG-7ck"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="768" height="1024"/>
+                    <size key="freeformSize" width="768" height="975"/>
                     <connections>
-                        <outlet property="NewsBack2" destination="Qn9-P9-GfX" id="COy-hb-Jti"/>
-                        <outlet property="NewsBack3" destination="X6l-j8-qJ9" id="1Ag-Jw-PNE"/>
-                        <outlet property="NewsBanner0" destination="n5h-9V-TzN" id="Q89-vo-k1D"/>
-                        <outlet property="NewsBanner1" destination="xby-x9-ujH" id="UxE-gf-Xtb"/>
-                        <outlet property="imageView" destination="Xu7-01-D1q" id="G9L-XI-Rmr"/>
-                        <outlet property="newsNav" destination="b7V-xt-GTH" id="OZI-wV-5gK"/>
+                        <outlet property="newsImage" destination="Si8-sr-CQH" id="q2M-0n-1kx"/>
+                        <outlet property="newsNav" destination="oCR-IG-7ck" id="U5w-7f-OUw"/>
+                        <outlet property="webView" destination="ZIx-u6-62x" id="5T1-8k-nca"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLa-rR-Ac5" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-317" y="-1638"/>
+            <point key="canvasLocation" x="702" y="-1702.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g8r-pD-VAh">
@@ -3317,7 +3167,7 @@ The Celebrity Cafe – New York, NY Author Rating:  4.0 Stars – Very Good You 
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="sIH-oI-E0v" kind="relationship" relationship="rootViewController" id="Gfh-Ot-UgZ"/>
+                        <segue destination="pD2-px-4LS" kind="relationship" relationship="rootViewController" id="Gfh-Ot-UgZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOu-Ma-uab" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3643,7 +3493,7 @@ The Celebrity Cafe – New York, NY Author Rating:  4.0 Stars – Very Good You 
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TJb-l2-y62" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1638" y="-1438.5"/>
+            <point key="canvasLocation" x="2618" y="-1438.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Epq-N7-mtB">
@@ -3661,7 +3511,7 @@ The Celebrity Cafe – New York, NY Author Rating:  4.0 Stars – Very Good You 
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ozX-wj-sw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1562" y="-1521"/>
+            <point key="canvasLocation" x="2542" y="-1521"/>
         </scene>
         <!--Weather-->
         <scene sceneID="VQg-H5-61Q">
@@ -3676,31 +3526,171 @@ The Celebrity Cafe – New York, NY Author Rating:  4.0 Stars – Very Good You 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Skh-oz-llh">
-                                <rect key="frame" x="0.0" y="64" width="768" height="975"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1024" id="V3y-7b-yMb"/>
                                 </constraints>
                             </webView>
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="weather-256.png" translatesAutoresizingMaskIntoConstraints="NO" id="fz8-6Y-TsS">
+                                <rect key="frame" x="256" y="360" width="256" height="256"/>
+                            </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="Skh-oz-llh" secondAttribute="bottom" constant="-64" id="DI9-7B-eUf"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Skh-oz-llh" secondAttribute="bottom" id="DI9-7B-eUf"/>
                             <constraint firstItem="Skh-oz-llh" firstAttribute="leading" secondItem="H7m-FH-b7S" secondAttribute="leading" id="ZsX-iT-osl"/>
                             <constraint firstAttribute="trailing" secondItem="Skh-oz-llh" secondAttribute="trailing" id="hm3-Sy-hET"/>
-                            <constraint firstItem="Skh-oz-llh" firstAttribute="top" secondItem="aMf-90-nDH" secondAttribute="bottom" id="iIE-pX-me1"/>
+                            <constraint firstItem="Skh-oz-llh" firstAttribute="top" secondItem="aMf-90-nDH" secondAttribute="bottom" constant="-64" id="iIE-pX-me1"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Weather" image="weather-32.png" id="CHg-LI-cLX"/>
                     <navigationItem key="navigationItem" title="Weather" id="0qh-Du-cPl"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
+                        <outlet property="weatherImage" destination="fz8-6Y-TsS" id="m4d-jF-O9w"/>
                         <outlet property="weatherNav" destination="0qh-Du-cPl" id="kZ1-hU-MWZ"/>
                         <outlet property="webView" destination="Skh-oz-llh" id="ggO-hV-EFr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WIS-Hs-34a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-452" y="-707"/>
+            <point key="canvasLocation" x="515" y="-244"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="XZY-Ub-S8e">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pD2-px-4LS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News" image="news-32.png" id="N3V-DI-S9Q"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="News" id="my7-DR-PJg"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mRi-Iw-lxV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sIH-oI-E0v" kind="relationship" relationship="rootViewController" id="7Ed-sI-jgr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4A3-Fq-Y8P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-317" y="-1639"/>
+        </scene>
+        <!--Weather-->
+        <scene sceneID="pfa-jc-QnJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SBa-Er-jZ4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Weather" image="weather-32.png" id="CHg-LI-cLX"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Oez-xy-1Ml">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Z32-th-Fe3" kind="relationship" relationship="rootViewController" id="4jx-nF-7IP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q8b-qL-GHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-465" y="-244"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4BG-Fc-Ycr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5FV-Zf-yOg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="LJI-5b-UNc"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yJD-BH-SVF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AFf-6S-nEG" kind="relationship" relationship="rootViewController" id="Roa-67-anP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rj8-bv-OGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1825" y="749"/>
+        </scene>
+        <!--Languages-->
+        <scene sceneID="Scv-th-Ixl">
+            <objects>
+                <viewController storyboardIdentifier="sbLanguages" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6QX-oq-cg9" userLabel="Languages" customClass="LanguagesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vPj-Qc-0pI"/>
+                        <viewControllerLayoutGuide type="bottom" id="1CW-3d-nLS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="551" id="6pL-6x-rkF">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="3Oa-dQ-a6s">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbLanguageCell" textLabel="Cqw-hj-5iY" imageView="SQc-lN-vfo" rowHeight="150" style="IBUITableViewCellStyleDefault" id="4zh-63-Xh0">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4zh-63-Xh0" id="19C-Zf-rUk">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cqw-hj-5iY">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="English.png" id="SQc-lN-vfo">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="6QX-oq-cg9" id="iNN-oc-Q5h"/>
+                                    <outlet property="delegate" destination="6QX-oq-cg9" id="yWs-U0-aFE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="3Oa-dQ-a6s" secondAttribute="centerX" id="4gJ-py-HAg"/>
+                            <constraint firstItem="1CW-3d-nLS" firstAttribute="top" secondItem="3Oa-dQ-a6s" secondAttribute="bottom" id="GJL-EN-mUu"/>
+                            <constraint firstItem="3Oa-dQ-a6s" firstAttribute="width" secondItem="6pL-6x-rkF" secondAttribute="width" id="gHo-cK-xEq"/>
+                            <constraint firstItem="3Oa-dQ-a6s" firstAttribute="top" secondItem="vPj-Qc-0pI" secondAttribute="bottom" constant="-64" id="vp6-Fo-Qre"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Languages" image="talk-32.png" id="voz-h8-zO0"/>
+                    <navigationItem key="navigationItem" title="Languages" id="vhF-ib-U8e"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="tableView" destination="3Oa-dQ-a6s" id="jgN-qV-sMt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ixe-5b-aZX" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1311" y="-330"/>
+        </scene>
+        <!--Languages-->
+        <scene sceneID="2bi-P2-gPm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vhb-xG-RJO" userLabel="Languages" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Languages" image="language-32.png" id="5GO-v1-gKe"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jFR-M8-1SA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6QX-oq-cg9" kind="relationship" relationship="rootViewController" id="qcI-nR-BLZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lWU-UT-KB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1773" y="-172"/>
         </scene>
     </scenes>
     <resources>
@@ -3721,6 +3711,7 @@ The Celebrity Cafe – New York, NY Author Rating:  4.0 Stars – Very Good You 
         <image name="DessertBack_6.jpg" width="999" height="400"/>
         <image name="Drink_2.jpg" width="1600" height="1200"/>
         <image name="EXTRA_BREADSTICKS.jpg" width="1000" height="370"/>
+        <image name="English.png" width="100" height="100"/>
         <image name="FAGIOLI.jpg" width="1000" height="370"/>
         <image name="FETTUCCINE_CARRABBA.png" width="1000" height="370"/>
         <image name="FETTUCCINE_WEESIE.png" width="1000" height="370"/>
@@ -3739,10 +3730,6 @@ The Celebrity Cafe – New York, NY Author Rating:  4.0 Stars – Very Good You 
         <image name="MEZZALUNA.png" width="1000" height="370"/>
         <image name="MINESTRONE.png" width="1000" height="370"/>
         <image name="MINI_CANNOLI.png" width="1000" height="370"/>
-        <image name="NewsBack_0.png" width="150" height="150"/>
-        <image name="NewsBack_1.png" width="150" height="150"/>
-        <image name="NewsBack_2.png" width="150" height="150"/>
-        <image name="NewsBack_3.jpg" width="150" height="150"/>
         <image name="PANNA_COTTA.png" width="1000" height="370"/>
         <image name="PARMESAN_CRUSTED_CHICKEN_SALAD.png" width="1000" height="370"/>
         <image name="PEACHMANGO_SMOOTHIE.jpg" width="380" height="250"/>
@@ -3752,7 +3739,6 @@ The Celebrity Cafe – New York, NY Author Rating:  4.0 Stars – Very Good You 
         <image name="RASPBERRY_LEMONADE.jpg" width="380" height="250"/>
         <image name="RIGATONI_MARTINO.png" width="1000" height="370"/>
         <image name="RestaurantBack_1.jpg" width="1000" height="400"/>
-        <image name="RestaurantBack_3.jpg" width="1000" height="400"/>
         <image name="SAMPLER.jpg" width="1000" height="370"/>
         <image name="SANTA_FE.jpg" width="1000" height="370"/>
         <image name="SHRIMP AND SCALLOP_LINGUINA_ALLA_VODKA.png" width="1000" height="370"/>
@@ -3779,19 +3765,26 @@ The Celebrity Cafe – New York, NY Author Rating:  4.0 Stars – Very Good You 
         <image name="ZUPPA_TOSCANA.jpg" width="1000" height="370"/>
         <image name="collaboration-32.png" width="32" height="32"/>
         <image name="control_panel-32.png" width="32" height="32"/>
+        <image name="delete_sign-32.png" width="32" height="32"/>
+        <image name="language-32.png" width="32" height="32"/>
+        <image name="news-256.png" width="256" height="256"/>
         <image name="news-32.png" width="32" height="32"/>
+        <image name="put_in_motion-256.png" width="256" height="256"/>
         <image name="put_in_motion-32.png" width="32" height="32"/>
         <image name="restaurant-32.png" width="32" height="32"/>
+        <image name="talk-32.png" width="32" height="32"/>
         <image name="waiter-32.png" width="32" height="32"/>
+        <image name="weather-256.png" width="256" height="256"/>
         <image name="weather-32.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="VUB-hd-5ET"/>
+        <segue reference="iAt-ry-uMl"/>
+        <segue reference="eRI-ka-PA7"/>
+        <segue reference="74s-xb-a1G"/>
         <segue reference="KMJ-xx-IwF"/>
         <segue reference="zEC-4U-h7j"/>
         <segue reference="tJP-0D-Tol"/>
-        <segue reference="74s-xb-a1G"/>
-        <segue reference="1gw-xu-H41"/>
         <segue reference="7F8-jg-uv8"/>
     </inferredMetricsTieBreakers>
 </document>

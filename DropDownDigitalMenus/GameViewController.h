@@ -14,5 +14,8 @@
 @property (strong, nonatomic) NSString *gameURL;
 @property (strong, nonatomic) IBOutlet UIButton *btnBack;
 - (IBAction)backAction:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *gameImage;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *btnClose;
+- (IBAction)closeAction:(UIBarButtonItem *)sender;
 
 @end
