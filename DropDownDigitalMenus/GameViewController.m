@@ -24,6 +24,7 @@
 @implementation GameViewController
 
 @synthesize gameURL = _gameURL;
+@synthesize gameName = _gameName;
 
 #pragma -mark Web View Methods
 
@@ -134,6 +135,8 @@
     
     NSString *vUrl = [NSString stringWithFormat:@"http://%@", self.gameURL] ;
     
+    [self setTitle:self.gameName];
+    
     NSURLRequest *request = nil;
     
     NSURL *url = [NSURL URLWithString:vUrl];
@@ -168,6 +171,7 @@
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 - (IBAction)closeAction:(UIBarButtonItem *)sender {
-    [self backAction:nil];
+    self.gameURL = @"";
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 @end

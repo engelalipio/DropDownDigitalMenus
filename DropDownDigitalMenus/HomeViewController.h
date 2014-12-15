@@ -23,6 +23,7 @@
 
 @property (nonatomic,strong) NSTimer   *timer;
 @property (nonatomic,strong) NSRunLoop *loop;
+@property (strong, nonatomic) IBOutlet UIImageView *imageLanguage;
 
 -(void) startTimer;
 -(void) stopTimer;

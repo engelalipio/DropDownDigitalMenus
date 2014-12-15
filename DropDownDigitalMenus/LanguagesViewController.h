@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LanguagesViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface LanguagesViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

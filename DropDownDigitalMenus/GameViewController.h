@@ -12,6 +12,7 @@
 @interface GameViewController : UIViewController<UIWebViewDelegate>
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) NSString *gameURL;
+@property (strong, nonatomic) NSString *gameName;
 @property (strong, nonatomic) IBOutlet UIButton *btnBack;
 - (IBAction)backAction:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UIImageView *gameImage;

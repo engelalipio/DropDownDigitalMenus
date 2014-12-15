@@ -21,6 +21,14 @@
 @synthesize dessertItems = _dessertItems;
 @synthesize appItems = _appItems;
 @synthesize currentOrderItems = _currentOrderItems;
+@synthesize language = _language;
+@synthesize isDynamic = _isDynamic;
+@synthesize restaurantName = _restaurantName;
+@synthesize restaurantAddress = _restaurantAddress;
+@synthesize restaurantCity = _restaurantCity;
+@synthesize restaurantState = _restaurantState;
+@synthesize restaurantZip = _restaurantZip;
+@synthesize interval = _interval;
 
 
 +(AppDelegate *) currentDelegate{
@@ -29,6 +37,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    _language = @"English";
+    _isDynamic = NO;
+    
+    _restaurantName = @"Casa D'Angelo's";
+    _restaurantAddress = @"123 Beach Street South";
+    _restaurantCity = @"Jacksonville Beach";
+    _restaurantState = @"FL";
+    _restaurantZip = @"32250";
+    _interval = 10;
+    
     return YES;
 }
 

@@ -12,17 +12,30 @@
 #import "PageContentViewController.h"
 #import "UIColor+ColorWithHexString.h"
 #import "MenuViewController.h"
+#import "AppDelegate.h"
 
 
 @interface HomeViewController ()
 {
     NSArray *categorySections,
-            *categoryHomeData;
+            *categoryHomeData,
+            *drinks,
+            *apps,
+            *soups,
+            *salads,
+            *entrees,
+            *desserts;
+    
     PageContentViewController *currentContent;
+    
+    AppDelegate *appDelegate;
 }
+-(void) initPreferredLanguage;
+-(void) initMenuSettings;
 -(void) initTableView;
 -(void) initCategorySections;
 -(void) roundCorner;
+
 @end
 
 @implementation HomeViewController
@@ -75,7 +88,6 @@
  
         [footer setFrame:CGRectMake(0, 0,  self.tableView.frame.size.width, 60)];
    
-
         
        /* footer = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
         [footer setDelegate:self];
@@ -128,30 +140,55 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
     NSString *message   = @"",
              *title     = @"",
-             *cellId    = @"";
+             *cellId    = @"",
+             *imageName = @"";
     
     UITableViewCell *cell = nil;
     
+    BOOL isDynamic = appDelegate.isDynamic;
+    
+    NSArray *images = nil;
+    
     @try {
+        
+        isDynamic = appDelegate.isDynamic;
         
         switch (indexPath.row) {
             case 0:
                 cellId = @"cbDrinksCell";
+                if (drinks){
+                    images = drinks;
+                }
                 break;
             case 1:
                 cellId = @"cbAppsCell";
+                if (apps){
+                    images = apps;
+                }
                 break;
             case 2:
                 cellId = @"cbSoupsCell";
+                if (soups){
+                    images = soups;
+                }
                 break;
             case 3:
                 cellId = @"cbSaladsCell";
+                if (salads){
+                    images = salads;
+                }
                 break;
             case 4:
                 cellId = @"cbEntreesCell";
+                if (entrees){
+                    images = entrees;
+                }
                 break;
             case 5:
                 cellId = @"cbDessertsCell";
+                if (desserts){
+                    images = desserts;
+                }
                 break;
         }
         
@@ -165,9 +202,16 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 
         title = [categoryHomeData objectAtIndex:indexPath.row];
         
+        if (isDynamic){
+            imageName = [images objectAtIndex:arc4random_uniform(images.count)];
+            
+            [cell.imageView setImage:[UIImage imageNamed:imageName]];
+        }else{
+            [cell.imageView setImage:nil];
+        }
+        
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         
-       // cell.textLabel.backgroundColor = kTableCellTitleColor;
         [cell.textLabel setFont:[UIFont systemFontOfSize:22.0]];
         [cell.textLabel setTextColor:kTableCellTitleColor];
         [cell.textLabel setText:title];
@@ -285,7 +329,14 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
             
             if (restaurantDetail){
                 desc = [restaurantDetail objectForKey:@"description"];
-                restaurantImages = [restaurantDetail objectForKey:@"items"];
+                
+                if (appDelegate.isDynamic){
+                     restaurantImages = [[NSArray alloc] initWithObjects:@"HomeImage.jpg", @"RestaurantBack_0.jpg",@"RestaurantBack_1.jpg",
+                                        @"RestaurantBack_2.jpg",@"RestaurantBack_3.jpg",@"RestaurantBack_4.jpg",
+                                        @"RestaurantBack_5.jpg",@"RestaurantBack_6.jpg",nil];
+                }else{
+                    restaurantImages = [restaurantDetail objectForKey:@"items"];
+                }
                 
                 if (restaurantImages){
                     NSMutableDictionary *finalImages = [[NSMutableDictionary alloc] initWithCapacity:restaurantImages.count];
@@ -371,17 +422,19 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
     [self preparePageViewData];
     
-    if (self.timer == nil){
+    double interval = [appDelegate interval];
+    
+  
         
-        self.timer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeInterval:3 sinceDate:[NSDate date]]
-                                              interval:3 target:self
+        self.timer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeInterval:interval sinceDate:[NSDate date]]
+                                              interval:interval target:self
                                               selector:@selector(timerFireMethod:)
                                               userInfo:nil
                                                repeats:YES];
         
         self.loop = [NSRunLoop currentRunLoop];
         [self.loop addTimer:self.timer forMode:NSDefaultRunLoopMode];
-    }
+ 
     
 }
 
@@ -396,48 +449,42 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 
 - (void)timerFireMethod:(NSTimer *)t{
     
-    NSUInteger nextIndex = -1;
-    NSArray *viewControllers= nil;
-    PageContentViewController *pageContent = nil;
-    NSString *message= @"",
-             *imageName = @"";
+    NSString *message         = @"";
+    NSArray  *images          = nil;
+    UIImage  *image           = nil;
+    NSIndexSet *indexSet      = nil;
+    NSIndexPath *indexPath    = nil;
+    NSInteger randomAnimation = 0,
+              randomSection   = 0;
     @try {
         
         
-        nextIndex = [self currentPageIndex];
+        self.currentPageIndex = arc4random_uniform(self.pageTitles.count);
         
-        nextIndex++;
+        image = [UIImage imageNamed:[self.pageTitles objectAtIndex:self.currentPageIndex]];
         
-        if (nextIndex >= [self.pageTitles count]){
-            nextIndex = 0;
-        }
+        [self.imageView setImage:image];
+    
         
-        pageContent = [self viewControllerAtIndex:nextIndex];
+        randomAnimation = arc4random_uniform(5);
+        randomSection   = arc4random_uniform(6);
         
-        viewControllers = [[NSArray alloc] initWithObjects:pageContent, nil];
+        indexPath = [NSIndexPath indexPathForRow:randomSection inSection:0];
+        
+        indexSet = [[NSIndexSet alloc] initWithIndex:randomSection];
+        
+        [self.tableView beginUpdates];
+        
+
+        images = [[NSArray alloc] initWithObjects:indexPath, nil];
+        
+        [self.tableView reloadRowsAtIndexPaths:images withRowAnimation:randomAnimation];
+    
+        
+        [self.tableView endUpdates];
         
  
-        
-       /* [self setViewControllers:viewControllers
-                       direction:UIPageViewControllerNavigationDirectionForward
-                        animated:NO
-                      completion:nil];*/
-        
-        _currentPageIndex = nextIndex;
-        
-        currentContent = pageContent;
-        
-        if (currentContent){
-            
-            imageName = [self.pageTitles objectAtIndex:self.currentPageIndex];
-            
-            
-            if (self.imageView){
-                [self.imageView setImage:[UIImage imageNamed:imageName]];
-            }
-        }
-        
-        
+ 
     }
     @catch (NSException *exception) {
         message = [exception description];
@@ -447,8 +494,6 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         if ([message length] > 0){
             NSLog(@"%@",message);
         }
-        viewControllers = nil;
-        
     }
     
 }
@@ -462,43 +507,58 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         
         categoryHomeData = [[NSArray alloc] initWithObjects:@"Beverages",@"Appetizers",@"Soups",@"Salads",@"Entrees",@"Desserts", nil];
         
-        self.pageTitles  = [[NSArray alloc] initWithObjects:@"HomeImage.jpg", nil];
+        if (appDelegate.isDynamic){
+            self.pageTitles  = [[NSArray alloc] initWithObjects:@"HomeImage.jpg", @"RestaurantBack_0.jpg",@"RestaurantBack_1.jpg",
+                                @"RestaurantBack_2.jpg",@"RestaurantBack_3.jpg",@"RestaurantBack_4.jpg",
+                                @"RestaurantBack_5.jpg",@"RestaurantBack_6.jpg",nil];
+            
+            categorySections = @[ @{ @"description": appDelegate.restaurantName,
+                                     @"items": @[ @{ @"image": @"HomeImage.jpg" }]
+                                     } ];
+            
+            drinks = [[NSArray alloc] initWithObjects:@"ACQUA_PENNA.jpg", @"PELLEGRINO_WATER.jpg", @"STRAWBERRY_SMOOTHIE.jpg",
+                                    @"PEACHMANGO_SMOOTHIE.jpg", @"FRUIT_JUICES.jpg", @"RASPBERRY_LEMONADE.jpg",
+                                    @"STRABERRY_PASSIONFRUIT_LIMONADA.jpg", @"BELLINI_PEACH_RASPBERRY_TEA.jpg",nil];
+            
+            apps = [[NSArray alloc] initWithObjects:@"SAMPLER.jpg", @"EXTRA_BREADSTICKS.jpg", @"LASAGNA_FRITA.jpg",
+                      @"BRUSCHETTE_PAOLO.png", @"CALAMARI.png", @"COZZE_IN_BIANCO.png",
+                      @"SHRIMP_DIAVOLO.png", @"TOMATOES_CAPRESE.png",@"ZUCCHINI_FRITTE.png",nil];
+            
+            soups = [[NSArray alloc] initWithObjects:@"CORN_CHOWDER.jpg",@"LENTIL_SOUP.jpg",@"TOMATO_BASIL_SOUP.jpg",
+                                                     @"TUSCAN_SAUSAGE.jpg", @"ZUPPA_TOSCANA.jpg", @"FAGIOLI.jpg",nil];
+            
+            salads = [[NSArray alloc] initWithObjects:@"HEART_PALMS_SALAD.jpg", @"TAYS_WEDGE_SALAD.jpg", @"CHICKEN_CAESAR.jpg",
+                                                      @"COBB_SALAD.jpg",@"SANTA_FE.jpg", @"GRILLED_CHICKEN_SALAD.jpg",
+                                                      @"HOUSE_SALAD.jpg",@"CAESAR.jpg",@"JOHNNY_ROCCO_SALAD.png",
+                                                      @"PARMESAN_CRUSTED_CHICKEN_SALAD.png",nil];
+            
+            entrees  = [[NSArray alloc] initWithObjects:@"CHICKEN_BRYAN.png", @"CHICKEN_MARSALA.png",
+                                                       @"POLLO_LA_SCALA.png", @"POLLO_SORRENTO.png", @"WOOD-GRILLED_CHICKEN.png",
+                                                       @"FETTUCCINE_CARRABBA.png",@"LOBSTER_RAVIOLI.png",@"FETTUCCINE_WEESIE.png",
+                                                       @"WOOD_GRILLED_SALMON.png",@"MAHI_WULFE.png",@"SHRIMP_RISOTTO.png",nil];
+            
+            desserts = [[NSArray alloc] initWithObjects:@"WHITE_CHOCOLATE_RASPBERRY_CHEESECAKE.jpg",@"BLACK_TIE_MOUSSE_CAKE.jpg",
+                                                        @"ZEPPOLE.jpg",@"DESSERT_ROSA.png",@"JOHN_COLE.png",@"MINI_CANNOLI.png",
+                                                        @"PANNA_COTTA.png",@"SOGNO_DI_CIOCCOLATA.png",@"TIRAMISÚ.png",nil];
+            
+            
+        }else{
         
-        categorySections = @[ @{ @"description": @"Casa D'Angelo",
-                                 @"items": @[ @{ @"image": @"HomeImage.jpg" }]
-                                 }/*@{ @"description": @"Drinks",
-                         @"items": @[ @{ @"title": @"Article A1" },
-                                         @{ @"title": @"Article A2" },
-                                         @{ @"title": @"Article A3" },
-                                         @{ @"title": @"Article A4" },
-                                         @{ @"title": @"Article A5" }
-                                         ]
-                         },
-                      @{ @"description": @"Appetizers",
-                         @"items": @[ @{ @"title": @"Article B1" },
-                                         @{ @"title": @"Article B2" },
-                                         @{ @"title": @"Article B3" },
-                                         @{ @"title": @"Article B4" },
-                                         @{ @"title": @"Article B5" }
-                                         ]
-                         },
-                      @{ @"description": @"Meats",
-                         @"items": @[ @{ @"title": @"Article C1" },
-                                         @{ @"title": @"Article C2" },
-                                         @{ @"title": @"Article C3" },
-                                         @{ @"title": @"Article C4" },
-                                         @{ @"title": @"Article C5" }
-                                         ]
-                         },
-                      @{ @"description": @"Desserts",
-                         @"items": @[ @{ @"title": @"Article D1" },
-                                         @{ @"title": @"Article D2" },
-                                         @{ @"title": @"Article D3" },
-                                         @{ @"title": @"Article D4" },
-                                         @{ @"title": @"Article D5" }
-                                         ]
-                         }*/
-                      ];
+            categorySections = @[ @{ @"description": appDelegate.restaurantName,
+                                     @"items": @[ @{ @"image": @"HomeImage.jpg" }]
+                                     } ];
+            
+            self.pageTitles  = [[NSArray alloc] initWithObjects:@"HomeImage.jpg", nil];
+            
+            drinks  = nil;
+            apps    = nil;
+            entrees = nil;
+            soups   = nil;
+            salads  = nil;
+            desserts = nil;
+        }
+        
+
         
     }
     @catch(NSException *error){
@@ -705,12 +765,49 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     }
 }
 
+-(void) initPreferredLanguage{
+    
+    NSString *language = @"";
+    
+    language = [appDelegate language];
+    
+    [self.imageLanguage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",language]]];
+    
+}
+
+-(void) initMenuSettings{
+    
+    BOOL isDynamic = NO;
+    
+    NSString *welcomeMessage = @"Welcome to %@ ,%@ , %@ %@";
+    
+    isDynamic = [appDelegate isDynamic];
+    
+    [self initCategorySections];
+
+    if (isDynamic){
+      [self startTimer];
+    }else{
+      [self.tableView reloadData];
+    }
+    
+    welcomeMessage = [NSString stringWithFormat:welcomeMessage, appDelegate.restaurantName,
+                      appDelegate.restaurantAddress, appDelegate.restaurantCity,appDelegate.restaurantState,
+                      appDelegate.restaurantZip];
+    
+    [self.addressLabel setText:welcomeMessage];
+    
+}
+
 
 -(void) viewDidAppear:(BOOL)animated{
     NSString *message = @"";
     NSIndexPath *indexPath = nil;
     @try {
-            [self startTimer];
+        
+        
+        [self initPreferredLanguage];
+        [self initMenuSettings];
         
         indexPath = [self.tableView indexPathForSelectedRow];
         
@@ -741,8 +838,12 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self roundCorner];
+    
+    if (! appDelegate){
+        appDelegate = [AppDelegate currentDelegate];
+    }
     [self initCategorySections];
+    [self roundCorner];
     [self initTableView];
     
 

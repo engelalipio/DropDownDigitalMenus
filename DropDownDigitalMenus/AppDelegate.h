@@ -20,7 +20,19 @@ typedef int OrderTypeSelection;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (assign,nonatomic) Boolean isDynamic;
+
+@property (assign,nonatomic) NSInteger interval;
+
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) NSString *language;
+
+@property (strong, nonatomic) NSString *restaurantName;
+@property (strong, nonatomic) NSString *restaurantAddress;
+@property (strong, nonatomic) NSString *restaurantCity;
+@property (strong, nonatomic) NSString *restaurantState;
+@property (strong, nonatomic) NSString *restaurantZip;
 
 @property (nonatomic, assign) NSInteger currentOrderItems;
 
@@ -30,6 +42,7 @@ typedef int OrderTypeSelection;
 @property (strong, nonatomic) NSMutableDictionary *saladItems;
 @property (strong, nonatomic) NSMutableDictionary *dessertItems;
 @property (strong, nonatomic) NSMutableDictionary *entreeItems;
+
 +(AppDelegate *) currentDelegate;
 
 @end

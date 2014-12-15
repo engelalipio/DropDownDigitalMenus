@@ -99,7 +99,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 50;
+    return CGFLOAT_MIN;
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -200,11 +200,13 @@
     
     GameViewController *destVC = (GameViewController*) [segue destinationViewController];
     
-    NSString *gameURL = @"";
+    NSString *gameURL = @"",
+             *gameName = [games objectAtIndex:[selectedIP row]];
     
     switch([selectedIP row]){
         case 5:
             gameURL = @"play.famobi.com/cartoon-flight";
+            
             break;
         case 0:
             gameURL = @"play.famobi.com/pop-pop-rush";
@@ -225,6 +227,7 @@
     
     if (destVC){
         [destVC setGameURL:gameURL];
+        [destVC setGameName:gameName];
     }
     
 }
