@@ -40,12 +40,12 @@
     _language = @"English";
     _isDynamic = NO;
     
-    _restaurantName = @"Casa D'Angelo's";
-    _restaurantAddress = @"123 Beach Street South";
-    _restaurantCity = @"Jacksonville Beach";
-    _restaurantState = @"FL";
-    _restaurantZip = @"32250";
-    _interval = 10;
+    _restaurantName    = @"Demo Restaurant";
+    _restaurantAddress = @"123 Beach Street";
+    _restaurantCity    = @"Jacksonville Beach";
+    _restaurantState   = @"FL";
+    _restaurantZip     = @"32250";
+    _interval          = 5;
     
     return YES;
 }

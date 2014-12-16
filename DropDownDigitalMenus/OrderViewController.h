@@ -15,7 +15,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *payButton;
 @property (strong, nonatomic) IBOutlet UIButton *changeOrder;
  
-- (IBAction)changeOrder:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *EditOrder;
+
+- (IBAction)editOrder:(UIBarButtonItem *)sender;
 - (IBAction)placeOrder:(UIButton *)sender;
 - (IBAction)payOrder:(UIButton *)sender;
 

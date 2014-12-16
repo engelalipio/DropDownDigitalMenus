@@ -11,10 +11,12 @@
 #import "AppDelegate.h"
 #import "AppetizersViewController.h"
 #import "MeatDetailViewController.h"
+#import "itemModel.h"
 
 @interface ItemViewController ()
 {
     float originalPrice;
+    NSString *originalDesc;
     AppDelegate *appDelegate;
 }
 -(void) configureView;
@@ -33,54 +35,127 @@
 
 }
 
+-(void) setDrinkOptionsVisible:(BOOL) display{
+    
+    NSString *title = self.labelTitle.text;
+    NSRange  range;
+    BOOL hide = YES;
+    
+    [self.iceSeg setHidden:hide];
+    [self.sweetSeg setHidden:hide];
+    
+    hide = (display ? NO : YES);
+    
+    [self.iceSeg setHidden:hide];
+    
+    if (! hide){
+        range = [title rangeOfString:@"TEA"];
+        if (range.location != NSNotFound){
+         [self.sweetSeg setHidden:hide];
+        }
+    }
+
+}
+
+-(void)addCalories{
+    NSString *cal  =  @"%d calories";
+    
+    NSInteger calories =  arc4random_uniform(450);
+    
+    cal = [NSString stringWithFormat:cal,calories];
+    [self.labelCalories setTextColor:[UIColor whiteColor]];
+    [self.labelCalories setText:cal];
+    
+}
+
+-(void)setAppsVisible:(BOOL) display{
+    [self.glutenSeg setHidden:! display];
+    [self.sauceTypeSeg setHidden:! display];
+}
+
+-(void)setSoupsVisible:(BOOL) display{
+    [self.glutenSeg setHidden:! display];
+    [self.cheeseTypeSeg setHidden:! display];
+}
+
+-(void)setSaladsVisible:(BOOL) display{
+    [self.dressingTypeSeg setHidden:! display];
+    [self.cheeseTypeSeg setHidden:! display];
+    [self.glutenSeg setHidden:! display];
+}
+
+-(void) setMeatsVisible:(BOOL) display{
+    [self.steakSeg setHidden:! display];
+    [self.cheeseTypeSeg setHidden:! display];
+    [self.sidesSeg setHidden:! display];
+}
+
+-(void)setChickensVisible:(BOOL) display{
+    [self.sauceTypeSeg setHidden:! display];
+    [self.sidesSeg setHidden:! display];
+}
+
+-(void)setSeaFoodsVisible:(BOOL) display{
+    [self.sauceTypeSeg setHidden:! display];
+    [self.sidesSeg setHidden:! display];
+}
+
+-(void) setPastasVisible:(BOOL) display{
+    [self.pastaSeg setHidden:! display];
+    [self.glutenSeg setHidden:! display];
+    [self.sauceTypeSeg setHidden:! display];
+    [self.sidesSeg setHidden:! display];
+    [self.cheeseTypeSeg setHidden:! display];
+}
+
+-(void) setDesserts:(BOOL) display{
+    [self.glutenSeg setHidden:! display];
+}
+
 -(void) configureSegs{
     
+    [self setDrinkOptionsVisible:NO];
+    [self setAppsVisible:NO];
+    [self setSoupsVisible:NO];
+    [self setSaladsVisible:NO];
+    [self setMeatsVisible:NO];
+    [self setChickensVisible:NO];
+    [self setSeaFoodsVisible:NO];
+    [self setDesserts:NO];
+
     switch (self.foodType) {
         case Beverage:
-           // [self.sweetSeg setHidden:NO];
+            [self setDrinkOptionsVisible:YES];
             break;
         case Appetizer:
-            [self.glutenSeg setHidden:NO];
-            [self.sauceTypeSeg setHidden:NO];
+            [self setAppsVisible:YES];
             break;
         case Soups:
-            [self.glutenSeg setHidden:NO];
-            [self.cheeseTypeSeg setHidden:NO];
+            [self setSoupsVisible:YES];
             break;
         case Salads:
-            [self.dressingTypeSeg setHidden:NO];
-            [self.cheeseTypeSeg setHidden:NO];
-            [self.glutenSeg setHidden:NO];
+            [self setSaladsVisible:YES];
             break;
         case Entrees:
             
             switch (self.entreeType) {
                 case Beef:
-                    [self.steakSeg setHidden:NO];
-                    [self.cheeseTypeSeg setHidden:NO];
-                    [self.sidesSeg setHidden:NO];
+                    [self setMeatsVisible:YES];
                     break;
-                    
                 case Chicken:
-                    [self.sauceTypeSeg setHidden:NO];
-                    [self.sidesSeg setHidden:NO];
+                    [self setChickensVisible:YES];
                     break;
-                    
                 case Seafood:
-                    [self.sauceTypeSeg setHidden:NO];
-                    [self.sidesSeg setHidden:NO];
+                    [self setSeaFoodsVisible:YES];
                     break;
                 case Pasta:
-                    [self.glutenSeg setHidden:NO];
-                    [self.sauceTypeSeg setHidden:NO];
-                    [self.sidesSeg setHidden:NO];
-                    [self.cheeseTypeSeg setHidden:NO];
+                    [self setPastasVisible:YES];
                     break;
             }
             
             break;
         case Desserts:
-            [self.glutenSeg setHidden:NO];
+            [self setDesserts:YES];
             break;
     }
 }
@@ -101,16 +176,21 @@
     [super viewDidAppear:animated];
     [self configureSegs];
     [self extractOriginalPrice];
+    [self addCalories];
 }
 
 -(void) viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    [self.sweetSeg setHidden:YES];
-    [self.glutenSeg setHidden:YES];
-    [self.sauceTypeSeg setHidden:YES];
-    [self.sidesSeg setHidden:YES];
-    [self.cheeseTypeSeg setHidden:YES];
-    [self.steakSeg setHidden:YES];
+    
+    [self setDrinkOptionsVisible:NO];
+    [self setAppsVisible:NO];
+    [self setSoupsVisible:NO];
+    [self setSaladsVisible:NO];
+    [self setMeatsVisible:NO];
+    [self setChickensVisible:NO];
+    [self setSeaFoodsVisible:NO];
+    [self setDesserts:NO];
+    
 }
 
 
@@ -119,16 +199,6 @@
     // Dispose of any resources that can be recreated.
    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 
 - (IBAction)cancelOrder:(UIButton *)sender {
@@ -139,57 +209,85 @@
 
 - (IBAction)addToOrderAction:(UIButton *)sender {
     
-    NSString *message   = @"";
+    NSString *message   = @"",
+             *key       = @"";
     
     NSInteger orderItems = 0,
               quantity   = 0;
     
     NSMutableDictionary *items = nil;
     
-    NSArray *keys = nil,
-            *values = nil;
+    
+    
+    itemModel *currentItem = nil;
     
     @try {
         
         orderItems = [appDelegate currentOrderItems];
         
-        quantity =  [self.labelQuantity.text integerValue];
+        quantity   =  [self.labelQuantity.text integerValue];
         if (! orderItems){
             orderItems =  quantity;
         }else{
             orderItems = orderItems + quantity ;
         }
         message = [NSString stringWithFormat:@"%d order item(s)", orderItems];
+    
         
-        keys = [[NSArray alloc] initWithObjects:@"Title",@"Description", @"Price", @"Quantity", @"Image", nil];
+        currentItem = [[itemModel alloc] init];
         
-        values = [[NSArray alloc] initWithObjects:self.labelTitle.text,self.labelDescription.text,
-                  self.labelPrice.text,self.labelQuantity.text, self.imageView.image, nil];
+        [currentItem setTitle:self.labelTitle.text];
+        [currentItem setDescription:self.labelDescription.text];
+        [currentItem setPrice:self.labelPrice.text];
+        [currentItem setQuantity:self.labelQuantity.text];
+        [currentItem setImage:self.imageView.image];
         
-        items = [[NSMutableDictionary alloc] initWithObjects:values forKeys:keys];
+        items = [[NSMutableDictionary alloc] init];
+
         
         
         switch (self.foodType) {
             case Beverage:
+                
+                [currentItem setCategory:@"Beverages"];
+                
+                [items  setValue:currentItem forKey:currentItem.Category];
                 [appDelegate setDrinkItems:items];
+ 
+                
                 break;
             case Appetizer:
+                [currentItem setCategory:@"Appetizers"];
+                
+                [items  setValue:currentItem forKey:currentItem.Category];
+                
                 [appDelegate setAppItems:items];
+                
                 break;
             case Soups:
+                [currentItem setCategory:@"Soups"];
+                
+                [items  setValue:currentItem forKey:currentItem.Category];
+                
                 [appDelegate setSoupItems:items];
                 break;
             case Salads:
+                [currentItem setCategory:@"Salads"];
+                 [items  setValue:currentItem forKey:currentItem.Category];
                 [appDelegate setSaladItems:items];
                 break;
             case Entrees:
+                [currentItem setCategory:@"Entrees"];
+                [items  setValue:currentItem forKey:currentItem.Category];
                 [appDelegate setEntreeItems:items];
                 break;
             case Desserts:
+                [currentItem setCategory:@"Desserts"];
+                
+                [items  setValue:currentItem forKey:currentItem.Category];
                 [appDelegate setDessertItems:items];
                 break;
         }
-        
         
         [appDelegate setCurrentOrderItems:orderItems];
         
@@ -227,6 +325,7 @@
         }
         
         originalPrice = price;
+        originalDesc  = self.labelDescription.text;
         
     }
     @catch (NSException *exception) {

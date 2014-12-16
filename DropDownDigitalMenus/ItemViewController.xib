@@ -11,8 +11,10 @@
                 <outlet property="cheeseTypeSeg" destination="7HQ-i5-94K" id="sxf-Cv-ohm"/>
                 <outlet property="dressingTypeSeg" destination="gNj-oi-FCX" id="bb1-hu-4pG"/>
                 <outlet property="glutenSeg" destination="86p-6i-Xnq" id="IRD-JK-EHH"/>
+                <outlet property="iceSeg" destination="p2c-0j-nrR" id="XbE-6r-9fF"/>
                 <outlet property="imageView" destination="MYk-H7-aaR" id="7FS-IO-WvB"/>
                 <outlet property="itemStepper" destination="bfy-Q2-o71" id="FWY-Ql-iCI"/>
+                <outlet property="labelCalories" destination="Xhi-kL-YDh" id="lJG-mW-6mj"/>
                 <outlet property="labelDescription" destination="vgn-h7-Fqn" id="Wef-1W-Zu7"/>
                 <outlet property="labelPrice" destination="UNr-aJ-T73" id="TkP-mf-u4S"/>
                 <outlet property="labelQuantity" destination="jPk-Uc-zPM" id="xaZ-gY-K8b"/>
@@ -38,14 +40,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$ XX.XX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNr-aJ-T73">
-                    <rect key="frame" x="680" y="948" width="80" height="30"/>
+                    <rect key="frame" x="339" y="920" width="93" height="30"/>
                     <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRl-di-nxB">
-                    <rect key="frame" x="641" y="982" width="120" height="30"/>
+                    <rect key="frame" x="451" y="919" width="120" height="30"/>
                     <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                     <state key="normal" title="Add to Order">
@@ -56,7 +58,7 @@
                     </connections>
                 </button>
                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="bfy-Q2-o71">
-                    <rect key="frame" x="660" y="916" width="94" height="29"/>
+                    <rect key="frame" x="338" y="883" width="94" height="29"/>
                     <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
@@ -64,20 +66,20 @@
                     </connections>
                 </stepper>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPk-Uc-zPM">
-                    <rect key="frame" x="705" y="887" width="42" height="21"/>
+                    <rect key="frame" x="451" y="883" width="47" height="29"/>
                     <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5f-61-HHc">
-                    <rect key="frame" x="615" y="887" width="75" height="21"/>
+                    <rect key="frame" x="255" y="887" width="75" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPj-Wl-5xf">
-                    <rect key="frame" x="629" y="952" width="55" height="21"/>
+                    <rect key="frame" x="275" y="923" width="55" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -117,7 +119,7 @@
                     </connections>
                 </button>
                 <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="YYE-vV-EsD">
-                    <rect key="frame" x="68" y="597" width="632" height="29"/>
+                    <rect key="frame" x="58" y="607" width="632" height="29"/>
                     <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <segments>
                         <segment title="Rare"/>
@@ -129,7 +131,7 @@
                     <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
                 <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="YGe-6A-iU1">
-                    <rect key="frame" x="68" y="642" width="632" height="29"/>
+                    <rect key="frame" x="197" y="679" width="375" height="29"/>
                     <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <segments>
                         <segment title="Brocolli"/>
@@ -140,7 +142,7 @@
                     <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
                 <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="yhZ-Xa-qCo">
-                    <rect key="frame" x="186" y="598" width="397" height="29"/>
+                    <rect key="frame" x="270" y="715" width="228" height="29"/>
                     <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <segments>
                         <segment title="Alfredo Sauce"/>
@@ -149,7 +151,7 @@
                     <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
                 <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="7Ul-if-Nz7">
-                    <rect key="frame" x="68" y="598" width="632" height="29"/>
+                    <rect key="frame" x="288" y="571" width="192" height="29"/>
                     <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <segments>
                         <segment title="Sweetened"/>
@@ -158,7 +160,7 @@
                     <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
                 <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="7HQ-i5-94K">
-                    <rect key="frame" x="76" y="730" width="632" height="29"/>
+                    <rect key="frame" x="84" y="643" width="623" height="29"/>
                     <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <segments>
                         <segment title="Mozzarella Cheese"/>
@@ -170,7 +172,7 @@
                     <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
                 <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="gNj-oi-FCX">
-                    <rect key="frame" x="34" y="686" width="700" height="29"/>
+                    <rect key="frame" x="34" y="607" width="700" height="29"/>
                     <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <segments>
                         <segment title="Ranch Dressing"/>
@@ -182,7 +184,7 @@
                     <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
                 <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="86p-6i-Xnq">
-                    <rect key="frame" x="186" y="774" width="397" height="29"/>
+                    <rect key="frame" x="186" y="571" width="397" height="29"/>
                     <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <segments>
                         <segment title="Regular"/>
@@ -190,8 +192,17 @@
                     </segments>
                     <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
+                <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="p2c-0j-nrR">
+                    <rect key="frame" x="305" y="607" width="159" height="29"/>
+                    <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <segments>
+                        <segment title="Ice"/>
+                        <segment title="No Ice"/>
+                    </segments>
+                    <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </segmentedControl>
                 <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="yk0-cz-X3D">
-                    <rect key="frame" x="68" y="598" width="632" height="29"/>
+                    <rect key="frame" x="170" y="607" width="428" height="29"/>
                     <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <segments>
                         <segment title="White Pasta"/>
@@ -201,6 +212,13 @@
                     </segments>
                     <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhi-kL-YDh" userLabel="CaloriesLabel">
+                    <rect key="frame" x="658" y="60" width="110" height="21"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

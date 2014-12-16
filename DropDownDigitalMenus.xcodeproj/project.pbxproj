@@ -223,6 +223,10 @@
 		0FCAD8EE1A3E2F8C00BE42E5 /* settings3-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FCAD8ED1A3E2F8C00BE42E5 /* settings3-256.png */; };
 		0FCAD8F01A3E305A00BE42E5 /* content-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FCAD8EF1A3E305A00BE42E5 /* content-32.png */; };
 		0FCAD8F21A3E306D00BE42E5 /* xlarge_icons-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FCAD8F11A3E306D00BE42E5 /* xlarge_icons-32.png */; };
+		0FCAD8F41A3EA55F00BE42E5 /* ENGLISH.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FCAD8F31A3EA55F00BE42E5 /* ENGLISH.png */; };
+		0FCAD8F61A3EA5AC00BE42E5 /* JAPANESE.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FCAD8F51A3EA5AC00BE42E5 /* JAPANESE.png */; };
+		0FCAD8F81A3EA5B400BE42E5 /* KOREAN.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FCAD8F71A3EA5B400BE42E5 /* KOREAN.png */; };
+		0FCAD8FC1A3F969B00BE42E5 /* itemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCAD8FB1A3F969B00BE42E5 /* itemModel.m */; };
 		0FD438911A047FEA00A2436F /* HorizontalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD4388F1A047FEA00A2436F /* HorizontalTableViewCell.m */; };
 		0FD438921A047FEA00A2436F /* HorizontalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FD438901A047FEA00A2436F /* HorizontalTableViewCell.xib */; };
 		0FD4389C1A071BB800A2436F /* SaladBarBack_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0FD438931A071BB800A2436F /* SaladBarBack_0.jpg */; };
@@ -581,6 +585,11 @@
 		0FCAD8ED1A3E2F8C00BE42E5 /* settings3-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings3-256.png"; sourceTree = "<group>"; };
 		0FCAD8EF1A3E305A00BE42E5 /* content-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "content-32.png"; sourceTree = "<group>"; };
 		0FCAD8F11A3E306D00BE42E5 /* xlarge_icons-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xlarge_icons-32.png"; sourceTree = "<group>"; };
+		0FCAD8F31A3EA55F00BE42E5 /* ENGLISH.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ENGLISH.png; sourceTree = "<group>"; };
+		0FCAD8F51A3EA5AC00BE42E5 /* JAPANESE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JAPANESE.png; sourceTree = "<group>"; };
+		0FCAD8F71A3EA5B400BE42E5 /* KOREAN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KOREAN.png; sourceTree = "<group>"; };
+		0FCAD8FA1A3F969B00BE42E5 /* itemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = itemModel.h; sourceTree = "<group>"; };
+		0FCAD8FB1A3F969B00BE42E5 /* itemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = itemModel.m; sourceTree = "<group>"; };
 		0FD4388E1A047FEA00A2436F /* HorizontalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalTableViewCell.h; sourceTree = "<group>"; };
 		0FD4388F1A047FEA00A2436F /* HorizontalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalTableViewCell.m; sourceTree = "<group>"; };
 		0FD438901A047FEA00A2436F /* HorizontalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HorizontalTableViewCell.xib; sourceTree = "<group>"; };
@@ -1021,6 +1030,9 @@
 		0FCAD8D21A3E1A1400BE42E5 /* Languages */ = {
 			isa = PBXGroup;
 			children = (
+				0FCAD8F71A3EA5B400BE42E5 /* KOREAN.png */,
+				0FCAD8F51A3EA5AC00BE42E5 /* JAPANESE.png */,
+				0FCAD8F31A3EA55F00BE42E5 /* ENGLISH.png */,
 				0FCAD8D31A3E1A2300BE42E5 /* CROATIAN.png */,
 				0FCAD8D41A3E1A2300BE42E5 /* ROMANSH.png */,
 				0FCAD8D51A3E1A2300BE42E5 /* ITALIAN.png */,
@@ -1036,6 +1048,15 @@
 				0FCAD8DF1A3E1A2300BE42E5 /* PORTUGUESE.png */,
 			);
 			name = Languages;
+			sourceTree = "<group>";
+		};
+		0FCAD8F91A3F960E00BE42E5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0FCAD8FA1A3F969B00BE42E5 /* itemModel.h */,
+				0FCAD8FB1A3F969B00BE42E5 /* itemModel.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		0FD438FB1A110CBF00A2436F /* Formatter */ = {
@@ -1071,6 +1092,7 @@
 		0FF46D2C19F881FC00E51218 /* DropDownDigitalMenus */ = {
 			isa = PBXGroup;
 			children = (
+				0FCAD8F91A3F960E00BE42E5 /* Models */,
 				0F2ACD791A01B4E70028B6E2 /* Content */,
 				0FF46E1619F995A600E51218 /* ViewControllers */,
 				0FF46DDD19F994FC00E51218 /* Libraries */,
@@ -1661,6 +1683,7 @@
 				0F7270BF1A1EEADF00F9C2E2 /* POLLO_LA_SCALA.png in Resources */,
 				0F023FE11A2D57A9007556E9 /* SmartyBubbles.png in Resources */,
 				0F2ACC8E19FA0F320028B6E2 /* WineBack_1.jpg in Resources */,
+				0FCAD8F81A3EA5B400BE42E5 /* KOREAN.png in Resources */,
 				0F2ACCF919FA17710028B6E2 /* restaurant-32.png in Resources */,
 				0F2ACC4E19FA0EFF0028B6E2 /* BarBack_2.jpg in Resources */,
 				0F2ACD3219FAC4AE0028B6E2 /* HeaderImageCell.xib in Resources */,
@@ -1762,6 +1785,7 @@
 				0F2ACC6019FA0F0B0028B6E2 /* DessertBack_3.jpg in Resources */,
 				0FCAD8B21A3AAE8E00BE42E5 /* delete_sign-32.png in Resources */,
 				0F2ACCF219FA13250028B6E2 /* Table_0.jpg in Resources */,
+				0FCAD8F61A3EA5AC00BE42E5 /* JAPANESE.png in Resources */,
 				0F7270951A1ED90200F9C2E2 /* MINESTRONE.png in Resources */,
 				0FD438E71A0DAF4D00A2436F /* Icon-Small@3x.png in Resources */,
 				0FD438F31A1044B000A2436F /* plus-32.png in Resources */,
@@ -1846,6 +1870,7 @@
 				0F023FEA1A2D5965007556E9 /* FlowFree.png in Resources */,
 				0FCAD8E91A3E1A2300BE42E5 /* KOREAN.png in Resources */,
 				0F7270E01A1FF4CD00F9C2E2 /* LOBSTER_RAVIOLI.png in Resources */,
+				0FCAD8F41A3EA55F00BE42E5 /* ENGLISH.png in Resources */,
 				0FF46D9C19F890C500E51218 /* geo_fence-50.png in Resources */,
 				0F2ACD591A004B7C0028B6E2 /* location-32.png in Resources */,
 				0FDA187D1A395B2800CD636F /* SANTA_FE.jpg in Resources */,
@@ -1913,6 +1938,7 @@
 				0FF46DF519F9952A00E51218 /* AFJSONRequestOperation.m in Sources */,
 				0FD438FE1A110CFF00A2436F /* Formatter.m in Sources */,
 				0FF46E0D19F9953500E51218 /* NSObject+JTObjectMapping.m in Sources */,
+				0FCAD8FC1A3F969B00BE42E5 /* itemModel.m in Sources */,
 				0FF46D3019F881FC00E51218 /* main.m in Sources */,
 				0FF46DF719F9952A00E51218 /* AFPropertyListRequestOperation.m in Sources */,
 				0FF46DF619F9952A00E51218 /* AFNetworkActivityIndicatorManager.m in Sources */,

@@ -32,7 +32,8 @@
 }
 
 -(void) configureFields{
-   
+
+    [self.savedLabel setHidden:YES];
     [self.txtName setText:[appDelegate restaurantName]];
     [self.txtAddress setText:[appDelegate restaurantAddress]];
     [self.txtCity setText:[appDelegate restaurantCity]];
@@ -70,7 +71,7 @@
     
     NSString *language = [languages objectAtIndex:row];
     
-    [self.languageImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",language]]];
+    [self.languageImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",[language uppercaseString]]]];
     
 }
 
@@ -119,6 +120,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
     if (! appDelegate){
         appDelegate = [AppDelegate currentDelegate];
     }
@@ -150,6 +152,7 @@
     
     [appDelegate setInterval:[self.txtSeconds.text integerValue]];
     
+    [self.savedLabel setHidden:NO];
    
 }
 

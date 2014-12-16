@@ -771,7 +771,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
     language = [appDelegate language];
     
-    [self.imageLanguage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",language]]];
+    [self.imageLanguage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",[language uppercaseString]]]];
     
 }
 
@@ -779,7 +779,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
     BOOL isDynamic = NO;
     
-    NSString *welcomeMessage = @"Welcome to %@ ,%@ , %@ %@";
+    NSString *welcomeMessage = @"Welcome to %@ \n %@, %@, %@ %@";
     
     isDynamic = [appDelegate isDynamic];
     
@@ -795,6 +795,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                       appDelegate.restaurantAddress, appDelegate.restaurantCity,appDelegate.restaurantState,
                       appDelegate.restaurantZip];
     
+    [self.addressLabel setNumberOfLines:2];
     [self.addressLabel setText:welcomeMessage];
     
 }

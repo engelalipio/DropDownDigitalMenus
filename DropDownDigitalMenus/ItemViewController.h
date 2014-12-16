@@ -19,7 +19,7 @@ typedef enum {
 } FoodType;
 
 typedef enum {
-    Beef = 0,
+    Beef    = 0,
     Chicken = 1,
     Seafood = 2,
     Pasta   = 3
@@ -47,7 +47,9 @@ typedef enum {
 @property (strong, nonatomic) IBOutlet UISegmentedControl *sweetSeg;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *dressingTypeSeg;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *cheeseTypeSeg;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *iceSeg;
 
+@property (strong, nonatomic) IBOutlet UILabel *labelCalories;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *glutenSeg;
 
 - (IBAction)cancelOrder:(UIButton *)sender;

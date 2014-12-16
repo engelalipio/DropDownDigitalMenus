@@ -22,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerLanguage;
 @property (strong, nonatomic) IBOutlet UIButton *btnSave;
 @property (strong, nonatomic) IBOutlet UIImageView *languageImage;
+@property (strong, nonatomic) IBOutlet UILabel *savedLabel;
 
 - (IBAction)actionSaveSettings:(UIButton *)sender;
 - (IBAction)actionChangeInterval:(UIStepper *)sender;

@@ -31,9 +31,9 @@
     NSString *message = @"";
     
     CGFloat barMidX = 0.0f,
-    distanceBetweenBarItems = 0.0f,
-    totalBarItemsWidth = 0.0f,
-    barItemX = 0.0f;
+            distanceBetweenBarItems = 0.0f,
+            totalBarItemsWidth = 0.0f,
+            barItemX = 0.0f;
     
     CGSize  barItemSize;
     
@@ -255,7 +255,7 @@
 -(void)checkOrderCount{
     
     NSString *message   = @"",
-    *orderItem = @"";
+             *orderItem = @"";
     
     NSInteger orderItems      = 0,
             currentOrderCount = 0,

@@ -90,7 +90,7 @@
 
 #define kAllDigits      @ "0123456789"
 
-#define kOrderTabItemIndex 3
+#define kOrderTabItemIndex 5
 
 #define kAnimationSpeed 0.85f
 

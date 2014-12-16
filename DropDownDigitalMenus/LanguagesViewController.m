@@ -189,7 +189,7 @@
         }
         
         title = [languages objectAtIndex:indexPath.row];
-        imageName = [NSString stringWithFormat:@"%@.png",title];
+        imageName = [NSString stringWithFormat:@"%@.png",[title uppercaseString]];
         [cell setAccessoryType:UITableViewCellAccessoryDetailButton];
  
         [cell.textLabel setTextColor: [UIColor blackColor]];
