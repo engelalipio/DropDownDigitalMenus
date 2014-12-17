@@ -2977,13 +2977,12 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
         <scene sceneID="tDI-B6-8OA">
             <objects>
                 <tableViewController storyboardIdentifier="sbOrder" title="Order Summary" useStoryboardIdentifierAsRestorationIdentifier="YES" id="byA-60-evw" userLabel="Order" customClass="OrderViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" allowsSelection="NO" allowsSelectionDuringEditing="YES" rowHeight="100" sectionHeaderHeight="25" sectionFooterHeight="1" id="l41-LL-Ovy">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" allowsSelection="NO" allowsSelectionDuringEditing="YES" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="1" id="l41-LL-Ovy">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="957"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.50196078430000002" green="0.25098039220000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="RWf-Am-z82" detailTextLabel="0zH-gZ-hp9" imageView="vBB-Bm-eBz" rowHeight="100" style="IBUITableViewCellStyleSubtitle" id="KBn-83-4PY">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderCell" textLabel="RWf-Am-z82" detailTextLabel="0zH-gZ-hp9" imageView="vBB-Bm-eBz" rowHeight="120" style="IBUITableViewCellStyleSubtitle" id="KBn-83-4PY">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KBn-83-4PY" id="cIo-mn-7L0">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -3001,7 +3000,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Quantity: 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0zH-gZ-hp9">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="$8.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9m-6k-FLu">
@@ -3022,6 +3021,10 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="byA-60-evw" id="yAC-lt-gID"/>
+                            <outlet property="delegate" destination="byA-60-evw" id="La9-gB-x1Z"/>
+                        </connections>
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Order Summary" id="wTG-88-Jag">

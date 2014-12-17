@@ -209,15 +209,12 @@
 
 - (IBAction)addToOrderAction:(UIButton *)sender {
     
-    NSString *message   = @"",
-             *key       = @"";
+    NSString *message   = @"";
     
     NSInteger orderItems = 0,
               quantity   = 0;
     
     NSMutableDictionary *items = nil;
-    
-    
     
     itemModel *currentItem = nil;
     
@@ -233,7 +230,6 @@
         }
         message = [NSString stringWithFormat:@"%d order item(s)", orderItems];
     
-        
         currentItem = [[itemModel alloc] init];
         
         [currentItem setTitle:self.labelTitle.text];
@@ -243,32 +239,21 @@
         [currentItem setImage:self.imageView.image];
         
         items = [[NSMutableDictionary alloc] init];
-
-        
         
         switch (self.foodType) {
             case Beverage:
-                
                 [currentItem setCategory:@"Beverages"];
-                
                 [items  setValue:currentItem forKey:currentItem.Category];
                 [appDelegate setDrinkItems:items];
- 
-                
                 break;
             case Appetizer:
                 [currentItem setCategory:@"Appetizers"];
-                
                 [items  setValue:currentItem forKey:currentItem.Category];
-                
                 [appDelegate setAppItems:items];
-                
                 break;
             case Soups:
                 [currentItem setCategory:@"Soups"];
-                
                 [items  setValue:currentItem forKey:currentItem.Category];
-                
                 [appDelegate setSoupItems:items];
                 break;
             case Salads:

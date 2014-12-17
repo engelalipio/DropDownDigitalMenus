@@ -333,7 +333,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                 if (appDelegate.isDynamic){
                      restaurantImages = [[NSArray alloc] initWithObjects:@"HomeImage.jpg", @"RestaurantBack_0.jpg",@"RestaurantBack_1.jpg",
                                         @"RestaurantBack_2.jpg",@"RestaurantBack_3.jpg",@"RestaurantBack_4.jpg",
-                                        @"RestaurantBack_5.jpg",@"RestaurantBack_6.jpg",nil];
+                                        @"RestaurantBack_5.jpg",@"RestaurantBack_6.jpg", @"RestaurantBack_7.jpg",@"RestaurantBack_8.jpg" ,nil];
                 }else{
                     restaurantImages = [restaurantDetail objectForKey:@"items"];
                 }
@@ -510,7 +510,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         if (appDelegate.isDynamic){
             self.pageTitles  = [[NSArray alloc] initWithObjects:@"HomeImage.jpg", @"RestaurantBack_0.jpg",@"RestaurantBack_1.jpg",
                                 @"RestaurantBack_2.jpg",@"RestaurantBack_3.jpg",@"RestaurantBack_4.jpg",
-                                @"RestaurantBack_5.jpg",@"RestaurantBack_6.jpg",nil];
+                                @"RestaurantBack_5.jpg",@"RestaurantBack_6.jpg", @"RestaurantBack_7.jpg",@"RestaurantBack_8.jpg" ,nil];
             
             categorySections = @[ @{ @"description": appDelegate.restaurantName,
                                      @"items": @[ @{ @"image": @"HomeImage.jpg" }]
