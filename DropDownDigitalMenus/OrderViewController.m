@@ -51,8 +51,7 @@
               *salads   = nil,
               *entrees  = nil,
               *desserts = nil;
-    
-    NSArray *items    = nil;
+ 
     
     @try{
         
@@ -61,11 +60,16 @@
        
             orderItems = [[NSMutableDictionary alloc] init];
         
-        for (int iKey = 0; iKey < 6 ; iKey++) {
+        for (int iKey = 0; iKey < 8 ; iKey++) {
             
         
             switch (iKey) {
                 case 0:
+                    keyName = @"Header";
+                    [categories addObject:keyName];
+                    
+                    break;
+                case 1:
                     keyName = @"Beverages";
                 
                     drinks = [appDelegate.drinkItems objectForKey:keyName];
@@ -74,7 +78,7 @@
                         [orderItems setObject:drinks forKey:keyName];
                     }
                 break;
-                case 1:
+                case 2:
                     keyName = @"Appetizers";
                     apps = [appDelegate.appItems objectForKey:keyName];
                     if (apps){
@@ -82,7 +86,7 @@
                         [orderItems setObject:apps forKey:keyName];
                     }
                 break;
-                case 2:
+                case 3:
                     keyName = @"Soups";
                     soups = [appDelegate.soupItems objectForKey:keyName];
                     if (soups){
@@ -90,7 +94,7 @@
                         [orderItems setObject:soups forKey:keyName];
                     }
                 break;
-                case 3:
+                case 4:
                     keyName = @"Salads";
                     salads = [appDelegate.saladItems objectForKey:keyName];
                     if (salads){
@@ -99,7 +103,7 @@
                     }
                 break;
 
-                case 4:
+                case 5:
                     keyName = @"Entrees";
                     entrees = [appDelegate.entreeItems objectForKey:keyName];
                     if (entrees){
@@ -107,7 +111,7 @@
                         [orderItems setObject:entrees forKey:keyName];
                     }
                 break;
-                case 5:
+                case 6:
                     keyName = @"Desserts";
                     desserts = [appDelegate.dessertItems objectForKey:keyName];
                     if (desserts){
@@ -115,7 +119,11 @@
                         [orderItems setObject:desserts forKey:keyName];
                     }
                 break;
- 
+                case 7:
+                    keyName = @"Footer";
+                    [categories addObject:keyName];
+                    break;
+                    
             }
             
         }
@@ -142,11 +150,11 @@
     @try{
         
         if (! self.tableView){
-            self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, kTableYStart, kTabletWidth, kTableHeight)];
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, kTableYStart, kTabletWidth, kTableHeight)];
         }
         
         self.tableView.backgroundColor =  kVerticalTableBackgroundColor;
-        
+        [self.tableView sizeToFit];
         [self.tableView setDelegate:self];
         [self.tableView setDataSource:self];
         
@@ -163,6 +171,67 @@
     
 }
 
+-(UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UILabel *label  =nil;
+    
+    NSString *headerText = @"";
+    
+    switch (section) {
+        case 0:
+            headerText = @"Please review your current order";
+            
+            label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, tableView.frame.size.width, 44.0f)];
+            [label setTextAlignment:NSTextAlignmentCenter];
+            [label setBackgroundColor:[UIColor colorWithHexString:@"800000"]];
+            [label setFont:[UIFont systemFontOfSize:25.0f]];
+            [label setTextColor:[UIColor orangeColor]];
+            [label setText:headerText];
+            
+            break;
+        default:
+            
+            headerText = [categories objectAtIndex:section];
+            
+            if ([[headerText uppercaseString]  isEqual: @"FOOTER"]){
+                label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, tableView.frame.size.width, 44.0f)];
+                [label setBackgroundColor:[UIColor colorWithHexString:@"800000"]];
+                [label setFont:[UIFont systemFontOfSize:25.0f]];
+                [label setTextColor:[UIColor orangeColor]];
+                [label setTextAlignment:NSTextAlignmentCenter];
+                headerText = @"Click 'Send To Kitchen' if your order is correct";
+            }else{
+                label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, tableView.frame.size.width, 22.0f)];
+                [label setTextColor:[UIColor whiteColor]];
+                [label setBackgroundColor:[UIColor colorWithHexString:@"804000"]];
+                [label setFont:[UIFont systemFontOfSize:22.0f]];
+                 headerText = [NSString stringWithFormat:@"  %@",headerText];
+            }
+
+
+            [label setText:headerText];
+            
+            break;
+    }
+    
+ 
+    
+return label;
+
+}
+/*
+-(UIView*) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIImageView *footer = [[UIImageView alloc]
+                           initWithImage:[UIImage imageNamed:@"Icon-76.png"]];
+    
+    if (section == 7){
+        [footer setFrame:CGRectMake(0, 0, 76, 76)];
+        return footer;
+        
+    }
+    
+    return nil;
+}*/
+
 -(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSInteger section = -1;
@@ -176,8 +245,6 @@
         
        // NSArray *rows = [[NSArray alloc] initWithObjects:indexPath, nil];
         
-        NSIndexSet *set = [[NSIndexSet alloc] initWithIndex:indexPath.section];
-        [self.tableView deleteSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
         //[self.tableView deleteRowsAtIndexPaths:rows withRowAnimation:UITableViewRowAnimationAutomatic];
         
         [orderItems removeObjectForKey:keyName];
@@ -194,12 +261,9 @@
 
 -(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     CGFloat h =  25;
-    
-    /*itemModel *item =   [orderItems objectForKey: [categories objectAtIndex:section]];
-    
-    if (item.Title.length == 0){
-        h = 0.0f;
-    }*/
+    if (section == 0 || [[categories objectAtIndex:section] isEqualToString:@"Footer"]){
+        h = 44;
+    }
     return h;
 }
 
@@ -240,7 +304,8 @@
         }
         
         if (item.Title.length > 0){
-            [cell.textLabel setTextColor:[UIColor colorWithHexString:@"804000"]];
+            [cell.textLabel setTextColor:[UIColor blackColor]];
+            [cell.detailTextLabel setFont:[UIFont systemFontOfSize:22.0]];
             [cell.textLabel setText:item.Title];
             
             if (item.Image){
@@ -249,6 +314,7 @@
             
             if (item.Price && item.Quantity){
                 [cell.detailTextLabel setTextColor:[UIColor colorWithHexString:@"800000"]];
+                [cell.detailTextLabel setFont:[UIFont systemFontOfSize:18.0]];
                 [cell.detailTextLabel setText:[NSString stringWithFormat:@"Quantity: %@, Price: %@",item.Price,item.Quantity]];
             }
         }
