@@ -12,14 +12,12 @@
 
 @interface HeaderImageCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *imageEstablishment;
-@property (strong, nonatomic) IBOutlet UIImageView *imageCircle;
-
-@property (strong, nonatomic) IBOutlet UILabel *labelName;
-@property (strong, nonatomic) IBOutlet UILabel *labeDetail;
+@property (strong, nonatomic) IBOutlet UIButton *btnSendToKitchen;
+@property (strong, nonatomic) IBOutlet UILabel  *lblTotal;
 
 + (id)instanceFromNibWithName:(NSString *)nibName;
 
 + (id)instanceFromNib;
+- (IBAction)actionSendToKitchen:(UIButton *)sender;
 
 @end

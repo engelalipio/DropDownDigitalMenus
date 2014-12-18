@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14C68m" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -13,39 +13,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="160" image="RestaurantBack_3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="3RJ-uM-kCF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
-                        <color key="backgroundColor" red="0.13333333333333333" green="0.53333333333333333" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="21" text="Establishment Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmw-CC-mUF">
-                        <rect key="frame" x="0.0" y="113" width="320" height="20"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6Z-Cb-fm7">
+                        <rect key="frame" x="68" y="131" width="74" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="21" text="Establishment Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTb-nd-h3R">
-                        <rect key="frame" x="0.0" y="139" width="320" height="20"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F73-hg-wxo">
+                        <rect key="frame" x="150" y="131" width="58" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="waiter-50.png" translatesAutoresizingMaskIntoConstraints="NO" id="o0F-yq-QZB">
-                        <rect key="frame" x="122" y="29" width="76" height="76"/>
-                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VV7-tN-8b3">
+                        <rect key="frame" x="86" y="65" width="149" height="30"/>
+                        <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" title="Send to Kitchen">
+                            <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="actionSendToKitchen:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="XEm-VR-OJP"/>
+                        </connections>
+                    </button>
                 </subviews>
+                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             </tableViewCellContentView>
             <connections>
-                <outlet property="imageCircle" destination="o0F-yq-QZB" id="cDU-E4-u0h"/>
-                <outlet property="imageEstablishment" destination="3RJ-uM-kCF" id="v3x-Nx-H6R"/>
-                <outlet property="imageView" destination="3RJ-uM-kCF" id="oTS-oi-9DC"/>
-                <outlet property="labeDetail" destination="PTb-nd-h3R" id="Fh3-y2-beM"/>
-                <outlet property="labelName" destination="bmw-CC-mUF" id="IHn-7f-bsB"/>
+                <outlet property="btnSendToKitchen" destination="VV7-tN-8b3" id="Qkh-dD-jIR"/>
+                <outlet property="lblTotal" destination="F73-hg-wxo" id="xwR-Wf-NTz"/>
             </connections>
-            <point key="canvasLocation" x="305" y="201"/>
+            <point key="canvasLocation" x="259" y="195"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="RestaurantBack_3.jpg" width="1000" height="400"/>
-        <image name="waiter-50.png" width="50" height="50"/>
-    </resources>
 </document>

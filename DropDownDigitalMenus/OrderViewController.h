@@ -10,15 +10,16 @@
 
 
 
-@interface OrderViewController : UITableViewController
+@interface OrderViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIButton *orderButton;
-@property (strong, nonatomic) IBOutlet UIButton *payButton;
 @property (strong, nonatomic) IBOutlet UIButton *changeOrder;
  
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *EditOrder;
 
 - (IBAction)editOrder:(UIBarButtonItem *)sender;
 - (IBAction)placeOrder:(UIButton *)sender;
-- (IBAction)payOrder:(UIButton *)sender;
+- (IBAction)changeOrder:(UIButton *)sender;
 
 @end

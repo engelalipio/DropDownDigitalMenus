@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "itemModel.h"
 #import "AppDelegate.h"
+#import "HeaderImageCell.h"
 
 @interface OrderViewController(){
     AppDelegate         *appDelegate;
@@ -33,12 +34,53 @@
 
 -(void) viewDidLoad{
     [super viewDidLoad];
+     
     if (! appDelegate){
         appDelegate = [AppDelegate currentDelegate];
     }
     [self initTableView];
-    //[self compileOrderItems];
+    
 }
+
+-(void)updateOrderCount{
+    
+    NSString *message   = @"",
+             *orderItem = @"";
+    
+    NSInteger currentOrderCount = 0,
+              itemsCount        = 0;
+    
+    @try {
+        
+        itemsCount = kOrderTabItemIndex;
+
+        currentOrderCount = [appDelegate currentOrderItems];
+        if (! currentOrderCount){
+            currentOrderCount = 0;
+            [appDelegate setCurrentOrderItems:currentOrderCount];
+        }
+        
+        orderItem =  [[[[self.tabBarController tabBar] items] objectAtIndex:itemsCount] badgeValue];
+        if (! orderItem){
+            orderItem = @"0";
+        }
+        
+        
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        message   = @"";
+        orderItem = @"";
+        
+
+        itemsCount = 0;
+    }
+    
+}
+
+
 
 -(void) compileOrderItems{
 
@@ -60,7 +102,7 @@
        
             orderItems = [[NSMutableDictionary alloc] init];
         
-        for (int iKey = 0; iKey < 8 ; iKey++) {
+        for (int iKey = 0; iKey < 7 ; iKey++) {
             
         
             switch (iKey) {
@@ -119,11 +161,6 @@
                         [orderItems setObject:desserts forKey:keyName];
                     }
                 break;
-                case 7:
-                    keyName = @"Footer";
-                    [categories addObject:keyName];
-                    break;
-                    
             }
             
         }
@@ -218,42 +255,83 @@
 return label;
 
 }
-/*
--(UIView*) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIImageView *footer = [[UIImageView alloc]
-                           initWithImage:[UIImage imageNamed:@"Icon-76.png"]];
-    
-    if (section == 7){
-        [footer setFrame:CGRectMake(0, 0, 76, 76)];
-        return footer;
-        
-    }
-    
-    return nil;
-}*/
 
 -(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSInteger section = -1;
+    NSInteger section = -1,
+               orderCount = [appDelegate currentOrderItems];
     
     section = [indexPath section];
     
     NSString *keyName = [categories objectAtIndex:section];
     
     if (editingStyle == UITableViewCellEditingStyleDelete){
+        
+        
+        
         [self.tableView beginUpdates];
         
-       // NSArray *rows = [[NSArray alloc] initWithObjects:indexPath, nil];
+        UITableViewCell *c =  [self.tableView cellForRowAtIndexPath:indexPath];
+        if (c){
+            [c.textLabel setText:@""];
+            [c.detailTextLabel setText:@""];
+        }
         
-        //[self.tableView deleteRowsAtIndexPaths:rows withRowAnimation:UITableViewRowAnimationAutomatic];
+        orderCount--;
+        
+        [appDelegate setCurrentOrderItems:orderCount];
+        
+        
+        if ([keyName isEqualToString:@"Beverages"]){
+            [appDelegate setDrinkItems:nil];
+
+        }
+        if ([keyName isEqualToString:@"Appetizers"]){
+            [appDelegate setAppItems:nil];
+            
+        }
+        if ([keyName isEqualToString:@"Soups"]){
+            [appDelegate setSoupItems:nil];
+            
+        }
+        if ([keyName isEqualToString:@"Salads"]){
+            [appDelegate setSaladItems:nil];
+            
+        }
+        if ([keyName isEqualToString:@"Entrees"]){
+            [appDelegate setEntreeItems:nil];
+            
+        }
+        if ([keyName isEqualToString:@"Desserts"]){
+            [appDelegate setDessertItems:nil];
+            
+        }
         
         [orderItems removeObjectForKey:keyName];
+        [categories removeObject:keyName];
+        
+        [self compileOrderItems];
+        
+        NSLog(@"Sucessfully deleted %@", keyName);
+        
+        NSIndexSet *set = [[NSIndexSet alloc] initWithIndex:indexPath.section];
+        
+        NSArray *rows = [[NSArray alloc] initWithObjects:indexPath, nil];
+        
+        [self.tableView deleteRowsAtIndexPaths:rows withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        [self.tableView deleteSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
         
         [self.tableView endUpdates];
         
+        [self updateOrderCount];
+        
         [self.tableView setEditing:NO animated:YES];
         
-       [self.tableView reloadData];
+        [self.changeOrder setTitle:@"Edit Order" forState:UIControlStateNormal];
+        
+        
+ 
     }
     
 }
@@ -294,28 +372,31 @@ return label;
         
         keyName = [categories objectAtIndex:indexPath.section];
         
-        item = [orderItems objectForKey:keyName];
-        
         cell = [self.tableView dequeueReusableCellWithIdentifier:cellOrder];
+        
         
         if (! cell){
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                           reuseIdentifier:cellOrder];
         }
         
-        if (item.Title.length > 0){
-            [cell.textLabel setTextColor:[UIColor blackColor]];
-            [cell.detailTextLabel setFont:[UIFont systemFontOfSize:22.0]];
-            [cell.textLabel setText:item.Title];
+        item = [orderItems objectForKey:keyName];
+        
+        if (item){
+            if (item.Title.length > 0){
+                [cell.textLabel setTextColor:[UIColor blackColor]];
+                [cell.detailTextLabel setFont:[UIFont systemFontOfSize:22.0]];
+                [cell.textLabel setText:item.Title];
             
-            if (item.Image){
-                [cell.imageView setImage:item.Image];
-            }
+                if (item.Image){
+                    [cell.imageView setImage:item.Image];
+                }
             
-            if (item.Price && item.Quantity){
-                [cell.detailTextLabel setTextColor:[UIColor colorWithHexString:@"800000"]];
-                [cell.detailTextLabel setFont:[UIFont systemFontOfSize:18.0]];
-                [cell.detailTextLabel setText:[NSString stringWithFormat:@"Quantity: %@, Price: %@",item.Price,item.Quantity]];
+                if (item.Price && item.Quantity){
+                    [cell.detailTextLabel setTextColor:[UIColor colorWithHexString:@"800000"]];
+                    [cell.detailTextLabel setFont:[UIFont systemFontOfSize:18.0]];
+                    [cell.detailTextLabel setText:[NSString stringWithFormat:@"Quantity: %@, Price: %@",item.Quantity,item.Price]];
+                }
             }
         }
         
@@ -377,8 +458,24 @@ return label;
  
 - (IBAction)editOrder:(UIBarButtonItem *)sender {
     
-    [self.tableView setEditing:YES animated:YES];
+    NSString *title = self.changeOrder.titleLabel.text;
     
+    if ([title isEqualToString:@"Cancel Edit"]){
+      [self.tableView setEditing:NO animated:YES];
+      [self.changeOrder setTitle:@"Edit Order" forState:UIControlStateNormal];
+
+        
+    }else{
+      [self.tableView setEditing:YES animated:YES];
+     [self.changeOrder setTitle:@"Cancel Edit" forState:UIControlStateNormal];
+
+    }
+    
+    
+}
+
+-(IBAction)changeOrder:(UIButton *)sender{
+    [self editOrder:nil];
 }
 
 - (IBAction)placeOrder:(UIButton *)sender {
