@@ -11,11 +11,15 @@
 #import "itemModel.h"
 #import "AppDelegate.h"
 #import "HeaderImageCell.h"
+#import "NumberFormatter.h"
 
 @interface OrderViewController(){
     AppDelegate         *appDelegate;
     NSMutableArray      *categories;
     NSMutableDictionary *orderItems;
+    float               orderPrice;
+    NumberFormatter *formatter ;
+    NSNumber *numberPrice ;
 }
 
 @end
@@ -57,14 +61,10 @@
         currentOrderCount = [appDelegate currentOrderItems];
         if (! currentOrderCount){
             currentOrderCount = 0;
-            [appDelegate setCurrentOrderItems:currentOrderCount];
         }
         
-        orderItem =  [[[[self.tabBarController tabBar] items] objectAtIndex:itemsCount] badgeValue];
-        if (! orderItem){
-            orderItem = @"0";
-        }
-        
+       [[[[self.tabBarController tabBar] items] objectAtIndex:itemsCount]
+                setBadgeValue:[NSString stringWithFormat:@"%d",currentOrderCount]];
         
     }
     @catch (NSException *exception) {
@@ -165,8 +165,7 @@
             
         }
         
-  
-  
+
         
     }
     @catch(NSException *error){
@@ -186,11 +185,14 @@
     
     @try{
         
+        self.view.backgroundColor =  kVerticalTableBackgroundColor;
+        
         if (! self.tableView){
         self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, kTableYStart, kTabletWidth, kTableHeight)];
         }
         
         self.tableView.backgroundColor =  kVerticalTableBackgroundColor;
+        
         [self.tableView sizeToFit];
         [self.tableView setDelegate:self];
         [self.tableView setDataSource:self];
@@ -215,7 +217,11 @@
     
     switch (section) {
         case 0:
-            headerText = @"Please review your current order";
+            
+            headerText = @"Please Review Your Current Order";
+            if (appDelegate.isSent){
+              headerText = @"Please Use The 'Call Waiter' Button Below For Additional Changes";
+            }
             
             label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, tableView.frame.size.width, 44.0f)];
             [label setTextAlignment:NSTextAlignmentCenter];
@@ -307,6 +313,10 @@ return label;
             
         }
         
+        itemModel *model = [orderItems objectForKey:keyName];
+        
+        orderPrice = orderPrice - [[model.Price stringByReplacingOccurrencesOfString:@"$" withString:@""] floatValue];
+        
         [orderItems removeObjectForKey:keyName];
         [categories removeObject:keyName];
         
@@ -316,7 +326,11 @@ return label;
         
         NSIndexSet *set = [[NSIndexSet alloc] initWithIndex:indexPath.section];
         
-        NSArray *rows = [[NSArray alloc] initWithObjects:indexPath, nil];
+        NSArray   *rows = [[NSArray alloc] initWithObjects:indexPath, nil];
+        
+        numberPrice = [[NSNumber alloc] initWithFloat:orderPrice];
+        
+        [self.lblTotal setText:[formatter stringFromValue:numberPrice]];
         
         [self.tableView deleteRowsAtIndexPaths:rows withRowAnimation:UITableViewRowAnimationAutomatic];
         
@@ -329,7 +343,6 @@ return label;
         [self.tableView setEditing:NO animated:YES];
         
         [self.changeOrder setTitle:@"Edit Order" forState:UIControlStateNormal];
-        
         
  
     }
@@ -366,9 +379,11 @@ return label;
              *keyName   = @"";
     
     itemModel *item = nil;
+
     
     @try {
         
+        formatter = [NumberFormatter currencyFormatterWithDecimalDigitsCount:2];
         
         keyName = [categories objectAtIndex:indexPath.section];
         
@@ -393,9 +408,16 @@ return label;
                 }
             
                 if (item.Price && item.Quantity){
+                    
+                    orderPrice += [[item.Price stringByReplacingOccurrencesOfString:@"$" withString:@"" ] floatValue];
+                    
+                    numberPrice = [[NSNumber alloc] initWithFloat:orderPrice];
+                    
                     [cell.detailTextLabel setTextColor:[UIColor colorWithHexString:@"800000"]];
                     [cell.detailTextLabel setFont:[UIFont systemFontOfSize:18.0]];
                     [cell.detailTextLabel setText:[NSString stringWithFormat:@"Quantity: %@, Price: %@",item.Quantity,item.Price]];
+                
+                    [self.lblTotal setText:[formatter stringFromValue:numberPrice]];
                 }
             }
         }
@@ -478,20 +500,41 @@ return label;
     [self editOrder:nil];
 }
 
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 0){
+        [appDelegate setIsSent:YES];
+        [self.changeOrder setEnabled:NO];
+        [self.changeOrder setAlpha:0.6f];
+        [self.orderButton setTitle:@"Pay Bill" forState:UIControlStateNormal];
+        NSIndexSet *set = [[NSIndexSet alloc] initWithIndex:0];
+        [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+    }
+    
+}
+
 - (IBAction)placeOrder:(UIButton *)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Send Order Confirmation" message:@"This will send your order for preparation" delegate:self
-                                          cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
+    
+    UIAlertView *alert  = nil;
+    if ([sender.titleLabel.text isEqualToString:@"Pay Bill"]){
+        alert = [[UIAlertView alloc] initWithTitle:@"Pay Bill Confirmation"
+                                           message:@"By clicking 'Ok' you will be paying for your order here"
+                                          delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                 otherButtonTitles:@"Cancel", nil];
+    }else{
+    
+     alert = [[UIAlertView alloc] initWithTitle:@"Correct Order Confirmation"
+                                                    message:@"By clicking 'Ok' your order will be sent to the kitchen for preparation"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Ok"
+                                          otherButtonTitles:@"Cancel", nil];
+    }
     
     [alert show];
     
 }
 
-- (IBAction)payOrder:(UIButton *)sender {
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pay Order Confirmation" message:@"This will place and pay for your meal" delegate:self
-                                          cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
-    
-    [alert show];
-    
-}
+
 @end

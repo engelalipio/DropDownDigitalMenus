@@ -70,7 +70,7 @@
 
 -(void)setAppsVisible:(BOOL) display{
     [self.glutenSeg setHidden:! display];
-    [self.sauceTypeSeg setHidden:! display];
+    //[self.sauceTypeSeg setHidden:! display];
 }
 
 -(void)setSoupsVisible:(BOOL) display{

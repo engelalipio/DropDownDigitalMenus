@@ -2986,7 +2986,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1bH-GC-nQa">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="800"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="900"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="byA-60-evw" id="8DQ-91-3xm"/>
@@ -2994,7 +2994,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHr-LT-NoT">
-                                <rect key="frame" x="158" y="878" width="150" height="30"/>
+                                <rect key="frame" x="74" y="901" width="150" height="30"/>
                                 <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Edit Order">
                                     <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -3005,7 +3005,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tas-Rg-1Ug">
-                                <rect key="frame" x="460" y="878" width="150" height="30"/>
+                                <rect key="frame" x="545" y="901" width="150" height="30"/>
                                 <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Send To Kitchen">
                                     <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -3015,6 +3015,18 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                                     <action selector="placeOrder:" destination="byA-60-evw" eventType="touchUpInside" id="geb-5V-IPe"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total: " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uc-yw-ra1">
+                                <rect key="frame" x="316" y="905" width="58" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94k-Sj-xIE">
+                                <rect key="frame" x="382" y="905" width="145" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -3026,13 +3038,14 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                     <size key="freeformSize" width="768" height="975"/>
                     <connections>
                         <outlet property="changeOrder" destination="WHr-LT-NoT" id="KBB-GP-Dea"/>
+                        <outlet property="lblTotal" destination="94k-Sj-xIE" id="ZH4-PG-tC9"/>
                         <outlet property="orderButton" destination="tas-Rg-1Ug" id="Fgf-Xf-der"/>
                         <outlet property="tableView" destination="1bH-GC-nQa" id="mzO-qG-pDU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0GN-CV-6Iz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1879" y="-1555.5"/>
+            <point key="canvasLocation" x="1903" y="-1555.5"/>
         </scene>
         <!--Service-->
         <scene sceneID="ddv-5a-eKR">

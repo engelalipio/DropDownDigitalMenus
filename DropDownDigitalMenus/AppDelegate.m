@@ -29,6 +29,7 @@
 @synthesize restaurantState = _restaurantState;
 @synthesize restaurantZip = _restaurantZip;
 @synthesize interval = _interval;
+@synthesize isSent = _isSent;
 
 
 +(AppDelegate *) currentDelegate{
@@ -39,6 +40,7 @@
     // Override point for customization after application launch.
     _language = @"English";
     _isDynamic = NO;
+    _isSent   = NO;
     
     _restaurantName    = @"Demo Restaurant";
     _restaurantAddress = @"123 Beach Street";

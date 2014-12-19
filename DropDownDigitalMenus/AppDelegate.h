@@ -22,6 +22,8 @@ typedef int OrderTypeSelection;
 
 @property (assign,nonatomic) Boolean isDynamic;
 
+@property (assign,nonatomic) Boolean isSent;
+
 @property (assign,nonatomic) NSInteger interval;
 
 @property (strong, nonatomic) UIWindow *window;
