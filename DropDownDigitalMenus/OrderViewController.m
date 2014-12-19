@@ -97,6 +97,16 @@
     
     @try{
         
+        if (! appDelegate.isSent){
+            [self.changeOrder setEnabled:YES];
+            [self.changeOrder setAlpha:1.0f];
+        }
+        if (! appDelegate.isSent && ! appDelegate.isPaid){
+            [self.orderButton setTitle:@"Send to Kitchen" forState:UIControlStateNormal];
+            [self.orderButton setEnabled:YES];
+            [self.orderButton setAlpha:1.0f];
+            
+        }
         
             categories = [[NSMutableArray alloc] init];
        
@@ -262,7 +272,8 @@ return label;
 
 }
 
--(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+                                forRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSInteger section = -1,
                orderCount = [appDelegate currentOrderItems];
@@ -272,7 +283,6 @@ return label;
     NSString *keyName = [categories objectAtIndex:section];
     
     if (editingStyle == UITableViewCellEditingStyleDelete){
-        
         
         
         [self.tableView beginUpdates];
@@ -376,11 +386,13 @@ return label;
     
     NSString *message   = @"",
              *cellOrder = @"",
-             *keyName   = @"";
+             *keyName   = @"",
+             *options   = @"";
     
     itemModel *item = nil;
 
     
+    NSArray *op = nil;
     @try {
         
         formatter = [NumberFormatter currencyFormatterWithDecimalDigitsCount:2];
@@ -395,13 +407,18 @@ return label;
                                           reuseIdentifier:cellOrder];
         }
         
+        [cell setAccessoryType:UITableViewCellAccessoryDetailButton];
+        
         item = [orderItems objectForKey:keyName];
         
         if (item){
             if (item.Title.length > 0){
+               // [cell.textLabel setNumberOfLines:2];
                 [cell.textLabel setTextColor:[UIColor blackColor]];
+                
                 [cell.detailTextLabel setFont:[UIFont systemFontOfSize:22.0]];
-                [cell.textLabel setText:item.Title];
+                
+                [cell.textLabel setText:[NSString stringWithFormat:@"%@ - Qty:%@, Price:%@",item.Title,item.Quantity,item.Price]];
             
                 if (item.Image){
                     [cell.imageView setImage:item.Image];
@@ -412,12 +429,20 @@ return label;
                     orderPrice += [[item.Price stringByReplacingOccurrencesOfString:@"$" withString:@"" ] floatValue];
                     
                     numberPrice = [[NSNumber alloc] initWithFloat:orderPrice];
-                    
+                    [cell.detailTextLabel setNumberOfLines:4];
                     [cell.detailTextLabel setTextColor:[UIColor colorWithHexString:@"800000"]];
                     [cell.detailTextLabel setFont:[UIFont systemFontOfSize:18.0]];
-                    [cell.detailTextLabel setText:[NSString stringWithFormat:@"Quantity: %@, Price: %@",item.Quantity,item.Price]];
-                
+                    
+                    if (item.options){
+                        op = item.options;
+                        options = [op componentsJoinedByString:@","];
+                        
+                    }
+                    
+                    [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@",options]];
+                    
                     [self.lblTotal setText:[formatter stringFromValue:numberPrice]];
+                    
                 }
             }
         }
@@ -433,6 +458,37 @@ return label;
     }
     
     return cell;
+}
+
+
+-(void) tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    NSString *keyName  = [categories objectAtIndex:indexPath.section];
+    
+    itemModel *model = [orderItems objectForKey:keyName];
+    
+    UIAlertView *view = nil;
+    NSArray  *op = nil;
+    NSString *options;
+    
+    if (model){
+        
+        op = model.options;
+        
+        options = [op componentsJoinedByString:@","];
+        
+        view = [[UIAlertView alloc]
+                    initWithTitle:model.Calories
+                          message:options
+                         delegate:nil
+                cancelButtonTitle:@"Ok"
+                otherButtonTitles:nil, nil];
+        
+        if (view){
+            [view show];
+        }
+    }
+    
+    
 }
 
 -(NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -502,6 +558,14 @@ return label;
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
+    if ([self.orderButton.titleLabel.text isEqualToString:@"Pay Bill"]){
+     if (buttonIndex == 0){
+         [appDelegate setIsPaid:YES];
+         [self.orderButton setEnabled:NO];
+         [self.orderButton setAlpha:0.6f];
+     }
+    }
+    else{
     if (buttonIndex == 0){
         [appDelegate setIsSent:YES];
         [self.changeOrder setEnabled:NO];
@@ -510,6 +574,7 @@ return label;
         NSIndexSet *set = [[NSIndexSet alloc] initWithIndex:0];
         [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
         
+    }
     }
     
 }
@@ -520,7 +585,7 @@ return label;
     if ([sender.titleLabel.text isEqualToString:@"Pay Bill"]){
         alert = [[UIAlertView alloc] initWithTitle:@"Pay Bill Confirmation"
                                            message:@"By clicking 'Ok' you will be paying for your order here"
-                                          delegate:nil
+                                          delegate:self
                                               cancelButtonTitle:@"Ok"
                                  otherButtonTitles:@"Cancel", nil];
     }else{

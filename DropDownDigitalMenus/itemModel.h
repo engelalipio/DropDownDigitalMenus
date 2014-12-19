@@ -17,7 +17,9 @@
 @property (nonatomic, strong) NSString	*Description;
 @property (nonatomic, strong) NSString	*Price;
 @property (nonatomic, strong) NSString	*Quantity;
+@property (nonatomic, strong) NSString  *Calories;
 @property (nonatomic, strong) UIImage   *Image;
+@property (nonatomic, strong) NSArray   *options;
 
 
 @end

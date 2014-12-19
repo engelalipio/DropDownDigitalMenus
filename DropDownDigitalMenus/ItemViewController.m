@@ -237,6 +237,7 @@
         [currentItem setPrice:self.labelPrice.text];
         [currentItem setQuantity:self.labelQuantity.text];
         [currentItem setImage:self.imageView.image];
+        [currentItem setCalories:self.labelCalories.text];
         
         items = [[NSMutableDictionary alloc] init];
         
@@ -244,30 +245,79 @@
             case Beverage:
                 [currentItem setCategory:@"Beverages"];
                 [items  setValue:currentItem forKey:currentItem.Category];
+                
+                [currentItem setOptions:[[NSArray alloc] initWithObjects:
+                                         [NSString stringWithFormat:@"Ice:%@",[self.iceSeg titleForSegmentAtIndex:self.iceSeg.selectedSegmentIndex]],nil]];
+                
                 [appDelegate setDrinkItems:items];
                 break;
             case Appetizer:
                 [currentItem setCategory:@"Appetizers"];
+                
+                [currentItem setOptions:[[NSArray alloc] initWithObjects:
+                                         [NSString stringWithFormat:@"Gluten:%@",[self.glutenSeg titleForSegmentAtIndex:self.glutenSeg.selectedSegmentIndex]],nil]];
+                
                 [items  setValue:currentItem forKey:currentItem.Category];
                 [appDelegate setAppItems:items];
                 break;
             case Soups:
                 [currentItem setCategory:@"Soups"];
+                
+                [currentItem setOptions:[[NSArray alloc] initWithObjects:
+                                          [NSString stringWithFormat:@"Gluten:%@",[self.glutenSeg titleForSegmentAtIndex:self.glutenSeg.selectedSegmentIndex]],
+                                          [NSString stringWithFormat:@"Cheese:%@",[self.cheeseTypeSeg titleForSegmentAtIndex:self.cheeseTypeSeg.selectedSegmentIndex]], nil]];
+                
                 [items  setValue:currentItem forKey:currentItem.Category];
                 [appDelegate setSoupItems:items];
                 break;
             case Salads:
                 [currentItem setCategory:@"Salads"];
+                
+                [currentItem setOptions:[[NSArray alloc] initWithObjects:
+                                          [NSString stringWithFormat:@"Gluten:%@",[self.glutenSeg titleForSegmentAtIndex:self.glutenSeg.selectedSegmentIndex]],
+                                          [NSString stringWithFormat:@"Dressing:%@",[self.dressingTypeSeg titleForSegmentAtIndex:self.dressingTypeSeg.selectedSegmentIndex]],
+                                          [NSString stringWithFormat:@"Cheese:%@",[self.cheeseTypeSeg titleForSegmentAtIndex:self.cheeseTypeSeg.selectedSegmentIndex]],nil]];
+                
                  [items  setValue:currentItem forKey:currentItem.Category];
                 [appDelegate setSaladItems:items];
                 break;
             case Entrees:
                 [currentItem setCategory:@"Entrees"];
+                
+                switch (self.entreeType) {
+                    case Beef:
+                        
+                        [currentItem setOptions:[[NSArray alloc] initWithObjects:
+                                                  [NSString stringWithFormat:@"Steak:%@",[self.steakSeg titleForSegmentAtIndex:self.steakSeg.selectedSegmentIndex]],
+                                                  [NSString stringWithFormat:@"Cheese:%@",[self.cheeseTypeSeg titleForSegmentAtIndex:self.cheeseTypeSeg.selectedSegmentIndex]],
+                                                  [NSString stringWithFormat:@"Side:%@",[self.sidesSeg titleForSegmentAtIndex:self.sidesSeg.selectedSegmentIndex]],nil]];
+                        
+                        break;
+                    case Chicken:
+                    case Seafood:
+                        [currentItem setOptions:[[NSArray alloc] initWithObjects:
+                                                  [NSString stringWithFormat:@"Sauce:%@",[self.sauceTypeSeg titleForSegmentAtIndex:self.sauceTypeSeg.selectedSegmentIndex]],
+                                                  [NSString stringWithFormat:@"Side:%@",[self.sidesSeg titleForSegmentAtIndex:self.sidesSeg.selectedSegmentIndex]], nil]];
+                        break;
+                    case Pasta:
+                        [currentItem setOptions:[[NSArray alloc] initWithObjects:
+                                                  [NSString stringWithFormat:@"Gluten:%@",[self.glutenSeg titleForSegmentAtIndex:self.glutenSeg.selectedSegmentIndex]],
+                                                  [NSString stringWithFormat:@"Pasta:%@",[self.pastaSeg titleForSegmentAtIndex:self.pastaSeg.selectedSegmentIndex]],
+                                                  [NSString stringWithFormat:@"Sauce:%@",[self.sauceTypeSeg titleForSegmentAtIndex:self.sauceTypeSeg.selectedSegmentIndex]],
+                                                  [NSString stringWithFormat:@"Cheese:%@",[self.cheeseTypeSeg titleForSegmentAtIndex:self.cheeseTypeSeg.selectedSegmentIndex]],
+                                                  [NSString stringWithFormat:@"Side:%@",[self.sidesSeg titleForSegmentAtIndex:self.sidesSeg.selectedSegmentIndex]],nil]];
+                        break;
+                }
+                
+
                 [items  setValue:currentItem forKey:currentItem.Category];
                 [appDelegate setEntreeItems:items];
                 break;
             case Desserts:
                 [currentItem setCategory:@"Desserts"];
+                
+                [currentItem setOptions:[[NSArray alloc] initWithObjects:
+                                         [NSString stringWithFormat:@"Gluten:%@",[self.glutenSeg titleForSegmentAtIndex:self.glutenSeg.selectedSegmentIndex]],nil]];
                 
                 [items  setValue:currentItem forKey:currentItem.Category];
                 [appDelegate setDessertItems:items];

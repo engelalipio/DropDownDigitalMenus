@@ -504,6 +504,8 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
     @try{
         
+        [self.navigationItem setTitle:appDelegate.restaurantTable];
+       // [self setTitle:appDelegate.restaurantTable];
         
         categoryHomeData = [[NSArray alloc] initWithObjects:@"Beverages",@"Appetizers",@"Soups",@"Salads",@"Entrees",@"Desserts", nil];
         

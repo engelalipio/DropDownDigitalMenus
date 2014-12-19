@@ -23,6 +23,7 @@ typedef int OrderTypeSelection;
 @property (assign,nonatomic) Boolean isDynamic;
 
 @property (assign,nonatomic) Boolean isSent;
+@property (assign,nonatomic) Boolean isPaid;
 
 @property (assign,nonatomic) NSInteger interval;
 
@@ -30,6 +31,7 @@ typedef int OrderTypeSelection;
 
 @property (strong, nonatomic) NSString *language;
 
+@property (strong, nonatomic) NSString *restaurantTable;
 @property (strong, nonatomic) NSString *restaurantName;
 @property (strong, nonatomic) NSString *restaurantAddress;
 @property (strong, nonatomic) NSString *restaurantCity;

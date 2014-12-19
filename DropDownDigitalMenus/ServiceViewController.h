@@ -10,10 +10,14 @@
 
 @interface ServiceViewController : UITableViewController
 
+@property (strong, nonatomic) IBOutlet UILabel *lblOrderStatus;
+@property (strong, nonatomic) IBOutlet UILabel *lblBillStatus;
 
-@property (strong, nonatomic) IBOutlet UIButton *pageButton;
+@property (strong, nonatomic) IBOutlet UIButton *btnRequestBill;
+@property (strong, nonatomic) IBOutlet UIButton *btnCallWaiter;
 
-- (IBAction)pageServer:(UIButton *)sender;
+- (IBAction)actionRequestBill:(UIButton *)sender;
+- (IBAction)actionCallWaiter:(UIButton *)sender;
 
 @end
 

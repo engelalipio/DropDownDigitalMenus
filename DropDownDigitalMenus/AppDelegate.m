@@ -23,6 +23,7 @@
 @synthesize currentOrderItems = _currentOrderItems;
 @synthesize language = _language;
 @synthesize isDynamic = _isDynamic;
+@synthesize restaurantTable = _restaurantTable;
 @synthesize restaurantName = _restaurantName;
 @synthesize restaurantAddress = _restaurantAddress;
 @synthesize restaurantCity = _restaurantCity;
@@ -30,6 +31,7 @@
 @synthesize restaurantZip = _restaurantZip;
 @synthesize interval = _interval;
 @synthesize isSent = _isSent;
+@synthesize isPaid = _isPaid;
 
 
 +(AppDelegate *) currentDelegate{
@@ -42,6 +44,7 @@
     _isDynamic = NO;
     _isSent   = NO;
     
+    _restaurantTable   = @"Table 1";
     _restaurantName    = @"Demo Restaurant";
     _restaurantAddress = @"123 Beach Street";
     _restaurantCity    = @"Jacksonville Beach";

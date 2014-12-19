@@ -34,6 +34,7 @@
 -(void) configureFields{
 
     [self.savedLabel setHidden:YES];
+    [self.txtTableNumber setText:[appDelegate restaurantTable]];
     [self.txtName setText:[appDelegate restaurantName]];
     [self.txtAddress setText:[appDelegate restaurantAddress]];
     [self.txtCity setText:[appDelegate restaurantCity]];
@@ -135,7 +136,7 @@
 
 - (IBAction)actionSaveSettings:(UIButton *)sender {
     
-    
+    [appDelegate setRestaurantTable:self.txtTableNumber.text];
     [appDelegate setRestaurantName:self.txtName.text];
     [appDelegate setRestaurantCity:self.txtCity.text];
     [appDelegate setRestaurantState:self.txtState.text];
@@ -151,6 +152,11 @@
     [appDelegate setIsDynamic:self.switchDynamic.isOn];
     
     [appDelegate setInterval:[self.txtSeconds.text integerValue]];
+    
+    if (self.switchOrderReset.isOn){
+        [appDelegate setIsSent:NO];
+        [appDelegate setIsPaid:NO];
+    }
     
     [self.savedLabel setHidden:NO];
    

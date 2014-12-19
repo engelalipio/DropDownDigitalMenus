@@ -15,7 +15,8 @@
 @synthesize Description = _Description;
 @synthesize Price = _Price;
 @synthesize Quantity = _Quantity;
+@synthesize Calories = _Calories;
 @synthesize Image = _Image;
-
+@synthesize options = _options;
 
 @end

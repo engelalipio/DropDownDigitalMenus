@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingsViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UITextField *txtTableNumber;
 
 @property (strong, nonatomic) IBOutlet UITextField *txtName;
 @property (strong, nonatomic) IBOutlet UITextField *txtAddress;
 @property (strong, nonatomic) IBOutlet UITextField *txtCity;
 @property (strong, nonatomic) IBOutlet UITextField *txtState;
 @property (strong, nonatomic) IBOutlet UITextField *txtZip;
+@property (strong, nonatomic) IBOutlet UISwitch *switchOrderReset;
 
 @property (strong, nonatomic) IBOutlet UISwitch *switchDynamic;
 @property (strong, nonatomic) IBOutlet UIStepper *stepperInterval;
