@@ -16,7 +16,8 @@
 @interface ItemViewController ()
 {
     float originalPrice;
-    NSString *originalDesc;
+    NSString *originalDesc,
+             *originalPriceDesc;
     AppDelegate *appDelegate;
 }
 -(void) configureView;
@@ -43,15 +44,33 @@
     
     [self.iceSeg setHidden:hide];
     [self.sweetSeg setHidden:hide];
+    [self.lemonSeg setHidden:hide];
+    [self.softDrinks setHidden:hide];
     
     hide = (display ? NO : YES);
     
     [self.iceSeg setHidden:hide];
+
     
     if (! hide){
-        range = [title rangeOfString:@"TEA"];
+        range = [title.uppercaseString rangeOfString:@"TEA"];
         if (range.location != NSNotFound){
          [self.sweetSeg setHidden:hide];
+         [self.lemonSeg setHidden:hide];
+        }
+        range = [title.uppercaseString rangeOfString:@"DRINKS"];
+        if (range.location != NSNotFound){
+           [self.softDrinks setHidden:hide];
+        }
+        range = [title.uppercaseString rangeOfString:@"LIMONADA"];
+        if (range.location != NSNotFound){
+            [self.sweetSeg setHidden:hide];
+            [self.lemonSeg setHidden:hide];
+        }
+        range = [title.uppercaseString rangeOfString:@"LEMONADE"];
+        if (range.location != NSNotFound){
+            [self.sweetSeg setHidden:hide];
+            [self.lemonSeg setHidden:hide];
         }
     }
 
@@ -69,19 +88,21 @@
 }
 
 -(void)setAppsVisible:(BOOL) display{
-    [self.glutenSeg setHidden:! display];
-    //[self.sauceTypeSeg setHidden:! display];
+    [self.gluttenFreeLabel setHidden:!display];
+    [self.gluttenFreeSwitch setHidden:! display];
 }
 
 -(void)setSoupsVisible:(BOOL) display{
-    [self.glutenSeg setHidden:! display];
+    [self.gluttenFreeLabel setHidden:!display];
+    [self.gluttenFreeSwitch setHidden:! display];
     [self.cheeseTypeSeg setHidden:! display];
 }
 
 -(void)setSaladsVisible:(BOOL) display{
     [self.dressingTypeSeg setHidden:! display];
     [self.cheeseTypeSeg setHidden:! display];
-    [self.glutenSeg setHidden:! display];
+    [self.gluttenFreeLabel setHidden:!display];
+    [self.gluttenFreeSwitch setHidden:! display];
 }
 
 -(void) setMeatsVisible:(BOOL) display{
@@ -102,14 +123,16 @@
 
 -(void) setPastasVisible:(BOOL) display{
     [self.pastaSeg setHidden:! display];
-    [self.glutenSeg setHidden:! display];
+    [self.gluttenFreeLabel setHidden:!display];
+    [self.gluttenFreeSwitch setHidden:! display];
     [self.sauceTypeSeg setHidden:! display];
     [self.sidesSeg setHidden:! display];
     [self.cheeseTypeSeg setHidden:! display];
 }
 
 -(void) setDesserts:(BOOL) display{
-    [self.glutenSeg setHidden:! display];
+    [self.gluttenFreeLabel setHidden:!display];
+    [self.gluttenFreeSwitch setHidden:! display];
 }
 
 -(void) configureSegs{
@@ -215,6 +238,7 @@
               quantity   = 0;
     
     NSMutableDictionary *items = nil;
+    NSMutableArray *itemOptions = nil;
     
     itemModel *currentItem = nil;
     
@@ -222,7 +246,8 @@
         
         orderItems = [appDelegate currentOrderItems];
         
-        quantity   =  [self.labelQuantity.text integerValue];
+       // quantity   =  [self.labelQuantity.text integerValue];
+        quantity = 1;
         if (! orderItems){
             orderItems =  quantity;
         }else{
@@ -240,86 +265,169 @@
         [currentItem setCalories:self.labelCalories.text];
         
         items = [[NSMutableDictionary alloc] init];
+        itemOptions = [[NSMutableArray alloc] init];
         
         switch (self.foodType) {
             case Beverage:
                 [currentItem setCategory:@"Beverages"];
                 [items  setValue:currentItem forKey:currentItem.Category];
+
+                if (! self.softDrinks.isHidden){
+                    [itemOptions addObject:[self.softDrinks titleForSegmentAtIndex:self.softDrinks.selectedSegmentIndex]];
+                }
                 
-                [currentItem setOptions:[[NSArray alloc] initWithObjects:
-                                         [NSString stringWithFormat:@"Ice:%@",[self.iceSeg titleForSegmentAtIndex:self.iceSeg.selectedSegmentIndex]],nil]];
+                if (! self.lemonSeg.isHidden){
+                    [itemOptions addObject:[self.lemonSeg titleForSegmentAtIndex:self.lemonSeg.selectedSegmentIndex]];
+                }
+                
+                if (! self.sweetSeg.isHidden){
+                    [itemOptions addObject:[self.sweetSeg titleForSegmentAtIndex:self.sweetSeg.selectedSegmentIndex]];
+                }
+                
+                if (! self.iceSeg.isHidden){
+                    [itemOptions addObject:[self.iceSeg titleForSegmentAtIndex:self.iceSeg.selectedSegmentIndex]];
+                }
+                
+                [currentItem setOptions:[[NSArray alloc] initWithArray:itemOptions]];
+            
                 
                 [appDelegate setDrinkItems:items];
                 break;
             case Appetizer:
                 [currentItem setCategory:@"Appetizers"];
-                
-                [currentItem setOptions:[[NSArray alloc] initWithObjects:
-                                         [NSString stringWithFormat:@"Gluten:%@",[self.glutenSeg titleForSegmentAtIndex:self.glutenSeg.selectedSegmentIndex]],nil]];
-                
                 [items  setValue:currentItem forKey:currentItem.Category];
+                
+                if (! self.gluttenFreeSwitch.isHidden && ! self.gluttenFreeLabel.isHidden){
+                    if (self.gluttenFreeSwitch.isOn){
+                        [itemOptions addObject:self.gluttenFreeLabel.text];
+                    }
+                }
+                [currentItem setOptions:[[NSArray alloc] initWithArray:itemOptions]];
                 [appDelegate setAppItems:items];
                 break;
             case Soups:
                 [currentItem setCategory:@"Soups"];
-                
-                [currentItem setOptions:[[NSArray alloc] initWithObjects:
-                                          [NSString stringWithFormat:@"Gluten:%@",[self.glutenSeg titleForSegmentAtIndex:self.glutenSeg.selectedSegmentIndex]],
-                                          [NSString stringWithFormat:@"Cheese:%@",[self.cheeseTypeSeg titleForSegmentAtIndex:self.cheeseTypeSeg.selectedSegmentIndex]], nil]];
-                
                 [items  setValue:currentItem forKey:currentItem.Category];
+                
+                if (! self.gluttenFreeSwitch.isHidden && ! self.gluttenFreeLabel.isHidden){
+                    if (self.gluttenFreeSwitch.isOn){
+                        [itemOptions addObject:self.gluttenFreeLabel.text];
+                    }
+                }
+                
+                if (!self.cheeseTypeSeg.isHidden){
+                    [itemOptions addObject:[self.cheeseTypeSeg titleForSegmentAtIndex:self.cheeseTypeSeg.selectedSegmentIndex]];
+                }
+                
+                [currentItem setOptions:[[NSArray alloc] initWithArray:itemOptions]];
+                
+
                 [appDelegate setSoupItems:items];
                 break;
             case Salads:
                 [currentItem setCategory:@"Salads"];
+                [items  setValue:currentItem forKey:currentItem.Category];
                 
-                [currentItem setOptions:[[NSArray alloc] initWithObjects:
-                                          [NSString stringWithFormat:@"Gluten:%@",[self.glutenSeg titleForSegmentAtIndex:self.glutenSeg.selectedSegmentIndex]],
-                                          [NSString stringWithFormat:@"Dressing:%@",[self.dressingTypeSeg titleForSegmentAtIndex:self.dressingTypeSeg.selectedSegmentIndex]],
-                                          [NSString stringWithFormat:@"Cheese:%@",[self.cheeseTypeSeg titleForSegmentAtIndex:self.cheeseTypeSeg.selectedSegmentIndex]],nil]];
+                if (! self.gluttenFreeSwitch.isHidden && ! self.gluttenFreeLabel.isHidden){
+                    if (self.gluttenFreeSwitch.isOn){
+                        [itemOptions addObject:self.gluttenFreeLabel.text];
+                    }
+                }
                 
-                 [items  setValue:currentItem forKey:currentItem.Category];
+                if (!self.dressingTypeSeg.isHidden){
+                    [itemOptions addObject:[self.dressingTypeSeg titleForSegmentAtIndex:self.dressingTypeSeg.selectedSegmentIndex]];
+                }
+                
+                if (!self.cheeseTypeSeg.isHidden){
+                    [itemOptions addObject:[self.cheeseTypeSeg titleForSegmentAtIndex:self.cheeseTypeSeg.selectedSegmentIndex]];
+                }
+                
+                [currentItem setOptions:[[NSArray alloc] initWithArray:itemOptions]];
+                
+    
                 [appDelegate setSaladItems:items];
                 break;
             case Entrees:
                 [currentItem setCategory:@"Entrees"];
                 
+                 [items  setValue:currentItem forKey:currentItem.Category];
                 switch (self.entreeType) {
                     case Beef:
                         
-                        [currentItem setOptions:[[NSArray alloc] initWithObjects:
-                                                  [NSString stringWithFormat:@"Steak:%@",[self.steakSeg titleForSegmentAtIndex:self.steakSeg.selectedSegmentIndex]],
-                                                  [NSString stringWithFormat:@"Cheese:%@",[self.cheeseTypeSeg titleForSegmentAtIndex:self.cheeseTypeSeg.selectedSegmentIndex]],
-                                                  [NSString stringWithFormat:@"Side:%@",[self.sidesSeg titleForSegmentAtIndex:self.sidesSeg.selectedSegmentIndex]],nil]];
+                        
+                        if (!self.steakSeg.isHidden){
+                            [itemOptions addObject:[self.steakSeg titleForSegmentAtIndex:self.steakSeg.selectedSegmentIndex]];
+                        }
+                        
+                        if (!self.cheeseTypeSeg.isHidden){
+                            [itemOptions addObject:[self.cheeseTypeSeg titleForSegmentAtIndex:self.cheeseTypeSeg.selectedSegmentIndex]];
+                        }
+                        
+                        if (!self.sidesSeg.isHidden){
+                            [itemOptions addObject:[self.sidesSeg titleForSegmentAtIndex:self.sidesSeg.selectedSegmentIndex]];
+                        }
+                        
+                        [currentItem setOptions:[[NSArray alloc] initWithArray:itemOptions]];
+                        
                         
                         break;
                     case Chicken:
                     case Seafood:
-                        [currentItem setOptions:[[NSArray alloc] initWithObjects:
-                                                  [NSString stringWithFormat:@"Sauce:%@",[self.sauceTypeSeg titleForSegmentAtIndex:self.sauceTypeSeg.selectedSegmentIndex]],
-                                                  [NSString stringWithFormat:@"Side:%@",[self.sidesSeg titleForSegmentAtIndex:self.sidesSeg.selectedSegmentIndex]], nil]];
+                        
+                        if (!self.sauceTypeSeg.isHidden){
+                            [itemOptions addObject:[self.sauceTypeSeg titleForSegmentAtIndex:self.sauceTypeSeg.selectedSegmentIndex]];
+                        }
+                        
+                        if (!self.sidesSeg.isHidden){
+                            [itemOptions addObject:[self.sidesSeg titleForSegmentAtIndex:self.sidesSeg.selectedSegmentIndex]];
+                        }
+                        
+                        [currentItem setOptions:[[NSArray alloc] initWithArray:itemOptions]];
+                        
                         break;
                     case Pasta:
-                        [currentItem setOptions:[[NSArray alloc] initWithObjects:
-                                                  [NSString stringWithFormat:@"Gluten:%@",[self.glutenSeg titleForSegmentAtIndex:self.glutenSeg.selectedSegmentIndex]],
-                                                  [NSString stringWithFormat:@"Pasta:%@",[self.pastaSeg titleForSegmentAtIndex:self.pastaSeg.selectedSegmentIndex]],
-                                                  [NSString stringWithFormat:@"Sauce:%@",[self.sauceTypeSeg titleForSegmentAtIndex:self.sauceTypeSeg.selectedSegmentIndex]],
-                                                  [NSString stringWithFormat:@"Cheese:%@",[self.cheeseTypeSeg titleForSegmentAtIndex:self.cheeseTypeSeg.selectedSegmentIndex]],
-                                                  [NSString stringWithFormat:@"Side:%@",[self.sidesSeg titleForSegmentAtIndex:self.sidesSeg.selectedSegmentIndex]],nil]];
+                        
+                        if (! self.gluttenFreeSwitch.isHidden && ! self.gluttenFreeLabel.isHidden){
+                            if (self.gluttenFreeSwitch.isOn){
+                                [itemOptions addObject:self.gluttenFreeLabel.text];
+                            }
+                        }
+                        
+                        if (!self.pastaSeg.isHidden){
+                            [itemOptions addObject:[self.pastaSeg titleForSegmentAtIndex:self.pastaSeg.selectedSegmentIndex]];
+                        }
+                        
+                        if (!self.sauceTypeSeg.isHidden){
+                            [itemOptions addObject:[self.sauceTypeSeg titleForSegmentAtIndex:self.sauceTypeSeg.selectedSegmentIndex]];
+                        }
+                        
+                        if (!self.cheeseTypeSeg.isHidden){
+                            [itemOptions addObject:[self.cheeseTypeSeg titleForSegmentAtIndex:self.cheeseTypeSeg.selectedSegmentIndex]];
+                        }
+
+                        if (!self.sidesSeg.isHidden){
+                            [itemOptions addObject:[self.sidesSeg titleForSegmentAtIndex:self.sidesSeg.selectedSegmentIndex]];
+                        }
+                        
+                       [currentItem setOptions:[[NSArray alloc] initWithArray:itemOptions]];
+
                         break;
                 }
                 
 
-                [items  setValue:currentItem forKey:currentItem.Category];
+
                 [appDelegate setEntreeItems:items];
                 break;
             case Desserts:
                 [currentItem setCategory:@"Desserts"];
-                
-                [currentItem setOptions:[[NSArray alloc] initWithObjects:
-                                         [NSString stringWithFormat:@"Gluten:%@",[self.glutenSeg titleForSegmentAtIndex:self.glutenSeg.selectedSegmentIndex]],nil]];
-                
                 [items  setValue:currentItem forKey:currentItem.Category];
+                
+                if (! self.gluttenFreeSwitch.isHidden && ! self.gluttenFreeLabel.isHidden){
+                    if (self.gluttenFreeSwitch.isOn){
+                        [itemOptions addObject:self.gluttenFreeLabel.text];
+                    }
+                }
+                
                 [appDelegate setDessertItems:items];
                 break;
         }
@@ -352,11 +460,12 @@
     NSRange range ;
     @try {
         
-    
+
         range = [self.labelPrice.text rangeOfString:@"$"];
         
         if ( range.location != NSNotFound){
             price = [[self.labelPrice.text substringFromIndex:1] floatValue];
+            originalPriceDesc = self.labelPrice.text;
         }
         
         originalPrice = price;
@@ -395,6 +504,7 @@
     
         
         quantity = self.itemStepper.value;
+        
     
         range = [self.labelPrice.text rangeOfString:@"$"];
         

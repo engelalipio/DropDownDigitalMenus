@@ -291,6 +291,8 @@ return label;
         if (c){
             [c.textLabel setText:@""];
             [c.detailTextLabel setText:@""];
+            [c setAccessoryType:UITableViewCellAccessoryNone];
+            [c setAccessoryView:nil];
         }
         
         orderCount--;
@@ -413,12 +415,12 @@ return label;
         
         if (item){
             if (item.Title.length > 0){
-               // [cell.textLabel setNumberOfLines:2];
+                [cell.textLabel setNumberOfLines:2];
                 [cell.textLabel setTextColor:[UIColor blackColor]];
                 
                 [cell.detailTextLabel setFont:[UIFont systemFontOfSize:22.0]];
                 
-                [cell.textLabel setText:[NSString stringWithFormat:@"%@ - Qty:%@, Price:%@",item.Title,item.Quantity,item.Price]];
+                [cell.textLabel setText:[NSString stringWithFormat:@"%@: %@, Price:%@",item.Quantity,item.Title,item.Price]];
             
                 if (item.Image){
                     [cell.imageView setImage:item.Image];

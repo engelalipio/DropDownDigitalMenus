@@ -28,6 +28,8 @@ typedef enum {
 @interface ItemViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *softDrinks;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *rollsSeg;
 
 @property (strong, nonatomic) IBOutlet UILabel *labelDescription;
 @property (strong, nonatomic) IBOutlet UILabel *labelPrice;
@@ -49,8 +51,11 @@ typedef enum {
 @property (strong, nonatomic) IBOutlet UISegmentedControl *cheeseTypeSeg;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *iceSeg;
 
+@property (strong, nonatomic) IBOutlet UISegmentedControl *lemonSeg;
 @property (strong, nonatomic) IBOutlet UILabel *labelCalories;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *glutenSeg;
+
+@property (strong, nonatomic) IBOutlet UILabel *gluttenFreeLabel;
+@property (strong, nonatomic) IBOutlet UISwitch *gluttenFreeSwitch;
 
 - (IBAction)cancelOrder:(UIButton *)sender;
 

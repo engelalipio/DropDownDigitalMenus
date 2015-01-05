@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14C68m" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemViewController">
@@ -10,7 +10,8 @@
                 <outlet property="backButton" destination="b4H-d7-1T3" id="fxg-Gs-0Dj"/>
                 <outlet property="cheeseTypeSeg" destination="7HQ-i5-94K" id="sxf-Cv-ohm"/>
                 <outlet property="dressingTypeSeg" destination="gNj-oi-FCX" id="bb1-hu-4pG"/>
-                <outlet property="glutenSeg" destination="86p-6i-Xnq" id="IRD-JK-EHH"/>
+                <outlet property="gluttenFreeLabel" destination="fkg-mm-Ya7" id="yhc-mx-NV3"/>
+                <outlet property="gluttenFreeSwitch" destination="NJU-f3-pSW" id="yK5-6t-WEi"/>
                 <outlet property="iceSeg" destination="p2c-0j-nrR" id="XbE-6r-9fF"/>
                 <outlet property="imageView" destination="MYk-H7-aaR" id="7FS-IO-WvB"/>
                 <outlet property="itemStepper" destination="bfy-Q2-o71" id="FWY-Ql-iCI"/>
@@ -19,9 +20,11 @@
                 <outlet property="labelPrice" destination="UNr-aJ-T73" id="TkP-mf-u4S"/>
                 <outlet property="labelQuantity" destination="jPk-Uc-zPM" id="xaZ-gY-K8b"/>
                 <outlet property="labelTitle" destination="8h0-YE-8rp" id="Nti-cc-oCr"/>
+                <outlet property="lemonSeg" destination="rBC-6g-vZP" id="Neu-Fy-ve0"/>
                 <outlet property="pastaSeg" destination="yk0-cz-X3D" id="Gbe-Nd-Xl0"/>
                 <outlet property="sauceTypeSeg" destination="yhZ-Xa-qCo" id="ABo-qQ-WtH"/>
                 <outlet property="sidesSeg" destination="YGe-6A-iU1" id="RQH-Ip-4ru"/>
+                <outlet property="softDrinks" destination="ufp-MZ-5G2" id="Jwt-xv-HEa"/>
                 <outlet property="steakSeg" destination="YYE-vV-EsD" id="bXz-Dm-Jdt"/>
                 <outlet property="sweetSeg" destination="7Ul-if-Nz7" id="d34-iZ-HWR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -118,6 +121,17 @@
                         <action selector="cancelOrder:" destination="-1" eventType="touchUpInside" id="jNz-ix-9AG"/>
                     </connections>
                 </button>
+                <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NJU-f3-pSW">
+                    <rect key="frame" x="405" y="569" width="51" height="31"/>
+                    <color key="onTintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="thumbTintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </switch>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Glutten Free" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkg-mm-Ya7">
+                    <rect key="frame" x="275" y="574" width="102" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="YYE-vV-EsD">
                     <rect key="frame" x="58" y="607" width="632" height="29"/>
                     <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -151,7 +165,7 @@
                     <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
                 <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7Ul-if-Nz7">
-                    <rect key="frame" x="288" y="571" width="192" height="29"/>
+                    <rect key="frame" x="91" y="570" width="192" height="29"/>
                     <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <segments>
                         <segment title="Sweetened"/>
@@ -183,21 +197,21 @@
                     </segments>
                     <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
-                <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="86p-6i-Xnq">
-                    <rect key="frame" x="186" y="571" width="397" height="29"/>
-                    <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <segments>
-                        <segment title="Regular"/>
-                        <segment title="Gluten Free"/>
-                    </segments>
-                    <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                </segmentedControl>
                 <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="p2c-0j-nrR">
-                    <rect key="frame" x="305" y="607" width="159" height="29"/>
+                    <rect key="frame" x="305" y="571" width="159" height="29"/>
                     <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <segments>
                         <segment title="Ice"/>
                         <segment title="No Ice"/>
+                    </segments>
+                    <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </segmentedControl>
+                <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rBC-6g-vZP">
+                    <rect key="frame" x="486" y="571" width="159" height="29"/>
+                    <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <segments>
+                        <segment title="Lemon"/>
+                        <segment title="No Lemon"/>
                     </segments>
                     <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
@@ -212,13 +226,26 @@
                     </segments>
                     <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
-                <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhi-kL-YDh" userLabel="CaloriesLabel">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhi-kL-YDh" userLabel="CaloriesLabel">
                     <rect key="frame" x="658" y="60" width="110" height="21"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ufp-MZ-5G2">
+                    <rect key="frame" x="45" y="607" width="662" height="29"/>
+                    <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <segments>
+                        <segment title="Coke"/>
+                        <segment title="Diet Coke"/>
+                        <segment title="Coke Zero"/>
+                        <segment title="Sprite"/>
+                        <segment title="Dr. Pepper"/>
+                        <segment title="Minute Maid Lemonade"/>
+                    </segments>
+                    <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </segmentedControl>
             </subviews>
             <color key="backgroundColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

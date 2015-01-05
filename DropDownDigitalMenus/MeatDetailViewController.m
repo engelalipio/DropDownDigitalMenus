@@ -463,13 +463,13 @@
             /*case 0:
                 [item setEntreeType:Beef];
                 break;*/
-            case 0:
+            case 1:
                 [item setEntreeType:Chicken];
                 break;
-            case 1:
+            case 2:
                 [item setEntreeType:Seafood];
                 break;
-            case 2:
+            case 0:
                 [item setEntreeType:Pasta];
                 break;
         }
@@ -497,13 +497,13 @@
     NSInteger rowCount = 1;
     
     switch (section) {
-        case 2:
+        case 0:
             rowCount = 9;
             break;
-        case 0:
+        case 1:
             rowCount = 5;
             break;
-        case 1:
+        case 2:
             rowCount = 5;
             break;
         /*case 0:

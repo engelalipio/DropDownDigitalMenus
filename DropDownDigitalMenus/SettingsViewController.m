@@ -151,11 +151,21 @@
     
     [appDelegate setIsDynamic:self.switchDynamic.isOn];
     
+    
     [appDelegate setInterval:[self.txtSeconds.text integerValue]];
     
     if (self.switchOrderReset.isOn){
         [appDelegate setIsSent:NO];
         [appDelegate setIsPaid:NO];
+        [appDelegate setCurrentOrderItems:0];
+        [appDelegate setDrinkItems:nil];
+        [appDelegate setAppItems:nil];
+        [appDelegate setSoupItems:nil];
+        [appDelegate setSaladItems:nil];
+        [appDelegate setEntreeItems:nil];
+        [appDelegate setDessertItems:nil];
+        [[[[self.tabBarController tabBar] items] objectAtIndex:kOrderTabItemIndex] setBadgeValue:@"0"];
+      
     }
     
     [self.savedLabel setHidden:NO];

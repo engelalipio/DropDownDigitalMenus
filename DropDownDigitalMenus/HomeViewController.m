@@ -331,9 +331,9 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                 desc = [restaurantDetail objectForKey:@"description"];
                 
                 if (appDelegate.isDynamic){
-                     restaurantImages = [[NSArray alloc] initWithObjects:@"HomeImage.jpg", @"RestaurantBack_0.jpg",@"RestaurantBack_1.jpg",
-                                        @"RestaurantBack_2.jpg",@"RestaurantBack_3.jpg",@"RestaurantBack_4.jpg",
-                                        @"RestaurantBack_5.jpg",@"RestaurantBack_6.jpg", @"RestaurantBack_7.jpg",@"RestaurantBack_8.jpg" ,nil];
+                    restaurantImages = [[NSArray alloc] initWithObjects:@"HomeImage.jpg", @"RestaurantBack_1.jpg",
+                                        @"RestaurantBack_3.jpg",@"RestaurantBack_7.jpg",
+                                        @"RestaurantBack_8.jpg",@"RestaurantBack_9.jpg",@"RestaurantBack_10.jpg" ,nil];
                 }else{
                     restaurantImages = [restaurantDetail objectForKey:@"items"];
                 }
@@ -510,9 +510,9 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         categoryHomeData = [[NSArray alloc] initWithObjects:@"Beverages",@"Appetizers",@"Soups",@"Salads",@"Entrees",@"Desserts", nil];
         
         if (appDelegate.isDynamic){
-            self.pageTitles  = [[NSArray alloc] initWithObjects:@"HomeImage.jpg", @"RestaurantBack_0.jpg",@"RestaurantBack_1.jpg",
-                                @"RestaurantBack_2.jpg",@"RestaurantBack_3.jpg",@"RestaurantBack_4.jpg",
-                                @"RestaurantBack_5.jpg",@"RestaurantBack_6.jpg", @"RestaurantBack_7.jpg",@"RestaurantBack_8.jpg" ,nil];
+            self.pageTitles  = [[NSArray alloc] initWithObjects:@"HomeImage.jpg", @"RestaurantBack_1.jpg",
+                                                                @"RestaurantBack_3.jpg",@"RestaurantBack_7.jpg",
+                                                                @"RestaurantBack_8.jpg",@"RestaurantBack_9.jpg",@"RestaurantBack_10.jpg" ,nil];
             
             categorySections = @[ @{ @"description": appDelegate.restaurantName,
                                      @"items": @[ @{ @"image": @"HomeImage.jpg" }]
