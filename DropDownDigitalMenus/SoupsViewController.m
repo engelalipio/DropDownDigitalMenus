@@ -345,6 +345,18 @@
 }
 
 
+-(NSString*) randomCalories{
+    NSString *cal  =  @"%d calories";
+    
+    NSInteger calories =  arc4random_uniform(350);
+    
+    cal = [NSString stringWithFormat:cal,calories];
+    
+    return cal;
+    
+}
+
+
 -(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *message   = @"";
     @try {
@@ -352,6 +364,21 @@
         if (cell){
             //This will set the background of all of the views within the tablecell
             cell.contentView.superview.backgroundColor = kVerticalTableBackgroundColor;
+            
+            UIImage *cellImage = cell.imageView.image;
+            
+            if (cellImage != nil){
+                
+                CGRect rect = CGRectMake( cell.imageView.frame.origin.x / 2,  cell.imageView.frame.origin.y / 2,  100,20 );
+                UILabel *label = [[UILabel alloc] initWithFrame:rect];
+                if (label){
+                    [label setTextColor:[UIColor whiteColor]];
+                    [label setText:[self randomCalories]];
+                    [label setBackgroundColor:[UIColor blackColor]];
+                    [label setAlpha:0.60f];
+                    [cell.imageView addSubview:label];
+                }
+            }
         }
         
     }

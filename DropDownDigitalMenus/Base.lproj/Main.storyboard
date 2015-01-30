@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C106a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -946,6 +946,15 @@ Please click on the 'Menu' button to view new settings.</string>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ENGLISH.png" translatesAutoresizingMaskIntoConstraints="NO" id="msv-rH-yNM" userLabel="imageLanguage">
                                 <rect key="frame" x="699" y="70" width="53" height="33"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B25-Mm-3TT">
+                                <rect key="frame" x="29" y="72" width="32" height="32"/>
+                                <state key="normal" image="office_lamp-32.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionLight:" destination="6Kd-Jr-vx6" eventType="touchUpInside" id="Kj6-5m-ugZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -957,6 +966,7 @@ Please click on the 'Menu' button to view new settings.</string>
                     <size key="freeformSize" width="768" height="1024"/>
                     <connections>
                         <outlet property="addressLabel" destination="XZc-Zi-B4A" id="Rdh-Ks-aKR"/>
+                        <outlet property="btnLight" destination="B25-Mm-3TT" id="Ljj-ra-roC"/>
                         <outlet property="imageLanguage" destination="msv-rH-yNM" id="a08-JD-yeT"/>
                         <outlet property="imageView" destination="WPE-Qv-bic" id="1Za-qV-D1k"/>
                         <outlet property="tableView" destination="1nh-UX-1SR" id="MAd-v5-S8e"/>
@@ -3858,7 +3868,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
         <image name="GRILLED_TUSCAN_SKEWERS.png" width="1000" height="370"/>
         <image name="HEART_PALMS_SALAD.jpg" width="1000" height="370"/>
         <image name="HOUSE_SALAD.jpg" width="1000" height="370"/>
-        <image name="HomeImage.jpg" width="730" height="500"/>
+        <image name="HomeImage.jpg" width="700" height="500"/>
         <image name="JOHNNY_ROCCO_SALAD.png" width="1000" height="370"/>
         <image name="JOHN_COLE.png" width="1000" height="370"/>
         <image name="LASAGNA_FRITA.jpg" width="1000" height="370"/>
@@ -3907,6 +3917,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
         <image name="language-32.png" width="32" height="32"/>
         <image name="news-256.png" width="256" height="256"/>
         <image name="news-32.png" width="32" height="32"/>
+        <image name="office_lamp-32.png" width="32" height="32"/>
         <image name="put_in_motion-256.png" width="256" height="256"/>
         <image name="put_in_motion-32.png" width="32" height="32"/>
         <image name="restaurant-32.png" width="32" height="32"/>

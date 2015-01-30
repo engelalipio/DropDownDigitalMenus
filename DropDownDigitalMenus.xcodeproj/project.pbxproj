@@ -148,6 +148,7 @@
 		0F2ACD821A01E7AC0028B6E2 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2ACD811A01E7AC0028B6E2 /* MenuViewController.m */; };
 		0F5841F71A23D4A800A51F3A /* your_ad_here_banner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F5841F61A23D4A800A51F3A /* your_ad_here_banner.jpg */; };
 		0F5B76A71A7C315900E59486 /* HomeImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F5B76A61A7C315900E59486 /* HomeImage.jpg */; };
+		0F5B76A91A7C3F9B00E59486 /* office_lamp-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F5B76A81A7C3F9B00E59486 /* office_lamp-32.png */; };
 		0F62E0D01A5B35BD00315E9E /* RestaurantBack_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F62E0CE1A5B35BD00315E9E /* RestaurantBack_10.jpg */; };
 		0F62E0D11A5B35BD00315E9E /* RestaurantBack_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F62E0CF1A5B35BD00315E9E /* RestaurantBack_9.jpg */; };
 		0F7270841A1EBC1400F9C2E2 /* Airport.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F7270811A1EBC1400F9C2E2 /* Airport.jpg */; };
@@ -510,6 +511,7 @@
 		0F2ACD811A01E7AC0028B6E2 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		0F5841F61A23D4A800A51F3A /* your_ad_here_banner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = your_ad_here_banner.jpg; sourceTree = "<group>"; };
 		0F5B76A61A7C315900E59486 /* HomeImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HomeImage.jpg; sourceTree = "<group>"; };
+		0F5B76A81A7C3F9B00E59486 /* office_lamp-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "office_lamp-32.png"; sourceTree = "<group>"; };
 		0F62E0CE1A5B35BD00315E9E /* RestaurantBack_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RestaurantBack_10.jpg; sourceTree = "<group>"; };
 		0F62E0CF1A5B35BD00315E9E /* RestaurantBack_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RestaurantBack_9.jpg; sourceTree = "<group>"; };
 		0F7270811A1EBC1400F9C2E2 /* Airport.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Airport.jpg; sourceTree = "<group>"; };
@@ -1164,6 +1166,7 @@
 		0FF46D5719F88B1500E51218 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				0F5B76A81A7C3F9B00E59486 /* office_lamp-32.png */,
 				0FCAD8F11A3E306D00BE42E5 /* xlarge_icons-32.png */,
 				0FCAD8EF1A3E305A00BE42E5 /* content-32.png */,
 				0FCAD8ED1A3E2F8C00BE42E5 /* settings3-256.png */,
@@ -1647,6 +1650,7 @@
 				0F2ACC5019FA0EFF0028B6E2 /* BarBack_0.jpg in Resources */,
 				0FDA187B1A395B2800CD636F /* CHICKEN_CAESAR.jpg in Resources */,
 				0FCAD8E11A3E1A2300BE42E5 /* ROMANSH.png in Resources */,
+				0F5B76A91A7C3F9B00E59486 /* office_lamp-32.png in Resources */,
 				0FF46E1419F9958300E51218 /* reveal-icon@2x.png in Resources */,
 				0F2ACD0019FA1C5A0028B6E2 /* wedding_cake-32.png in Resources */,
 				0F2ACCEE19FA13140028B6E2 /* SaladBar_6.jpg in Resources */,

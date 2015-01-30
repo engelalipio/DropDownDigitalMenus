@@ -389,6 +389,9 @@ return label;
     return  h;
 }
 
+
+
+
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = nil;
     
@@ -430,6 +433,21 @@ return label;
             
                 if (item.Image){
                     [cell.imageView setImage:item.Image];
+                    
+                    UIImage *cellImage = cell.imageView.image;
+                    
+                    if (cellImage != nil){
+                        
+                        CGRect rect = CGRectMake( cell.imageView.frame.origin.x / 2,  cell.imageView.frame.origin.y / 2,  100,20 );
+                        UILabel *label = [[UILabel alloc] initWithFrame:rect];
+                        if (label){
+                            [label setTextColor:[UIColor whiteColor]];
+                            [label setText:item.Calories];
+                            [label setBackgroundColor:[UIColor blackColor]];
+                            [label setAlpha:0.60f];
+                            [cell.imageView addSubview:label];
+                        }
+                    }
                 }
             
                 if (item.Price && item.Quantity){
@@ -443,7 +461,7 @@ return label;
                     
                     if (item.options){
                         op = item.options;
-                        options = [op componentsJoinedByString:@","];
+                        options = [op componentsJoinedByString:@", "];
                         
                     }
                     
@@ -485,7 +503,7 @@ return label;
         options = [op componentsJoinedByString:@","];
         
         view = [[UIAlertView alloc]
-                    initWithTitle:model.Calories
+                    initWithTitle:@"Options"
                           message:options
                          delegate:nil
                 cancelButtonTitle:@"Ok"

@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UILabel *addressLabel;
+@property (strong, nonatomic) IBOutlet UIButton *btnLight;
 
 @property (strong,nonatomic)  NSArray *pageTitles;
 @property (strong,nonatomic)  NSArray *pageImages;
@@ -27,5 +28,6 @@
 
 -(void) startTimer;
 -(void) stopTimer;
+- (IBAction)actionLight:(UIButton *)sender;
 
 @end

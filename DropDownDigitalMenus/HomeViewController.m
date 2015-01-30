@@ -446,6 +446,18 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.timer = nil;
 }
 
+- (IBAction)actionLight:(UIButton *)sender {
+    
+   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Lighting Setting"
+                                       message:@"Users will be able to adjust the lighting settings" delegate:self
+                             cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    
+    if (alert){
+        [alert show];
+    }
+    
+}
+
 
 - (void)timerFireMethod:(NSTimer *)t{
     
