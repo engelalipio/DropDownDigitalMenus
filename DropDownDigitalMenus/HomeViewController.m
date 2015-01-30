@@ -584,10 +584,6 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
             self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, kTableYStart, kTabletWidth, kTableHeight)];
         }
         
-        
-        /*[self.tableView registerClass:[ContainerTableCellTableViewCell class]
-               forCellReuseIdentifier:@"ContainerTableCell"];*/
-        
         self.tableView.backgroundColor =  kTableCellTitleColor;
         
         [self.tableView setDelegate:self];
@@ -786,11 +782,9 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     isDynamic = [appDelegate isDynamic];
     
     [self initCategorySections];
-
+    [self.tableView reloadData];
     if (isDynamic){
       [self startTimer];
-    }else{
-      [self.tableView reloadData];
     }
     
     welcomeMessage = [NSString stringWithFormat:welcomeMessage, appDelegate.restaurantName,
@@ -807,7 +801,6 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     NSString *message = @"";
     NSIndexPath *indexPath = nil;
     @try {
-        
         
         [self initPreferredLanguage];
         [self initMenuSettings];

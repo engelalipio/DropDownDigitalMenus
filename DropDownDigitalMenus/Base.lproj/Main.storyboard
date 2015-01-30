@@ -250,7 +250,7 @@
                                                     <color key="textColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="A refreshing mix of lemonade, sparkling water, strawberries and passion fruit." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d3h-sy-lZm">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="A refreshing mix of lemonade, sparkling water, strawberries and passion fruit." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d3h-sy-lZm">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -286,7 +286,7 @@
                                                     <color key="textColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Choose from Coke, Diet Coke, Coke Zero, Sprite, Dr Pepper and Minute Maid Limeade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gJP-6Q-z9j">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Choose from Coke, Diet Coke, Coke Zero, Sprite, Dr Pepper and Minute Maid Limeade" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gJP-6Q-z9j">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1196,8 +1196,10 @@ Please click on the 'Menu' button to view new settings.</string>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="268" placeholderIntrinsicHeight="99" image="COBB_SALAD.jpg" id="J5t-S2-7y1">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Chicken Breast, Avocado, Blue Cheese, Bacon, Tomato, Egg and Mixed Greens Tossed in Our Vinaigrette" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8i4-fv-tyQ">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8i4-fv-tyQ">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <string key="text">Chicken Breast, Avocado, Blue Cheese, Bacon, Tomato, Egg 
+and Mixed Greens Tossed in Our Vinaigrette</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1233,7 +1235,8 @@ Please click on the 'Menu' button to view new settings.</string>
                                                 </imageView>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nR4-iM-sIg">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <string key="text">Lime-Marinated Chicken, Fresh Corn, Black Beans, Cheese, Tortilla Strips, Tomato and Mixed Greens with a Spicy Peanut-Cilantro Vinaigrette</string>
+                                                    <string key="text">Lime-Marinated Chicken, Fresh Corn, Black Beans, Cheese, 
+Tortilla Strips, Tomato and Mixed Greens with a Spicy Peanut-Cilantro Vinaigrette</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1267,8 +1270,10 @@ Please click on the 'Menu' button to view new settings.</string>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="268" placeholderIntrinsicHeight="99" image="CHICKEN_CAESAR.jpg" id="qVb-td-7x0">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="The Almost Traditional Recipe with Croutons, Parmesan Cheese and Our Special Caesar Dressing and Grilled Chicken" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zxc-BA-85g">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zxc-BA-85g">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <string key="text">The Almost Traditional Recipe with Croutons, Parmesan Cheese 
+and our Special Caesar Dressing and Grilled Chicken</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>

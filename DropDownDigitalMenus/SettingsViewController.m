@@ -108,6 +108,10 @@
 }
 
 
+-(void) viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [self.switchOrderReset setOn:NO];
+}
 
 -(void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];

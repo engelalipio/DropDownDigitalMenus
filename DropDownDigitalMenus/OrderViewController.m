@@ -28,20 +28,26 @@
 
 -(void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    if (! appDelegate){
+        appDelegate = [AppDelegate currentDelegate];
+    }
     [self compileOrderItems];
     [self.tableView reloadData];
 }
 
 -(void) viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
+    [self.lblTotal setText:@"0.00"];
+    orderItems = nil;
+    appDelegate = nil;
+    formatter = nil;
+    orderPrice = 0.0f;
+    numberPrice = nil;
 }
 
 -(void) viewDidLoad{
     [super viewDidLoad];
-     
-    if (! appDelegate){
-        appDelegate = [AppDelegate currentDelegate];
-    }
+    
     [self initTableView];
     
 }
