@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C106a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -931,7 +931,7 @@ Please click on the 'Menu' button to view new settings.</string>
                                     <outlet property="delegate" destination="6Kd-Jr-vx6" id="klh-yl-kuC"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="304" image="HomeImage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="WPE-Qv-bic" userLabel="imageContainer">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="304" image="HomeNew.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="WPE-Qv-bic" userLabel="imageContainer">
                                 <rect key="frame" x="0.0" y="64" width="768" height="471"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="110" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="22" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZc-Zi-B4A" userLabel="textContainer">
@@ -3868,7 +3868,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
         <image name="GRILLED_TUSCAN_SKEWERS.png" width="1000" height="370"/>
         <image name="HEART_PALMS_SALAD.jpg" width="1000" height="370"/>
         <image name="HOUSE_SALAD.jpg" width="1000" height="370"/>
-        <image name="HomeImage.jpg" width="700" height="500"/>
+        <image name="HomeNew.jpg" width="700" height="500"/>
         <image name="JOHNNY_ROCCO_SALAD.png" width="1000" height="370"/>
         <image name="JOHN_COLE.png" width="1000" height="370"/>
         <image name="LASAGNA_FRITA.jpg" width="1000" height="370"/>

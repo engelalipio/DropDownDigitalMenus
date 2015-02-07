@@ -378,7 +378,7 @@
                     [label setTextColor:[UIColor whiteColor]];
                     [label setText:[self randomCalories]];
                     [label setBackgroundColor:[UIColor blackColor]];
-                    [label setAlpha:0.60f];
+                    [label setAlpha:0.80f];
                     [cell.imageView addSubview:label];
                 }
             }

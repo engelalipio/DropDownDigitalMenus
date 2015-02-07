@@ -424,12 +424,12 @@ return label;
         
         if (item){
             if (item.Title.length > 0){
-                [cell.textLabel setNumberOfLines:2];
+                [cell.textLabel setNumberOfLines:3];
                 [cell.textLabel setTextColor:[UIColor blackColor]];
                 
                 [cell.detailTextLabel setFont:[UIFont systemFontOfSize:22.0]];
                 
-                [cell.textLabel setText:[NSString stringWithFormat:@"%@: %@, Price:%@",item.Quantity,item.Title,item.Price]];
+                [cell.textLabel setText:[NSString stringWithFormat:@"%@ %@  %@",item.Quantity,item.Title,item.Price]];
             
                 if (item.Image){
                     [cell.imageView setImage:item.Image];
@@ -444,8 +444,8 @@ return label;
                             [label setTextColor:[UIColor whiteColor]];
                             [label setText:item.Calories];
                             [label setBackgroundColor:[UIColor blackColor]];
-                            [label setAlpha:0.60f];
-                            [cell.imageView addSubview:label];
+                            [label setAlpha:0.80f];
+                           // [cell.imageView addSubview:label];
                         }
                     }
                 }

@@ -331,9 +331,8 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                 desc = [restaurantDetail objectForKey:@"description"];
                 
                 if (appDelegate.isDynamic){
-                    restaurantImages = [[NSArray alloc] initWithObjects:@"HomeImage.jpg", @"RestaurantBack_1.jpg",
-                                        @"RestaurantBack_3.jpg",@"RestaurantBack_7.jpg",
-                                        @"RestaurantBack_8.jpg",@"RestaurantBack_9.jpg",@"RestaurantBack_10.jpg" ,nil];
+                    restaurantImages = [[NSArray alloc] initWithObjects:@"HomeNew.jpg", @"RestaurantBack_1.jpg",
+                                        @"RestaurantBack_3.jpg",@"RestaurantBack_8.jpg",@"RestaurantBack_9.jpg",@"HomeNewToo.jpg" ,nil];
                 }else{
                     restaurantImages = [restaurantDetail objectForKey:@"items"];
                 }
@@ -522,12 +521,11 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         categoryHomeData = [[NSArray alloc] initWithObjects:@"Beverages",@"Appetizers",@"Soups",@"Salads",@"Entrees",@"Desserts", nil];
         
         if (appDelegate.isDynamic){
-            self.pageTitles  = [[NSArray alloc] initWithObjects:@"HomeImage.jpg", @"RestaurantBack_1.jpg",
-                                                                @"RestaurantBack_3.jpg",@"RestaurantBack_7.jpg",
-                                                                @"RestaurantBack_8.jpg",@"RestaurantBack_9.jpg",@"RestaurantBack_10.jpg" ,nil];
+            self.pageTitles  = [[NSArray alloc] initWithObjects:@"HomeNew.jpg", @"RestaurantBack_1.jpg",
+                                @"RestaurantBack_3.jpg",@"RestaurantBack_8.jpg",@"RestaurantBack_9.jpg",@"HomeNewToo.jpg" ,nil];
             
             categorySections = @[ @{ @"description": appDelegate.restaurantName,
-                                     @"items": @[ @{ @"image": @"HomeImage.jpg" }]
+                                     @"items": @[ @{ @"image": @"HomeNew.jpg" }]
                                      } ];
             
             drinks = [[NSArray alloc] initWithObjects:@"ACQUA_PENNA.jpg", @"PELLEGRINO_WATER.jpg", @"STRAWBERRY_SMOOTHIE.jpg",
@@ -559,10 +557,10 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         }else{
         
             categorySections = @[ @{ @"description": appDelegate.restaurantName,
-                                     @"items": @[ @{ @"image": @"HomeImage.jpg" }]
+                                     @"items": @[ @{ @"image": @"HomeNew.jpg" }]
                                      } ];
             
-            self.pageTitles  = [[NSArray alloc] initWithObjects:@"HomeImage.jpg", nil];
+            self.pageTitles  = [[NSArray alloc] initWithObjects:@"HomeNew.jpg", nil];
             
             drinks  = nil;
             apps    = nil;

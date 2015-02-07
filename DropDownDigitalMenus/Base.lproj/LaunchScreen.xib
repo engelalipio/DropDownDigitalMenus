@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -10,10 +10,10 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RestaurantBack_10.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="cx1-99-0Z0">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HomeNew.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="cx1-99-0Z0">
                     <rect key="frame" x="0.0" y="0.0" width="773" height="525"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RestaurantBack_9.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Ysy-IM-Z4r">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HomeNewToo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Ysy-IM-Z4r">
                     <rect key="frame" x="-5" y="546" width="773" height="492"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="COMING SOON NEAR YOU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBY-u5-Hdc">
@@ -34,7 +34,7 @@
         </view>
     </objects>
     <resources>
-        <image name="RestaurantBack_10.jpg" width="700" height="500"/>
-        <image name="RestaurantBack_9.jpg" width="700" height="500"/>
+        <image name="HomeNew.jpg" width="700" height="500"/>
+        <image name="HomeNewToo.jpg" width="700" height="500"/>
     </resources>
 </document>
