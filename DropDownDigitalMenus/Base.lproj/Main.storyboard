@@ -395,7 +395,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nr8-du-2lp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3840" y="-2301.5"/>
+            <point key="canvasLocation" x="4652" y="-2301.5"/>
         </scene>
         <!--Menu-->
         <scene sceneID="2SY-IT-SjL">
@@ -1389,7 +1389,7 @@ and our Special Caesar Dressing and Grilled Chicken</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3g8-2j-mky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4900" y="-1823.5"/>
+            <point key="canvasLocation" x="5712" y="-1823.5"/>
         </scene>
         <!--Appetizers-->
         <scene sceneID="XdQ-kt-zG8">
@@ -1739,7 +1739,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sag-oA-oWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4900" y="-1823.5"/>
+            <point key="canvasLocation" x="5712" y="-1823.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nt7-dz-g6q">
@@ -1757,7 +1757,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNZ-qt-eGQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4998" y="-1926"/>
+            <point key="canvasLocation" x="5810" y="-1926"/>
         </scene>
         <!--Entrees-->
         <scene sceneID="oba-5J-ijz">
@@ -2631,7 +2631,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8AA-Qf-bMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4236" y="-1518.5"/>
+            <point key="canvasLocation" x="5048" y="-1518.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4aU-lP-Dht">
@@ -2649,7 +2649,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8eb-ff-lv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3924" y="-1720"/>
+            <point key="canvasLocation" x="4736" y="-1720"/>
         </scene>
         <!--Desserts-->
         <scene sceneID="YvZ-ov-Ucu">
@@ -3074,12 +3074,20 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                         <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Order Summary" id="wTG-88-Jag"/>
+                    <navigationItem key="navigationItem" title="Order Summary" id="wTG-88-Jag">
+                        <barButtonItem key="rightBarButtonItem" title="Edit Order" id="HNO-KS-cLa">
+                            <color key="tintColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="editOrder:" destination="byA-60-evw" id="gGu-i1-0kD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="768" height="975"/>
                     <connections>
+                        <outlet property="btnEdit" destination="HNO-KS-cLa" id="p4L-Rb-1YJ"/>
                         <outlet property="changeOrder" destination="WHr-LT-NoT" id="KBB-GP-Dea"/>
                         <outlet property="lblTotal" destination="94k-Sj-xIE" id="ZH4-PG-tC9"/>
                         <outlet property="orderButton" destination="tas-Rg-1Ug" id="Fgf-Xf-der"/>
@@ -3090,6 +3098,263 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
             </objects>
             <point key="canvasLocation" x="1903" y="-1555.5"/>
         </scene>
+        <!--Please select how you wish to pay for your order below-->
+        <scene sceneID="0rZ-c2-ttZ">
+            <objects>
+                <tableViewController storyboardIdentifier="sbPayment" modalTransitionStyle="flipHorizontal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="X7W-iV-OfA" customClass="PaymentMethodViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="30" sectionFooterHeight="30" id="jTE-DZ-OTi">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c4w-e7-Wz7">
+                            <rect key="frame" x="0.0" y="579" width="768" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Cancel">
+                                <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="actionCancel:" destination="X7W-iV-OfA" eventType="touchUpInside" id="E8Q-Ks-bpR"/>
+                            </connections>
+                        </button>
+                        <sections>
+                            <tableViewSection id="aU0-Hw-F0U">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="cellCardSwipe" textLabel="8Pk-PO-YPs" detailTextLabel="SeD-YH-JZH" imageView="nE3-Op-oaY" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="Hj1-l9-Smx">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hj1-l9-Smx" id="bKA-ge-M0V">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Credit Card" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Pk-PO-YPs">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.50196078430000002" green="0.25098039220000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="pos_terminal-50.png" id="nE3-Op-oaY">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Select to pay directly via our credit card swipe reader" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="250" id="SeD-YH-JZH">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellCreditCard" textLabel="l3K-IG-YPv" detailTextLabel="8py-fv-iRq" imageView="fRH-kc-rc4" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="7Cw-aF-sVv">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Cw-aF-sVv" id="5s4-0K-qoc">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Credit Card" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l3K-IG-YPv">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.50196078430000002" green="0.25098039220000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Select to provide your credit card details via our point of sale system" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8py-fv-iRq">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="card_in_use-50.png" id="fRH-kc-rc4">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell hidden="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellPayment" rowHeight="150" id="M7W-rk-55s">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M7W-rk-55s" id="Y4q-Jb-cdJ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name on Card:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Foy-e1-Zfy">
+                                                    <rect key="frame" x="8" y="19" width="129" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.50196078430000002" green="0.25098039220000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Card Number:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoR-fw-j5B">
+                                                    <rect key="frame" x="10" y="62" width="127" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.50196078430000002" green="0.25098039220000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Security Code:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p95-VL-XEW">
+                                                    <rect key="frame" x="-12" y="100" width="149" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.50196078430000002" green="0.25098039220000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XXXX" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w5L-iW-5n6">
+                                                    <rect key="frame" x="149" y="96" width="74" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                                </textField>
+                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LUo-z3-P1e">
+                                                    <rect key="frame" x="477" y="-8" width="250" height="162"/>
+                                                </pickerView>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Card Holder's Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8dU-ZZ-S4g">
+                                                    <rect key="frame" x="149" y="15" width="320" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XXXX" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="a16-ti-LpM">
+                                                    <rect key="frame" x="149" y="58" width="74" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XXXX" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ggD-wS-pb7">
+                                                    <rect key="frame" x="231" y="58" width="74" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XXXX" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Fgq-CF-nxP">
+                                                    <rect key="frame" x="313" y="58" width="74" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XXXX" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="M6E-2v-0Rt">
+                                                    <rect key="frame" x="395" y="58" width="74" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Expiration Date:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohM-mF-v2Q">
+                                                    <rect key="frame" x="524" y="8" width="156" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.50196078430000002" green="0.25098039220000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55c-Zz-lFO">
+                                                    <rect key="frame" x="314" y="100" width="120" height="30"/>
+                                                    <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="Add Card">
+                                                        <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="actionAddCard:" destination="X7W-iV-OfA" eventType="touchUpInside" id="o2I-XZ-Mls"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellGift" textLabel="YZF-1o-fMT" detailTextLabel="VyA-Id-ped" imageView="RuN-Jg-E1s" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="gMk-0U-aiu">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gMk-0U-aiu" id="5YP-eI-p8Y">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Gift Card" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YZF-1o-fMT">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.50196078430000002" green="0.25098039220000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="sell-50.png" id="RuN-Jg-E1s">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Select to provide your gift card details for payment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VyA-Id-ped">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell hidden="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellDetails" rowHeight="100" id="xYI-sN-OXa">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xYI-sN-OXa" id="d8E-1x-18w">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Card Number:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0v-nw-SPc">
+                                                    <rect key="frame" x="70" y="29" width="127" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.50196078430000002" green="0.25098039220000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX-XXXX" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4sA-if-glF">
+                                                    <rect key="frame" x="205" y="25" width="325" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rV7-ZD-859">
+                                                    <rect key="frame" x="586" y="27" width="120" height="30"/>
+                                                    <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" title="Add Gift Card">
+                                                        <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="actionAddGiftCard:" destination="X7W-iV-OfA" eventType="touchUpInside" id="6Nh-Wc-eaZ"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="cellCash" textLabel="LAd-Ga-owj" detailTextLabel="8XE-JD-4eD" imageView="Z2X-lu-5P8" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="BqW-ai-ExQ">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BqW-ai-ExQ" id="va7-Sb-5yi">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Cash" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LAd-Ga-owj">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.50196078430000002" green="0.25098039220000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="banknotes-50.png" id="Z2X-lu-5P8">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Select to request your bill directly from the server for payment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8XE-JD-4eD">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="X7W-iV-OfA" id="WpL-C1-I8X"/>
+                            <outlet property="delegate" destination="X7W-iV-OfA" id="GKJ-AF-EtW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Please select how you wish to pay for your order below" id="o8w-Hf-PeZ"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="addGiftCard" destination="rV7-ZD-859" id="ZAs-Ql-mzK"/>
+                        <outlet property="btnAddCard" destination="55c-Zz-lFO" id="3up-Q4-snx"/>
+                        <outlet property="btnCancel" destination="c4w-e7-Wz7" id="3qj-cb-Quf"/>
+                        <outlet property="pckDate" destination="LUo-z3-P1e" id="TKw-YO-Fd3"/>
+                        <outlet property="txtCardName" destination="8dU-ZZ-S4g" id="h1y-Of-KZM"/>
+                        <outlet property="txtCardSet1" destination="a16-ti-LpM" id="06O-ee-Fat"/>
+                        <outlet property="txtCardSet2" destination="ggD-wS-pb7" id="RJW-3A-0db"/>
+                        <outlet property="txtCardSet3" destination="Fgq-CF-nxP" id="IQm-Si-U7T"/>
+                        <outlet property="txtCardSet4" destination="M6E-2v-0Rt" id="I8e-GB-fF7"/>
+                        <outlet property="txtFirstName" destination="8dU-ZZ-S4g" id="gAu-FT-rav"/>
+                        <outlet property="txtGiftCard" destination="4sA-if-glF" id="ULg-vd-5FV"/>
+                        <outlet property="txtSecurityCode" destination="w5L-iW-5n6" id="hm1-75-Le4"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zZp-JP-6zV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2869" y="-2558"/>
+        </scene>
         <!--Service-->
         <scene sceneID="ddv-5a-eKR">
             <objects>
@@ -3099,6 +3364,22 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.50196078430000002" green="0.25098039220000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Status: Not Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mF1-gC-ya9">
+                            <rect key="frame" x="0.0" y="64" width="768" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill Status: Not Paid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XwG-fc-2ei">
+                            <rect key="frame" x="0.0" y="194" width="768" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <sections>
                             <tableViewSection id="Mic-qe-Kch">
                                 <cells>
@@ -3129,16 +3410,6 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                                                         <action selector="actionCallWaiter:" destination="8ro-vk-RHL" eventType="touchUpInside" id="iAF-pl-6BT"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Order Status: Not Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mF1-gC-ya9">
-                                                    <rect key="frame" x="8" y="8" width="752" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bill Status: Not Paid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwG-fc-2ei">
-                                                    <rect key="frame" x="8" y="39" width="752" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -3573,7 +3844,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TJb-l2-y62" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3598" y="-1438.5"/>
+            <point key="canvasLocation" x="4410" y="-1438.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Epq-N7-mtB">
@@ -3591,7 +3862,7 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ozX-wj-sw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3522" y="-1521"/>
+            <point key="canvasLocation" x="4334" y="-1521"/>
         </scene>
         <!--Weather-->
         <scene sceneID="VQg-H5-61Q">
@@ -3841,6 +4112,25 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
             </objects>
             <point key="canvasLocation" x="1351" y="-421"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OhK-Vj-dM4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YPQ-SH-5IS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gYp-8q-Gof">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="X7W-iV-OfA" kind="relationship" relationship="rootViewController" id="G6O-8Q-Mk0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a3z-hI-XUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2704" y="-1890"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ACQUA_PENNA.jpg" width="1000" height="370"/>
@@ -3913,14 +4203,18 @@ Topped with pepperoncini, red bell peppers and crushed red pepper</string>
         <image name="ZEPPOLE.jpg" width="1000" height="370"/>
         <image name="ZUCCHINI_FRITTE.png" width="1000" height="370"/>
         <image name="ZUPPA_TOSCANA.jpg" width="1000" height="370"/>
+        <image name="banknotes-50.png" width="50" height="50"/>
+        <image name="card_in_use-50.png" width="50" height="50"/>
         <image name="control_panel-32.png" width="32" height="32"/>
         <image name="language-32.png" width="32" height="32"/>
         <image name="news-256.png" width="256" height="256"/>
         <image name="news-32.png" width="32" height="32"/>
         <image name="office_lamp-32.png" width="32" height="32"/>
+        <image name="pos_terminal-50.png" width="50" height="50"/>
         <image name="put_in_motion-256.png" width="256" height="256"/>
         <image name="put_in_motion-32.png" width="32" height="32"/>
         <image name="restaurant-32.png" width="32" height="32"/>
+        <image name="sell-50.png" width="50" height="50"/>
         <image name="settings3-256.png" width="256" height="256"/>
         <image name="settings3-32.png" width="32" height="32"/>
         <image name="talk-32.png" width="32" height="32"/>

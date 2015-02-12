@@ -7,6 +7,7 @@
 //
 
 #import "OrderViewController.h"
+#import "PaymentMethodViewController.h"
 #import "Constants.h"
 #import "itemModel.h"
 #import "AppDelegate.h"
@@ -104,6 +105,7 @@
     @try{
         
         if (! appDelegate.isSent){
+            [self.btnEdit setEnabled:YES];
             [self.changeOrder setEnabled:YES];
             [self.changeOrder setAlpha:1.0f];
         }
@@ -111,12 +113,17 @@
             [self.orderButton setTitle:@"Send to Kitchen" forState:UIControlStateNormal];
             [self.orderButton setEnabled:YES];
             [self.orderButton setAlpha:1.0f];
-            
+        }
+        if (appDelegate.isPaid){
+            [self.orderButton setEnabled:NO];
+            [self.orderButton setAlpha:0.6f];
         }
         
             categories = [[NSMutableArray alloc] init];
        
             orderItems = [[NSMutableDictionary alloc] init];
+        
+            NSArray *allDrinks =  appDelegate.drinkItems.allKeys;
         
         for (int iKey = 0; iKey < 7 ; iKey++) {
             
@@ -129,12 +136,27 @@
                     break;
                 case 1:
                     keyName = @"Beverages";
+                    /*int iBev = 0;
+                    for (NSString *drinkKey in allDrinks) {
+                    
+                    NSString *catName = [NSString stringWithFormat:@"%@_%@_%d",keyName,drinkKey,iBev];
                 
-                    drinks = [appDelegate.drinkItems objectForKey:keyName];
+                    drinks = [appDelegate.drinkItems objectForKey:drinkKey];
+                        
+                    if (drinks){
+                        
+                        if (![categories containsObject:keyName]){
+                            [categories addObject:keyName];
+                        }
+                        [orderItems setObject:drinks forKey:catName];*/
+                       drinks = [appDelegate.drinkItems objectForKey:keyName];
                     if (drinks){
                         [categories addObject:keyName];
                         [orderItems setObject:drinks forKey:keyName];
                     }
+                    /*}
+                    iBev++;
+                    }*/
                 break;
                 case 2:
                     keyName = @"Appetizers";
@@ -201,6 +223,9 @@
     
     @try{
         
+        [self.orderButton.layer setCornerRadius:4.0f];
+        [self.changeOrder.layer setCornerRadius:4.0f];
+        
         self.view.backgroundColor =  kVerticalTableBackgroundColor;
         
         if (! self.tableView){
@@ -236,14 +261,19 @@
             
             headerText = @"Please Review Your Current Order";
             if (appDelegate.isSent){
-              headerText = @"Please Use The 'Call Waiter' Button Below For Additional Changes";
+              headerText = @"ORDER SENT TO KITCHEN\r\nPlease use the 'Call Waiter' button below for additional assistance";
+            }
+            if (appDelegate.isPaid){
+                headerText = @"Your order has been sucessfully paid, we appreciate your business.";
+                
             }
             
-            label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, tableView.frame.size.width, 44.0f)];
+            label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, tableView.frame.size.width, 88.0f)];
             [label setTextAlignment:NSTextAlignmentCenter];
             [label setBackgroundColor:[UIColor colorWithHexString:@"800000"]];
             [label setFont:[UIFont systemFontOfSize:25.0f]];
             [label setTextColor:[UIColor orangeColor]];
+            [label setNumberOfLines:2];
             [label setText:headerText];
             
             break;
@@ -370,7 +400,10 @@ return label;
 
 -(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     CGFloat h =  25;
-    if (section == 0 || [[categories objectAtIndex:section] isEqualToString:@"Footer"]){
+ 
+    if (section == 0){
+        h = 88;
+    }else if([[categories objectAtIndex:section] isEqualToString:@"Footer"]){
         h = 44;
     }
     return h;
@@ -398,7 +431,11 @@ return label;
     NSString *message   = @"",
              *cellOrder = @"",
              *keyName   = @"",
-             *options   = @"";
+             *options   = @"",
+             *uuid      = @"",
+             *fullKey   = @"",
+             *uIndex    = @"",
+             *keyFormat = @"%@_%@_%@";
     
     itemModel *item = nil;
 
@@ -409,6 +446,24 @@ return label;
         formatter = [NumberFormatter currencyFormatterWithDecimalDigitsCount:2];
         
         keyName = [categories objectAtIndex:indexPath.section];
+        fullKey = keyName;
+       /*
+        NSArray *keys = [orderItems.allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        
+        for (NSString *key in keys) {
+            NSArray *split = [key componentsSeparatedByString:@"_"];
+            if (split.count > 0){
+               
+                uuid = split[1];
+                uIndex = split.lastObject;
+                
+                if ([split.firstObject isEqualToString:keyName ] && uIndex.intValue == indexPath.section){
+                    fullKey = [NSString stringWithFormat:keyFormat,keyName,uuid,uIndex];
+                    break;
+                }
+  
+            }
+        }*/
         
         cell = [self.tableView dequeueReusableCellWithIdentifier:cellOrder];
         
@@ -420,7 +475,7 @@ return label;
         
         [cell setAccessoryType:UITableViewCellAccessoryDetailButton];
         
-        item = [orderItems objectForKey:keyName];
+        item = [orderItems objectForKey:fullKey];
         
         if (item){
             if (item.Title.length > 0){
@@ -503,7 +558,7 @@ return label;
         options = [op componentsJoinedByString:@","];
         
         view = [[UIAlertView alloc]
-                    initWithTitle:@"Options"
+                    initWithTitle:@"Ingredients"
                           message:options
                          delegate:nil
                 cancelButtonTitle:@"Ok"
@@ -550,7 +605,29 @@ return label;
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSInteger rows = 1;
+    NSInteger rows =1;
+   /* NSArray *keys = [orderItems.allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] ;
+     int iCount = 0;
+    switch (section) {
+        case 0:
+            rows = 1;
+            break;
+        case 1:
+           
+            for (NSString *keyName  in keys) {
+               NSArray *beverages =  [keyName componentsSeparatedByString:@"_"];
+                if (beverages.count > 0){
+                    if ([beverages.firstObject isEqualToString:@"Beverages"]){
+                        iCount++;
+                    }
+                }
+            }
+            rows = iCount;
+            break;
+        default:
+            
+            break;
+    }*/
     return    rows;
 }
 
@@ -566,36 +643,39 @@ return label;
     
     if ([title isEqualToString:@"Cancel Edit"]){
       [self.tableView setEditing:NO animated:YES];
+      [self.btnEdit setTitle:@"Edit Order"];
       [self.changeOrder setTitle:@"Edit Order" forState:UIControlStateNormal];
 
         
     }else{
       [self.tableView setEditing:YES animated:YES];
-     [self.changeOrder setTitle:@"Cancel Edit" forState:UIControlStateNormal];
-
+      [self.changeOrder setTitle:@"Cancel Edit" forState:UIControlStateNormal];
+      [self.btnEdit setTitle:@"Cancel Edit"];
     }
     
     
 }
 
 -(IBAction)changeOrder:(UIButton *)sender{
-    [self editOrder:nil];
+    [self editOrder:self.btnEdit];
 }
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     if ([self.orderButton.titleLabel.text isEqualToString:@"Pay Bill"]){
-     if (buttonIndex == 0){
-         [appDelegate setIsPaid:YES];
+     if (buttonIndex == 0){ 
+         /*[appDelegate setIsPaid:YES];
          [self.orderButton setEnabled:NO];
-         [self.orderButton setAlpha:0.6f];
-     }
+         [self.orderButton setAlpha:0.6f];*/
+         
+             }
     }
     else{
     if (buttonIndex == 0){
         [appDelegate setIsSent:YES];
         [self.changeOrder setEnabled:NO];
         [self.changeOrder setAlpha:0.6f];
+        [self.btnEdit setEnabled:NO];
         [self.orderButton setTitle:@"Pay Bill" forState:UIControlStateNormal];
         NSIndexSet *set = [[NSIndexSet alloc] initWithIndex:0];
         [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -609,11 +689,28 @@ return label;
     
     UIAlertView *alert  = nil;
     if ([sender.titleLabel.text isEqualToString:@"Pay Bill"]){
-        alert = [[UIAlertView alloc] initWithTitle:@"Pay Bill Confirmation"
-                                           message:@"By clicking 'Ok' you will be paying for your order here"
+        /*alert = [[UIAlertView alloc] initWithTitle:@"Pay Bill Confirmation"
+                                           message:@"By clicking 'Ok' you will be paying for your order"
                                           delegate:self
                                               cancelButtonTitle:@"Ok"
-                                 otherButtonTitles:@"Cancel", nil];
+                                 otherButtonTitles:@"Cancel", nil];*/
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        PaymentMethodViewController *paymentView = [storyBoard instantiateViewControllerWithIdentifier:@"sbPayment"];
+        [paymentView setTotalAmount:self.lblTotal.text];
+        [self presentViewController:paymentView animated:YES completion:^(void){
+            
+            if ( [appDelegate isPaid]){
+
+                [self.tableView reloadData];
+                
+                [self.orderButton setEnabled:NO];
+                [self.orderButton setAlpha:0.6f];
+            }
+            
+            
+        }];
+
     }else{
     
      alert = [[UIAlertView alloc] initWithTitle:@"Correct Order Confirmation"

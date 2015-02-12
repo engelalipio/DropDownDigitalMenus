@@ -76,24 +76,29 @@
 
 
 -(UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    //ADBannerView *footer = nil;
+    //ADBannerView *adFooter = nil;
     UIImageView *footer = nil;
     UIImage *image = nil;
     NSString *message = @"";
     @try {
         
+        image = [UIImage imageNamed:@"your_ad_here_banner.jpg"];
         footer = [[UIImageView alloc]
-                  initWithImage:[UIImage imageNamed:@"your_ad_here_banner.jpg"]];
+                  initWithImage:image];
         
  
         [footer setFrame:CGRectMake(0, 0,  self.tableView.frame.size.width, 60)];
    
+        /*if ([appDelegate isDynamic]){
         
-       /* footer = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
-        [footer setDelegate:self];
+        adFooter = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
+        [adFooter setDelegate:self];
         [footer setFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, 60)];
         
-        message = [NSString stringWithFormat:@"Sucessfully initialized [initWithAdType:ADAdTypeBanner]"];*/
+         message = [NSString stringWithFormat:@"Sucessfully initialized [initWithAdType:ADAdTypeBanner]"];
+            
+            return adFooter;
+        }*/
     }
     @catch (NSException *exception) {
         message = [exception description];

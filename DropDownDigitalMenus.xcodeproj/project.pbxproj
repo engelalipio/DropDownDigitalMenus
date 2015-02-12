@@ -145,9 +145,16 @@
 		0F2ACD7C1A01B5640028B6E2 /* Tic-Tac-Toe.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F2ACD7B1A01B5640028B6E2 /* Tic-Tac-Toe.json */; };
 		0F2ACD7F1A01B7A80028B6E2 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2ACD7E1A01B7A80028B6E2 /* GameViewController.m */; };
 		0F2ACD821A01E7AC0028B6E2 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2ACD811A01E7AC0028B6E2 /* MenuViewController.m */; };
+		0F4D5D421A890C590040DC12 /* RestaurantBack_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D5D411A890C590040DC12 /* RestaurantBack_9.jpg */; };
+		0F4D5D451A8AA2140040DC12 /* PaymentMethodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D5D441A8AA2140040DC12 /* PaymentMethodViewController.m */; };
+		0F4D5D471A8AA80E0040DC12 /* card_in_use-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D5D461A8AA80E0040DC12 /* card_in_use-50.png */; };
+		0F4D5D491A8AA8180040DC12 /* banknotes-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D5D481A8AA8180040DC12 /* banknotes-50.png */; };
+		0F4D5D4B1A8AA82C0040DC12 /* sell-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D5D4A1A8AA82C0040DC12 /* sell-50.png */; };
+		0F4D5D4D1A8AA8390040DC12 /* pos_terminal-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D5D4C1A8AA8390040DC12 /* pos_terminal-50.png */; };
+		0F4D5D501A8ACA310040DC12 /* camera-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D5D4F1A8ACA310040DC12 /* camera-50.png */; };
 		0F5841F71A23D4A800A51F3A /* your_ad_here_banner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F5841F61A23D4A800A51F3A /* your_ad_here_banner.jpg */; };
 		0F5B76A91A7C3F9B00E59486 /* office_lamp-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F5B76A81A7C3F9B00E59486 /* office_lamp-32.png */; };
-		0F62E0D11A5B35BD00315E9E /* RestaurantBack_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F62E0CF1A5B35BD00315E9E /* RestaurantBack_9.jpg */; };
+		0F62E0D11A5B35BD00315E9E /* RestaurantBack_90.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F62E0CF1A5B35BD00315E9E /* RestaurantBack_90.jpg */; };
 		0F7270841A1EBC1400F9C2E2 /* Airport.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F7270811A1EBC1400F9C2E2 /* Airport.jpg */; };
 		0F7270851A1EBC1400F9C2E2 /* Hotel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F7270821A1EBC1400F9C2E2 /* Hotel.jpg */; };
 		0F7270861A1EBC1400F9C2E2 /* Mall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F7270831A1EBC1400F9C2E2 /* Mall.jpg */; };
@@ -506,9 +513,17 @@
 		0F2ACD7E1A01B7A80028B6E2 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		0F2ACD801A01E7AC0028B6E2 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		0F2ACD811A01E7AC0028B6E2 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		0F4D5D411A890C590040DC12 /* RestaurantBack_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RestaurantBack_9.jpg; sourceTree = "<group>"; };
+		0F4D5D431A8AA2140040DC12 /* PaymentMethodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentMethodViewController.h; sourceTree = "<group>"; };
+		0F4D5D441A8AA2140040DC12 /* PaymentMethodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentMethodViewController.m; sourceTree = "<group>"; };
+		0F4D5D461A8AA80E0040DC12 /* card_in_use-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card_in_use-50.png"; sourceTree = "<group>"; };
+		0F4D5D481A8AA8180040DC12 /* banknotes-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banknotes-50.png"; sourceTree = "<group>"; };
+		0F4D5D4A1A8AA82C0040DC12 /* sell-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sell-50.png"; sourceTree = "<group>"; };
+		0F4D5D4C1A8AA8390040DC12 /* pos_terminal-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pos_terminal-50.png"; sourceTree = "<group>"; };
+		0F4D5D4F1A8ACA310040DC12 /* camera-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-50.png"; sourceTree = "<group>"; };
 		0F5841F61A23D4A800A51F3A /* your_ad_here_banner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = your_ad_here_banner.jpg; sourceTree = "<group>"; };
 		0F5B76A81A7C3F9B00E59486 /* office_lamp-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "office_lamp-32.png"; sourceTree = "<group>"; };
-		0F62E0CF1A5B35BD00315E9E /* RestaurantBack_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RestaurantBack_9.jpg; sourceTree = "<group>"; };
+		0F62E0CF1A5B35BD00315E9E /* RestaurantBack_90.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RestaurantBack_90.jpg; sourceTree = "<group>"; };
 		0F7270811A1EBC1400F9C2E2 /* Airport.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Airport.jpg; sourceTree = "<group>"; };
 		0F7270821A1EBC1400F9C2E2 /* Hotel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Hotel.jpg; sourceTree = "<group>"; };
 		0F7270831A1EBC1400F9C2E2 /* Mall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mall.jpg; sourceTree = "<group>"; };
@@ -778,9 +793,10 @@
 		0F2ACC4519FA0EAA0028B6E2 /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				0F4D5D411A890C590040DC12 /* RestaurantBack_9.jpg */,
 				0FC5C5701A85967A00D0754B /* HomeNew.jpg */,
 				0FC5C5711A85967A00D0754B /* HomeNewToo.jpg */,
-				0F62E0CF1A5B35BD00315E9E /* RestaurantBack_9.jpg */,
+				0F62E0CF1A5B35BD00315E9E /* RestaurantBack_90.jpg */,
 				0F7270881A1EC0B500F9C2E2 /* RestaurantBack_8.jpg */,
 				0FE60AE51A11B8E400435F32 /* NewsBack_0.png */,
 				0FE60AE61A11B8E400435F32 /* NewsBack_1.png */,
@@ -1160,6 +1176,11 @@
 		0FF46D5719F88B1500E51218 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				0F4D5D4F1A8ACA310040DC12 /* camera-50.png */,
+				0F4D5D4C1A8AA8390040DC12 /* pos_terminal-50.png */,
+				0F4D5D4A1A8AA82C0040DC12 /* sell-50.png */,
+				0F4D5D481A8AA8180040DC12 /* banknotes-50.png */,
+				0F4D5D461A8AA80E0040DC12 /* card_in_use-50.png */,
 				0F5B76A81A7C3F9B00E59486 /* office_lamp-32.png */,
 				0FCAD8F11A3E306D00BE42E5 /* xlarge_icons-32.png */,
 				0FCAD8EF1A3E305A00BE42E5 /* content-32.png */,
@@ -1485,6 +1506,8 @@
 				0F72708F1A1ED68300F9C2E2 /* SoupsViewController.m */,
 				0F153D311A3A7B7E0073DED2 /* WeatherViewController.h */,
 				0F153D321A3A7B7E0073DED2 /* WeatherViewController.m */,
+				0F4D5D431A8AA2140040DC12 /* PaymentMethodViewController.h */,
+				0F4D5D441A8AA2140040DC12 /* PaymentMethodViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -1619,6 +1642,7 @@
 				0FCAD8E51A3E1A2300BE42E5 /* RUSSIAN.png in Resources */,
 				0F2ACC7719FA0F210028B6E2 /* MeatBack_0.jpg in Resources */,
 				0FDA18751A3957F300CD636F /* PELLEGRINO_WATER.jpg in Resources */,
+				0F4D5D471A8AA80E0040DC12 /* card_in_use-50.png in Resources */,
 				0F2ACC8619FA0F210028B6E2 /* RestaurantBack_44.jpg in Resources */,
 				0F2ACC7D19FA0F210028B6E2 /* MeatBack_6.jpg in Resources */,
 				0FB6E1881A38C264006DE76C /* weather-32.png in Resources */,
@@ -1759,7 +1783,7 @@
 				0FCAD8E81A3E1A2300BE42E5 /* ENGLISH.png in Resources */,
 				0F2ACC5119FA0EFF0028B6E2 /* BarBack_3.jpg in Resources */,
 				0FCAD8E21A3E1A2300BE42E5 /* ITALIAN.png in Resources */,
-				0F62E0D11A5B35BD00315E9E /* RestaurantBack_9.jpg in Resources */,
+				0F62E0D11A5B35BD00315E9E /* RestaurantBack_90.jpg in Resources */,
 				0FDA18631A394CA400CD636F /* EXTRA_BREADSTICKS.jpg in Resources */,
 				0F2ACC8F19FA0F320028B6E2 /* WineBack_2.jpg in Resources */,
 				0F2ACCC319FA12C30028B6E2 /* Drink_2.jpg in Resources */,
@@ -1802,10 +1826,12 @@
 				0F2ACCD419FA12D50028B6E2 /* Entree_4.jpg in Resources */,
 				0F7270E31A1FF4CD00F9C2E2 /* CONCHIGLIE_AL_FORMAGGI.png in Resources */,
 				0F2ACCA119FA126A0028B6E2 /* imgGamesButtonBrown.png in Resources */,
+				0F4D5D491A8AA8180040DC12 /* banknotes-50.png in Resources */,
 				0FF46D4119F881FC00E51218 /* LaunchScreen.xib in Resources */,
 				0F2ACD711A00534A0028B6E2 /* Mini-Putt.gif in Resources */,
 				0F7270CD1A1EEE5F00F9C2E2 /* BRUSCHETTE_PAOLO.png in Resources */,
 				0F2ACCDF19FA12F70028B6E2 /* Kitchen_2.jpg in Resources */,
+				0F4D5D4D1A8AA8390040DC12 /* pos_terminal-50.png in Resources */,
 				0F2ACD771A00534A0028B6E2 /* Tetris.gif in Resources */,
 				0F2ACC9A19FA126A0028B6E2 /* imgDrinksButtonBrown.png in Resources */,
 				0F2ACD6E1A00534A0028B6E2 /* Bingo.gif in Resources */,
@@ -1830,14 +1856,17 @@
 				0FD438E41A0DAF4D00A2436F /* Icon-Small-50@2x.png in Resources */,
 				0F7270BE1A1EEADF00F9C2E2 /* CHICKEN_MARSALA.png in Resources */,
 				0F7270A21A1EE6CC00F9C2E2 /* DESSERT_ROSA.png in Resources */,
+				0F4D5D421A890C590040DC12 /* RestaurantBack_9.jpg in Resources */,
 				0F7270E21A1FF4CD00F9C2E2 /* SHRIMP AND SCALLOP_LINGUINA_ALLA_VODKA.png in Resources */,
 				0FB6E18E1A38C2DF006DE76C /* www-32.png in Resources */,
 				0F023FD81A26A02C007556E9 /* Coffee.jpg in Resources */,
+				0F4D5D4B1A8AA82C0040DC12 /* sell-50.png in Resources */,
 				0FDA18871A39638B00CD636F /* BLACK_TIE_MOUSSE_CAKE.jpg in Resources */,
 				0F7270D21A1EEE5F00F9C2E2 /* ZUCCHINI_FRITTE.png in Resources */,
 				0FD438D81A0DAF4D00A2436F /* Icon-40.png in Resources */,
 				0F2ACCA619FA12850028B6E2 /* App_1.jpg in Resources */,
 				0FCAD8EC1A3E1A2300BE42E5 /* PORTUGUESE.png in Resources */,
+				0F4D5D501A8ACA310040DC12 /* camera-50.png in Resources */,
 				0F2ACCE819FA13140028B6E2 /* SaladBar_0.jpg in Resources */,
 				0FCAD8E41A3E1A2300BE42E5 /* FRENCH.png in Resources */,
 				0F2ACD731A00534A0028B6E2 /* Air-Hockey.gif in Resources */,
@@ -1925,6 +1954,7 @@
 				0FD438B61A0B376B00A2436F /* SaladDetailViewController.m in Sources */,
 				0FF46E0819F9953500E51218 /* JTDataMappings.m in Sources */,
 				0FD438AF1A0B151100A2436F /* BeveragesViewController.m in Sources */,
+				0F4D5D451A8AA2140040DC12 /* PaymentMethodViewController.m in Sources */,
 				0F2ACD4519FC2BD70028B6E2 /* PageContentViewController.m in Sources */,
 				0FF46DF419F9952A00E51218 /* AFImageRequestOperation.m in Sources */,
 				0FF46E0C19F9953500E51218 /* JTValidMappingKey.m in Sources */,

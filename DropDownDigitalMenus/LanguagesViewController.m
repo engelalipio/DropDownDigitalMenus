@@ -23,6 +23,10 @@
 
 @implementation LanguagesViewController
 
+-(void)viewWillAppear:(BOOL)animated
+{
+   
+}
 
 
 -(void) viewDidLoad{

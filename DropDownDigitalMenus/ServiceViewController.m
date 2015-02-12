@@ -8,6 +8,8 @@
 
 #import "ServiceViewController.h"
 #import "ContainerTableCellTableViewCell.h"
+#import "PaymentMethodViewController.h"
+#import "OrderViewController.h"
 #import "Constants.h"
 #import "AppDelegate.h"
 
@@ -31,7 +33,9 @@
     
     @try{
         
-
+        
+        [self.lblBillStatus  setText:@"Bill Status: Not Paid"];
+        [self.lblOrderStatus setText:@"Order Status: Not Sent"];
         
         if (appDelegate.isSent){
             [self.lblOrderStatus setText:@"Your order has been sent to the kitchen for preparation."];
@@ -144,13 +148,9 @@
 
 
 - (IBAction)actionRequestBill:(UIButton *)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Request Bill Confirmation"
-                                                    message:@"Are you sure you want to request your bill?"
-                                                   delegate:self
-                                          cancelButtonTitle:@"Ok"
-                                          otherButtonTitles:@"Cancel", nil];
-    
-    [alert show];
+
+    [self.tabBarController setSelectedIndex:kOrderTabItemIndex];
+
 }
 
 - (IBAction)actionCallWaiter:(UIButton *)sender {

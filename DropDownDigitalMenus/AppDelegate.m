@@ -38,6 +38,23 @@
     return (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
+-(void)tabBarController:(UITabBarController *)tabBarControllerThis didSelectViewController:(UIViewController *)viewController
+{
+    [UIView transitionWithView:viewController.view
+                      duration:0.1
+                       options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^(void){
+                    } completion:^(BOOL finished){
+                        [UIView beginAnimations:@"animation" context:nil];
+                        [UIView setAnimationDuration:0.7];
+                        [UIView setAnimationBeginsFromCurrentState:YES];
+                        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp
+                                               forView:viewController.view
+                                                 cache:NO];
+                        [UIView commitAnimations];
+                    }];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     _language = @"English";

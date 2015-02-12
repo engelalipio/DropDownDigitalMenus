@@ -12,6 +12,7 @@
 
 @interface OrderViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *btnEdit;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIButton *orderButton;
 @property (strong, nonatomic) IBOutlet UIButton *changeOrder;

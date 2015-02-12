@@ -18,7 +18,7 @@ enum OrderType {
 
 typedef int OrderTypeSelection;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate>
 
 @property (assign,nonatomic) Boolean isDynamic;
 

@@ -188,6 +188,12 @@
     originalPrice = 0.0f;
     [self.itemStepper setValue:1];
     
+    [self.addToOrderButton.layer setCornerRadius:4.0f];
+    [self.labelPrice.layer setCornerRadius:4.0f];
+    [self.itemStepper.layer setCornerRadius:4.0f];
+    [self.labelQuantity.layer setCornerRadius:4.0f];
+    [self.backButton.layer setCornerRadius:4.0f];
+    
     if (! appDelegate){
         appDelegate = [AppDelegate currentDelegate];
     }
@@ -267,10 +273,14 @@
         items = [[NSMutableDictionary alloc] init];
         itemOptions = [[NSMutableArray alloc] init];
         
+        NSString *uuid = [[NSUUID UUID] UUIDString];
+        
         switch (self.foodType) {
             case Beverage:
                 [currentItem setCategory:@"Beverages"];
                 [items  setValue:currentItem forKey:currentItem.Category];
+                
+                //[items  setValue:currentItem forKey:uuid];
 
                 if (! self.softDrinks.isHidden){
                     [itemOptions addObject:[self.softDrinks titleForSegmentAtIndex:self.softDrinks.selectedSegmentIndex]];
@@ -289,9 +299,12 @@
                 }
                 
                 [currentItem setOptions:[[NSArray alloc] initWithArray:itemOptions]];
-            
                 
+                /*if (appDelegate.drinkItems){
+                [appDelegate.drinkItems addEntriesFromDictionary:items];
+                }else{*/
                 [appDelegate setDrinkItems:items];
+                //}
                 break;
             case Appetizer:
                 [currentItem setCategory:@"Appetizers"];
